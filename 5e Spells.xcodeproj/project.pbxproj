@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		260163F220364ACB0053FA5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260163F120364ACB0053FA5B /* AppDelegate.swift */; };
-		260163F420364ACB0053FA5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260163F320364ACB0053FA5B /* ViewController.swift */; };
 		260163F720364ACB0053FA5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260163F520364ACB0053FA5B /* Main.storyboard */; };
 		260163F920364ACB0053FA5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 260163F820364ACB0053FA5B /* Assets.xcassets */; };
 		260163FC20364ACB0053FA5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260163FA20364ACB0053FA5B /* LaunchScreen.storyboard */; };
+		2601640420364B060053FA5B /* ReadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640320364B060053FA5B /* ReadJSON.swift */; };
+		2601640720364C410053FA5B /* spells.json in Resources */ = {isa = PBXBuildFile; fileRef = 2601640620364C400053FA5B /* spells.json */; };
+		2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640820364CBD0053FA5B /* SpellsTableViewController.swift */; };
+		2601640B20364D240053FA5B /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640A20364D240053FA5B /* Spell.swift */; };
+		264A4F45203A5A8300E4BFBF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A4F44203A5A8300E4BFBF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		260163EE20364ACB0053FA5B /* 5e Spells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "5e Spells.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		260163F120364ACB0053FA5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		260163F320364ACB0053FA5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		260163F620364ACB0053FA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		260163F820364ACB0053FA5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		260163FB20364ACB0053FA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		260163FD20364ACB0053FA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2601640320364B060053FA5B /* ReadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJSON.swift; sourceTree = "<group>"; };
+		2601640620364C400053FA5B /* spells.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spells.json; sourceTree = "<group>"; };
+		2601640820364CBD0053FA5B /* SpellsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellsTableViewController.swift; sourceTree = "<group>"; };
+		2601640A20364D240053FA5B /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
+		264A4F44203A5A8300E4BFBF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,7 @@
 			children = (
 				260163F020364ACB0053FA5B /* 5e Spells */,
 				260163EF20364ACB0053FA5B /* Products */,
+				2601640520364B700053FA5B /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +64,24 @@
 			isa = PBXGroup;
 			children = (
 				260163F120364ACB0053FA5B /* AppDelegate.swift */,
-				260163F320364ACB0053FA5B /* ViewController.swift */,
+				2601640820364CBD0053FA5B /* SpellsTableViewController.swift */,
+				264A4F44203A5A8300E4BFBF /* Constants.swift */,
+				2601640A20364D240053FA5B /* Spell.swift */,
 				260163F520364ACB0053FA5B /* Main.storyboard */,
 				260163F820364ACB0053FA5B /* Assets.xcassets */,
 				260163FA20364ACB0053FA5B /* LaunchScreen.storyboard */,
 				260163FD20364ACB0053FA5B /* Info.plist */,
 			);
 			path = "5e Spells";
+			sourceTree = "<group>";
+		};
+		2601640520364B700053FA5B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2601640620364C400053FA5B /* spells.json */,
+				2601640320364B060053FA5B /* ReadJSON.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +145,7 @@
 			files = (
 				260163FC20364ACB0053FA5B /* LaunchScreen.storyboard in Resources */,
 				260163F920364ACB0053FA5B /* Assets.xcassets in Resources */,
+				2601640720364C410053FA5B /* spells.json in Resources */,
 				260163F720364ACB0053FA5B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				260163F420364ACB0053FA5B /* ViewController.swift in Sources */,
+				2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */,
+				2601640420364B060053FA5B /* ReadJSON.swift in Sources */,
+				2601640B20364D240053FA5B /* Spell.swift in Sources */,
 				260163F220364ACB0053FA5B /* AppDelegate.swift in Sources */,
+				264A4F45203A5A8300E4BFBF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
