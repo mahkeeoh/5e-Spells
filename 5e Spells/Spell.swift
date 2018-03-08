@@ -10,8 +10,8 @@ import Foundation
 
 struct Spell: Codable {
     let name: String
-    let desc: String
-    let higherLevel: String?
+    var desc: String
+    var higherLevel: String?
     let page: String?
     let range: String
     let components: String

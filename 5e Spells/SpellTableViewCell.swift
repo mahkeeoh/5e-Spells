@@ -10,15 +10,18 @@ import UIKit
 
 class SpellTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var level: UILabel!
+    @IBOutlet weak var addSpellButton: UIButton!
+    
+    @IBAction func spellButtonPressed(_ sender: UIButton) {
+        delegate?.spellButtonPressed(cell: self)
     }
+    
+    var delegate: SpellCellDelegate?
+    
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+protocol SpellCellDelegate {
+    func spellButtonPressed(cell: SpellTableViewCell)
 }

@@ -9,87 +9,104 @@
 import UIKit
 
 class CharacterTableViewController: UITableViewController {
+    
+    var characterModel: CharacterModelController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print(characterModel.characters.description)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        if characterModel.characters.count == 0 {
+            
+            // Set up background label if table is empty
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text = "Add a character with the + button above"
+            noDataLabel.textColor = UIColor.black
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView = noDataLabel
+            tableView.separatorStyle = .none
+            return 0
+        }
+            
+        else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return characterModel.characters.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath)
 
-        // Configure the cell...
+        let character = characterModel.characters[indexPath.row]
+        cell.textLabel?.text = character.name
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        if (editingStyle == .delete) {
+            
+            // Remove from characters
+            characterModel.characters.remove(at: indexPath.row)
+            
+            //Reload tableView
+            tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+ 
+    // Mark: - Navigation
+    
+    // Unwind controller froma addCharacterVC
+    @IBAction func addCharacterToVC(segue: UIStoryboardSegue) {
+        if let addCharacterVC = segue.source as? AddCharacterViewController {
+            let newCharacter = Character(name: addCharacterVC.characterChoice!, preparedSpells: [Spell]())
+            characterModel.characters.append(newCharacter)
+            tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "viewSpells" {
+            if let destinationVC = segue.destination as? SpellTabBarController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    // Add index for character selection and pass model to tab bar
+                    destinationVC.index = indexPath.row
+                    destinationVC.characterModel = characterModel
+                    
+                    // Set title of tab based on class
+                    var firstTabBarTitle = ""
+                    switch characterModel.characters[indexPath.row].name {
+                    case "Bard", "Ranger", "Sorcerer", "Warlock":
+                        firstTabBarTitle = "Known Spells"
+                    
+                    case "Cleric", "Druid", "Paladin":
+                        firstTabBarTitle = "Prepared Spells"
+                        
+                    default:
+                        firstTabBarTitle = "Not ready yet"
+                    }
+                    
+                    
+                    destinationVC.classTabName = firstTabBarTitle
+                }
+            }
+        }
     }
-    */
 
 }
+
