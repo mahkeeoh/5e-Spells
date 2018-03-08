@@ -21,6 +21,19 @@ class CharacterModelController {
         }
     }
     
+    // Delete all above and do:
+    var characters = [Character]()
+    
+    // Add NSCoding protocol to CharacterModelController
+    
+     func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(characters, forKey: "characters")
+     }
+    
+     required init(coder aDecoder: NSCoder) {
+        super.init()
+        characters = aDecoder.decodeObjectForKey("characters") as! [Character]
+    }
     
     
 }
