@@ -11,8 +11,7 @@ import Foundation
 struct Constants {
     
     enum Error: String {
-        case loadDatabaseError = "Error opening database"
-        case creatingTableError = "Error creating SQLite table"
+
     }
     
 }

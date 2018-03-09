@@ -74,7 +74,7 @@ class CharacterTableViewController: UITableViewController {
     // Unwind controller froma addCharacterVC
     @IBAction func addCharacterToVC(segue: UIStoryboardSegue) {
         if let addCharacterVC = segue.source as? AddCharacterViewController {
-            let newCharacter = Character(name: addCharacterVC.characterChoice!, preparedSpells: [Spell]())
+            let newCharacter = Character(name: addCharacterVC.characterChoice!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell]())
             characterModel.characters.append(newCharacter)
             tableView.reloadData()
         }
@@ -98,7 +98,8 @@ class CharacterTableViewController: UITableViewController {
                         firstTabBarTitle = "Prepared Spells"
                         
                     default:
-                        firstTabBarTitle = "Not ready yet"
+                        firstTabBarTitle = "Prepared Spells"
+                        destinationVC.isWizard = true
                     }
                     
                     

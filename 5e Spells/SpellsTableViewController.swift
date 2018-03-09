@@ -33,10 +33,10 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     // Identifier to sort spells by class
     var character: Character? {
         didSet {
-                // Update Model Controller whenever character is updated
-                if let spellTabBarController = tabBarController as? SpellTabBarController {
-                    spellTabBarController.characterModel.characters[spellTabBarController.index] = character!
-                }
+            // Update Model Controller whenever character is updated
+            if let spellTabBarController = tabBarController as? SpellTabBarController {
+                spellTabBarController.characterModel.characters[spellTabBarController.index] = character!
+            }
         }
     }
     
@@ -64,17 +64,20 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         // Check if this is a prepared list or all spells list
-        if tabBar?.title == "All Spells" {
+        if tabBar?.title == "Class Spells" {
             spells = spells.filter( {(spell: Spell) -> Bool in
                     return spell.classes.contains(character!.name)
             })
         }
         else if (tabBar?.title == "Prepared Spells") || (tabBar?.title == "Known Spells") {
             
-            spells = character!.preparedSpells
+            spells = character!.preparedOrKnownSpells
+        }
+        else {
+            spells = character!.wizardKnownSpells
         }
 
-        tableView.reloadData() // Check to see if this is really necessary
+        tableView.reloadData() 
     }
     
     
@@ -107,7 +110,13 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
             
             // Set up background label if table is empty
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text = "No Spells Prepared"
+            if (tabBar?.title == "Prepared Spells") {
+                noDataLabel.text = "No Spells Prepared"
+            }
+            else {
+                noDataLabel.text = "No Spells Known"
+            }
+            
             noDataLabel.textColor = UIColor.black
             noDataLabel.textAlignment = .center
             tableView.backgroundView = noDataLabel
@@ -136,7 +145,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         cell.level.text = spell.level
         
         
-        if tabBar?.title == "Prepared Spells" {
+        if (tabBar?.title == "Prepared Spells") || (tabBar?.title == "Known Spells") {
             cell.addSpellButton.isHidden = true
         }
 
@@ -144,12 +153,24 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) && (tabBar?.title == "Prepared Spells") {
+        if (editingStyle == .delete) && (tabBar?.title != "Class Spells") {
             
-            // Remove from preparedSpells
-            character?.preparedSpells.remove(at: indexPath.row)
-            spells = (character?.preparedSpells)!
+            if (tabBar?.title == "Spellbook") {
+                // remove from prepared spells first
+                let spellName = character?.wizardKnownSpells[indexPath.row].name
+                let filteredPreparedOrKnownSpells = character!.preparedOrKnownSpells.filter { $0.name == spellName }
+                character!.preparedOrKnownSpells = filteredPreparedOrKnownSpells
+                
+                // Remove from wizard spellbook
+                character!.wizardKnownSpells.remove(at: indexPath.row)
+                spells = character!.wizardKnownSpells
+            }
             
+            else {
+                // Remove from prepared or known spells
+                character!.preparedOrKnownSpells.remove(at: indexPath.row)
+                spells = character!.preparedOrKnownSpells
+            }
             
             //Reload tableView
             tableView.reloadData()
@@ -208,12 +229,40 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     func spellButtonPressed(cell: SpellTableViewCell) {
         let indexPath = tableView.indexPath(for: cell)
         let spell = spells[(indexPath?.row)!]
-        if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
-            if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
+        
+        // Check if wizard first and add accordingly
+        if tabBarController?.viewControllers?.count == 3 {
+            switch (tabBar?.title)! {
+            case "Class Spells":
+                if let spellbookNavigationVC = tabBarController?.viewControllers![1] as? UINavigationController {
+                    if let spellbookVC = spellbookNavigationVC.visibleViewController as? SpellsTableViewController {
+                        if !(spellbookVC.character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
+                            // Check this to make sure nil value doesn't allow it to pass
+                            spellbookVC.character!.wizardKnownSpells.append(spell)
+                        }
+                    }
+                }
+            default:
+                if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
+                    if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
+                        
+                        if !(preparedSpellsVC.character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
+                            // Check this to make sure nil value doesn't allow it to pass
+                            preparedSpellsVC.character!.preparedOrKnownSpells.append(spell)
+                        }
+                    }
+                }
+            }
+        }
+        // if not wizard, do default saving
+        else {
+            if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
+                if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
 
-                if !(preparedSpellsVC.character!.preparedSpells.contains(where: {$0.name == spell.name})) {
-                    // Check this to make sure nil value doesn't allow it to pass
-                    preparedSpellsVC.character!.preparedSpells.append(spell)
+                    if !(preparedSpellsVC.character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
+                        // Check this to make sure nil value doesn't allow it to pass
+                        preparedSpellsVC.character!.preparedOrKnownSpells.append(spell)
+                    }
                 }
             }
         }

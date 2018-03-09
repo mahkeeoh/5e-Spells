@@ -14,6 +14,7 @@ class SpellTabBarController: UITabBarController {
     var index: Int!
     var characterModel: CharacterModelController!
     var classTabName: String!
+    var isWizard = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +24,18 @@ class SpellTabBarController: UITabBarController {
         for viewController in viewControllers! {
             if let spellVC = viewController.content as? SpellsTableViewController {
                 spellVC.character = characterModel.characters[index]
+                
+                // set first tab to either prepared or known
                 if isFirstVC {
-                   // spellVC.tabBar?.title = classTabName
                     spellVC.title = classTabName
                     isFirstVC = false
                 }
-                
             }
         }
         
-
+        if !isWizard {
+            viewControllers?.remove(at: 1)
+        }
     }
 
 
