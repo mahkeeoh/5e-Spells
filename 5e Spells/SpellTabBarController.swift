@@ -32,7 +32,7 @@ class SpellTabBarController: UITabBarController {
                 }
             }
         }
-        
+        // remove middle tab unless class is wizard
         if !isWizard {
             viewControllers?.remove(at: 1)
         }

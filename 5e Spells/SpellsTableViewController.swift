@@ -13,7 +13,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     @IBOutlet weak var sortingChoice: UISegmentedControl!
     
    // @IBOutlet weak var tabBar: UITabBarItem!
-    var tabBar: UITabBarItem?
+    var tabBar = UITabBarItem()
     
     
     
@@ -31,7 +31,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     }
     
     // Identifier to sort spells by class
-    var character: Character? {
+    var character: Character! {
         didSet {
             // Update Model Controller whenever character is updated
             if let spellTabBarController = tabBarController as? SpellTabBarController {
@@ -42,7 +42,8 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar = tabBarController?.tabBar.selectedItem
+        
+        tabBar = (tabBarController?.tabBar.selectedItem)!
 
         if let spellJSON = readJson(with: jsonName) as? [Spell] {
             // Load spells from JSON and sort by level by calling segment control
@@ -58,25 +59,30 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         definesPresentationContext = true
         
         // set navigation bar back button
-        navigationItem.backBarButtonItem?.title = tabBar?.title ?? "Spells"
+        navigationItem.backBarButtonItem?.title = tabBar.title ?? "Spells"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        // reload character data in case something changed while changing between tabs
+        if let tabBarController = tabBarController as? SpellTabBarController {
+            let index = tabBarController.index!
+            character = tabBarController.characterModel.characters[index]
+        }
+        
         // Check if this is a prepared list or all spells list
-        if tabBar?.title == "Class Spells" {
+        if tabBar.title == "Class Spells" {
             spells = spells.filter( {(spell: Spell) -> Bool in
                     return spell.classes.contains(character!.name)
             })
         }
-        else if (tabBar?.title == "Prepared Spells") || (tabBar?.title == "Known Spells") {
-            
+        else if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
             spells = character!.preparedOrKnownSpells
         }
         else {
             spells = character!.wizardKnownSpells
         }
-
+        sortByLevel()
         tableView.reloadData() 
     }
     
@@ -103,6 +109,26 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
 
 
     // MARK: - Table view data source/delegation
+    
+    let sections = ["Cantrip", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"]
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        // Check to see if there are any spells in the list and make nil if not
+        var emptySpell = true
+        for spell in spells {
+            if spell.level == sections[section] {
+                emptySpell = false
+            }
+        }
+        switch emptySpell {
+        case true:
+            return nil
+        default:
+            return sections[section]
+        }
+    }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -110,7 +136,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
             
             // Set up background label if table is empty
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            if (tabBar?.title == "Prepared Spells") {
+            if (tabBar.title == "Prepared Spells") {
                 noDataLabel.text = "No Spells Prepared"
             }
             else {
@@ -127,35 +153,64 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         else {
             tableView.backgroundView = nil
             tableView.separatorStyle = .singleLine
-            return 1
+            return sections.count
         }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering() { return filteredSpells.count}
-        return spells.count
+        if isFiltering() {
+            let sectionedFilteredSpells = filteredSpells.filter({$0.level == sections[section]})
+            return sectionedFilteredSpells.count
+        }
+        let sectionedSpells = spells.filter({$0.level == sections[section]})
+        return sectionedSpells.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> SpellTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SpellTableViewCell
+     
+        let cell = tableView.dequeueReusableCell(withIdentifier: "spellCell", for: indexPath) as! SpellTableViewCell
+        
         cell.delegate = self
         let spell: Spell
-        if isFiltering() { spell = filteredSpells[indexPath.row]} else {spell = spells[indexPath.row]}
+        if isFiltering() {
+            spell = filteredSpells.filter({$0.level == sections[indexPath.section]})[indexPath.row]
+            
+        }
+        else {
+            spell = spells.filter({$0.level == sections[indexPath.section]})[indexPath.row]
+        }
         cell.name.text = spell.name
         cell.level.text = spell.level
         
+        // change button to "added" if spell is in prepared/known/wizardknown list
+        if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.name.text})) {
+            cell.addSpellButton?.setTitle("Added", for: .normal)
+            
+            // Check wizard's case, only show added in spellbook if it is also prepared
+            if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) {
+                cell.addSpellButton?.setTitle("+", for: .normal)
+            }
+        }
+        else {
+            cell.addSpellButton.setTitle("+", for: .normal)
+        }
         
-        if (tabBar?.title == "Prepared Spells") || (tabBar?.title == "Known Spells") {
+        // Don't show button in Prepared/Known Spells tab
+        if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
             cell.addSpellButton.isHidden = true
         }
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return (tabBar.title != "Class Spells")
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) && (tabBar?.title != "Class Spells") {
+        if (editingStyle == .delete) && (tabBar.title != "Class Spells") {
             
-            if (tabBar?.title == "Spellbook") {
+            if (tabBar.title == "Spellbook") {
                 // remove from prepared spells first
                 let spellName = character?.wizardKnownSpells[indexPath.row].name
                 let filteredPreparedOrKnownSpells = character!.preparedOrKnownSpells.filter { $0.name == spellName }
@@ -177,18 +232,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         }
     }
     
-    // Mark: - Segment Control (level vs name)
-    
-    @IBAction func sortingChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            sortByLevel()
-        }
-            
-        else {
-            spells = spells.sorted { $0.name < $1.name}
-        }
-    }
-    
+    // Always sort spells by level
     func sortByLevel() {
         spells = spells.sorted {
             if ($0.level == "Cantrip" && $1.level != "Cantrip") {
@@ -228,22 +272,25 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     
     func spellButtonPressed(cell: SpellTableViewCell) {
         let indexPath = tableView.indexPath(for: cell)
-        let spell = spells[(indexPath?.row)!]
+        let spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
         
         // Check if wizard first and add accordingly
         if tabBarController?.viewControllers?.count == 3 {
-            switch (tabBar?.title)! {
+            switch (tabBar.title)! {
             case "Class Spells":
-                if let spellbookNavigationVC = tabBarController?.viewControllers![1] as? UINavigationController {
+              /*  if let spellbookNavigationVC = tabBarController?.viewControllers![1] as? UINavigationController {
                     if let spellbookVC = spellbookNavigationVC.visibleViewController as? SpellsTableViewController {
                         if !(spellbookVC.character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
                             // Check this to make sure nil value doesn't allow it to pass
                             spellbookVC.character!.wizardKnownSpells.append(spell)
                         }
                     }
+                }*/
+                if !(character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
+                    character!.wizardKnownSpells.append(spell)
                 }
             default:
-                if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
+               /* if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
                     if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
                         
                         if !(preparedSpellsVC.character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
@@ -251,12 +298,15 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
                             preparedSpellsVC.character!.preparedOrKnownSpells.append(spell)
                         }
                     }
+                }*/
+                if !(character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
+                    character!.preparedOrKnownSpells.append(spell)
                 }
             }
         }
         // if not wizard, do default saving
         else {
-            if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
+            /*if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
                 if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
 
                     if !(preparedSpellsVC.character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
@@ -264,11 +314,13 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
                         preparedSpellsVC.character!.preparedOrKnownSpells.append(spell)
                     }
                 }
+            }*/
+            if !(character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
+                character!.preparedOrKnownSpells.append(spell)
             }
         }
+        tableView.reloadData()
     }
-    
-    
 
 }
 

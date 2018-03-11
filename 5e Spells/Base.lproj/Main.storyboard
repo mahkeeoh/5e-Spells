@@ -168,36 +168,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="P0z-Z6-QzU">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="UuE-kL-b8Q">
-                                    <rect key="frame" x="137.66666666666666" y="10" width="101" height="30"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LuN-9B-aJx">
-                                            <rect key="frame" x="0.0" y="0.0" width="101" height="31"/>
-                                            <segments>
-                                                <segment title="Level"/>
-                                                <segment title="Name"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="sortingChanged:" destination="DT7-UZ-okk" eventType="valueChanged" id="jEU-DI-ahm"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="UuE-kL-b8Q" firstAttribute="centerX" secondItem="P0z-Z6-QzU" secondAttribute="centerX" id="1e3-XS-QCb"/>
-                                <constraint firstItem="UuE-kL-b8Q" firstAttribute="top" secondItem="P0z-Z6-QzU" secondAttribute="top" constant="10" id="H3l-rW-a1a"/>
-                                <constraint firstAttribute="bottom" secondItem="UuE-kL-b8Q" secondAttribute="bottom" id="YW6-oj-hZj"/>
-                            </constraints>
-                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="57" id="hlK-61-iMa" customClass="SpellTableViewCell" customModule="_e_Spells" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68" width="375" height="57"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="spellCell" rowHeight="57" id="hlK-61-iMa" customClass="SpellTableViewCell" customModule="_e_Spells" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hlK-61-iMa" id="zqH-2y-H3Q">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56.666666666666664"/>
@@ -220,10 +193,10 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpP-fQ-Jhd">
-                                            <rect key="frame" x="318" y="0.0" width="57" height="56.666666666666664"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpP-fQ-Jhd">
+                                            <rect key="frame" x="137" y="0.0" width="222" height="56.666666666666664"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="57" id="i1v-Td-AlU"/>
+                                                <constraint firstAttribute="width" constant="222" id="TKJ-Q3-wCb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <state key="normal" title="+"/>
@@ -239,15 +212,16 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dpP-fQ-Jhd" firstAttribute="top" secondItem="zqH-2y-H3Q" secondAttribute="top" id="EsR-qe-qtQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="dpP-fQ-Jhd" secondAttribute="bottom" id="5Fq-Ot-eiY"/>
                                         <constraint firstItem="soK-GW-ygT" firstAttribute="leading" secondItem="zqH-2y-H3Q" secondAttribute="leadingMargin" id="St7-8p-Ygw"/>
-                                        <constraint firstAttribute="trailing" secondItem="dpP-fQ-Jhd" secondAttribute="trailing" id="goH-ki-Mvu"/>
+                                        <constraint firstItem="dpP-fQ-Jhd" firstAttribute="top" secondItem="zqH-2y-H3Q" secondAttribute="top" id="Vt8-8F-reo"/>
                                         <constraint firstItem="soK-GW-ygT" firstAttribute="centerY" secondItem="zqH-2y-H3Q" secondAttribute="centerY" id="jxB-JW-tdm"/>
-                                        <constraint firstAttribute="bottom" secondItem="dpP-fQ-Jhd" secondAttribute="bottom" id="quJ-P7-brH"/>
+                                        <constraint firstAttribute="trailing" secondItem="dpP-fQ-Jhd" secondAttribute="trailing" constant="16" id="p5p-WA-rx0"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="soK-GW-ygT" secondAttribute="bottom" constant="-3" id="wHQ-E9-zDa"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="addSpellButton" destination="dpP-fQ-Jhd" id="A3k-4u-qvy"/>
                                     <outlet property="level" destination="FfZ-wb-kr4" id="xth-Qk-bG4"/>
                                     <outlet property="name" destination="pUy-ia-yEa" id="luI-JU-LbZ"/>
                                     <segue destination="GSg-Eb-NIz" kind="show" identifier="spellDetail" id="yFi-cm-Ne5"/>
@@ -267,13 +241,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="sortingChoice" destination="LuN-9B-aJx" id="dVF-3j-SgL"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSx-pI-B4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="1711"/>
+            <point key="canvasLocation" x="1789.5999999999999" y="1710.5911330049262"/>
         </scene>
         <!--Spell Detail View Controller-->
         <scene sceneID="NHS-K6-cbI">
@@ -307,13 +278,13 @@
                                         <rect key="frame" x="0.0" y="128.33333333333334" width="375" height="128.00000000000003"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="text" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMg-60-IrC">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.021227490156888962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="text" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d2-OJ-T8C">
-                                                <rect key="frame" x="177.66666666666663" y="0.0" width="187.33333333333337" height="128"/>
+                                                <rect key="frame" x="-10" y="0.0" width="0.0" height="128"/>
                                                 <color key="backgroundColor" red="0.083219237625598907" green="0.3703073263168335" blue="0.70536929368972778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -443,36 +414,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="H98-Kh-Zep">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4rv-Nt-RiB">
-                                    <rect key="frame" x="137.66666666666666" y="10" width="101" height="30"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c7K-YT-SYF">
-                                            <rect key="frame" x="0.0" y="0.0" width="101" height="31"/>
-                                            <segments>
-                                                <segment title="Level"/>
-                                                <segment title="Name"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="sortingChanged:" destination="c8W-MA-fiA" eventType="valueChanged" id="9KZ-bJ-M3y"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="4rv-Nt-RiB" firstAttribute="centerX" secondItem="H98-Kh-Zep" secondAttribute="centerX" id="U0r-Re-NfH"/>
-                                <constraint firstAttribute="bottom" secondItem="4rv-Nt-RiB" secondAttribute="bottom" id="VSb-7G-PBd"/>
-                                <constraint firstItem="4rv-Nt-RiB" firstAttribute="top" secondItem="H98-Kh-Zep" secondAttribute="top" constant="10" id="fAc-Vy-Raq"/>
-                            </constraints>
-                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="57" id="ucP-f7-ImW" customClass="SpellTableViewCell" customModule="_e_Spells" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68" width="375" height="57"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="spellCell" rowHeight="57" id="ucP-f7-ImW" customClass="SpellTableViewCell" customModule="_e_Spells" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ucP-f7-ImW" id="esq-vb-Pwa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56.666666666666664"/>
@@ -495,28 +439,26 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9D-g3-7sR">
-                                            <rect key="frame" x="318" y="0.0" width="57" height="57"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-xX-8cn">
+                                            <rect key="frame" x="313" y="8" width="46" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="57" id="3Vc-0v-wD0"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="Jrr-PN-RJO"/>
                                             </constraints>
-                                            <state key="normal" title="+"/>
-                                            <connections>
-                                                <action selector="spellButtonPressed:" destination="ucP-f7-ImW" eventType="touchUpInside" id="cN3-LV-Z8C"/>
-                                            </connections>
+                                            <state key="normal" title="Button"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="gIr-5j-Wd3" firstAttribute="centerY" secondItem="esq-vb-Pwa" secondAttribute="centerY" id="0Qg-u7-VoD"/>
-                                        <constraint firstItem="c9D-g3-7sR" firstAttribute="top" secondItem="esq-vb-Pwa" secondAttribute="top" id="KXg-uM-2m7"/>
-                                        <constraint firstAttribute="trailing" secondItem="c9D-g3-7sR" secondAttribute="trailing" id="PuQ-Ds-rSI"/>
-                                        <constraint firstAttribute="bottom" secondItem="c9D-g3-7sR" secondAttribute="bottom" id="Rzw-2o-PJp"/>
+                                        <constraint firstAttribute="trailing" secondItem="gk2-xX-8cn" secondAttribute="trailing" constant="16" id="0l2-et-emI"/>
+                                        <constraint firstItem="gk2-xX-8cn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="esq-vb-Pwa" secondAttribute="leading" constant="20" symbolic="YES" id="861-rO-ZGN"/>
+                                        <constraint firstItem="gk2-xX-8cn" firstAttribute="top" secondItem="esq-vb-Pwa" secondAttribute="top" constant="8" id="IYr-df-6xT"/>
                                         <constraint firstItem="gIr-5j-Wd3" firstAttribute="leading" secondItem="esq-vb-Pwa" secondAttribute="leadingMargin" id="X4y-px-eAb"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="gIr-5j-Wd3" secondAttribute="bottom" constant="-3" id="aua-Ub-Xf1"/>
+                                        <constraint firstAttribute="bottom" secondItem="gk2-xX-8cn" secondAttribute="bottom" constant="18.670000000000002" id="zCC-Cr-QNR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="addSpellButton" destination="c9D-g3-7sR" id="nd3-IB-Zc9"/>
+                                    <outlet property="addSpellButton" destination="gk2-xX-8cn" id="dAH-hi-7vG"/>
                                     <outlet property="level" destination="fCC-4Z-EHM" id="ezG-NX-9TI"/>
                                     <outlet property="name" destination="gvY-SP-iS7" id="rtH-ca-pao"/>
                                     <segue destination="GSg-Eb-NIz" kind="show" identifier="spellDetail" id="7Xo-qb-jfc"/>
@@ -536,9 +478,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="sortingChoice" destination="c7K-YT-SYF" id="TeT-o7-ByF"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUm-PN-FjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -590,36 +529,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="t8E-O5-Ehh">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="gL7-JD-ksE">
-                                    <rect key="frame" x="137.66666666666666" y="10" width="101" height="30"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-UK-s46">
-                                            <rect key="frame" x="0.0" y="0.0" width="101" height="31"/>
-                                            <segments>
-                                                <segment title="Level"/>
-                                                <segment title="Name"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="sortingChanged:" destination="yT4-i2-dsB" eventType="valueChanged" id="YyD-Wl-v5d"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="gL7-JD-ksE" firstAttribute="top" secondItem="t8E-O5-Ehh" secondAttribute="top" constant="10" id="L4K-Cp-mu2"/>
-                                <constraint firstItem="gL7-JD-ksE" firstAttribute="centerX" secondItem="t8E-O5-Ehh" secondAttribute="centerX" id="U75-HN-B2B"/>
-                                <constraint firstAttribute="bottom" secondItem="gL7-JD-ksE" secondAttribute="bottom" id="v5A-HJ-nv9"/>
-                            </constraints>
-                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="57" id="7EV-oo-5xR" customClass="SpellTableViewCell" customModule="_e_Spells" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68" width="375" height="57"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="spellCell" rowHeight="57" id="7EV-oo-5xR" customClass="SpellTableViewCell" customModule="_e_Spells" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7EV-oo-5xR" id="mzc-1J-xnW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56.666666666666664"/>
@@ -642,10 +554,10 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrA-b3-Ym6">
-                                            <rect key="frame" x="318" y="0.0" width="57" height="56.666666666666664"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrA-b3-Ym6">
+                                            <rect key="frame" x="137" y="0.0" width="222" height="56.666666666666664"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="57" id="qxy-xl-Ocr"/>
+                                                <constraint firstAttribute="width" constant="222" id="sJq-76-ysT"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <state key="normal" title="+"/>
@@ -661,15 +573,16 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="hrA-b3-Ym6" secondAttribute="trailing" id="4Pi-zD-bIb"/>
-                                        <constraint firstAttribute="bottom" secondItem="hrA-b3-Ym6" secondAttribute="bottom" id="W1r-mL-WQc"/>
+                                        <constraint firstAttribute="trailing" secondItem="hrA-b3-Ym6" secondAttribute="trailing" constant="16" id="LSl-wE-gmy"/>
                                         <constraint firstItem="e1E-lV-AAW" firstAttribute="centerY" secondItem="mzc-1J-xnW" secondAttribute="centerY" id="WAj-QE-e92"/>
                                         <constraint firstItem="e1E-lV-AAW" firstAttribute="leading" secondItem="mzc-1J-xnW" secondAttribute="leadingMargin" id="WlL-ND-oTM"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="e1E-lV-AAW" secondAttribute="bottom" constant="-3" id="Y5C-8h-HcA"/>
-                                        <constraint firstItem="hrA-b3-Ym6" firstAttribute="top" secondItem="mzc-1J-xnW" secondAttribute="top" id="ZSO-Pd-Cy3"/>
+                                        <constraint firstAttribute="bottom" secondItem="hrA-b3-Ym6" secondAttribute="bottom" id="e5e-Mk-ecE"/>
+                                        <constraint firstItem="hrA-b3-Ym6" firstAttribute="top" secondItem="mzc-1J-xnW" secondAttribute="top" id="oDK-rB-59l"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="addSpellButton" destination="hrA-b3-Ym6" id="1b0-1K-MHc"/>
                                     <outlet property="level" destination="JqW-IG-440" id="vks-II-Oc4"/>
                                     <outlet property="name" destination="fJZ-AL-aDt" id="M6G-po-U7p"/>
                                     <segue destination="GSg-Eb-NIz" kind="show" id="e6l-8Y-qIh"/>
@@ -689,13 +602,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="sortingChoice" destination="m8K-UK-s46" id="Iey-Eo-Fx9"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9s-Zz-8Ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="1009"/>
+            <point key="canvasLocation" x="2252" y="1008.6206896551724"/>
         </scene>
         <!--Spellbook-->
         <scene sceneID="jiY-OO-1wV">
@@ -718,6 +628,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yFi-cm-Ne5"/>
+        <segue reference="7Xo-qb-jfc"/>
     </inferredMetricsTieBreakers>
 </document>
