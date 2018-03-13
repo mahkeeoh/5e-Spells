@@ -74,7 +74,11 @@ class CharacterTableViewController: UITableViewController {
     // Unwind controller froma addCharacterVC
     @IBAction func addCharacterToVC(segue: UIStoryboardSegue) {
         if let addCharacterVC = segue.source as? AddCharacterViewController {
-            let newCharacter = Character(name: addCharacterVC.characterChoice!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell]())
+            var spellList = addCharacterVC.characterChoice!
+            if (addCharacterVC.characterChoice! == "Fighter") || (addCharacterVC.characterChoice! == "Rogue") {
+                spellList = "Wizard"
+            }
+            let newCharacter = Character(name: addCharacterVC.characterChoice!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
             characterModel.characters.append(newCharacter)
             tableView.reloadData()
         }
@@ -91,7 +95,7 @@ class CharacterTableViewController: UITableViewController {
                     // Set title of tab based on class
                     var firstTabBarTitle = ""
                     switch characterModel.characters[indexPath.row].name {
-                    case "Bard", "Ranger", "Sorcerer", "Warlock":
+                    case "Bard", "Ranger", "Sorcerer", "Warlock", "Fighter", "Rogue":
                         firstTabBarTitle = "Known Spells"
                     
                     case "Cleric", "Druid", "Paladin":

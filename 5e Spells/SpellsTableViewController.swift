@@ -42,7 +42,6 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tabBar = (tabBarController?.tabBar.selectedItem)!
 
         if let spellJSON = readJson(with: jsonName) as? [Spell] {
@@ -60,6 +59,9 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         
         // set navigation bar back button
         navigationItem.backBarButtonItem?.title = tabBar.title ?? "Spells"
+        
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +75,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         // Check if this is a prepared list or all spells list
         if tabBar.title == "Class Spells" {
             spells = spells.filter( {(spell: Spell) -> Bool in
-                    return spell.classes.contains(character!.name)
+                    return spell.classes.contains(character!.spellList)
             })
         }
         else if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
@@ -112,6 +114,8 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     
     let sections = ["Cantrip", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"]
     
+    
+    // Set title to nil if no spells in that list
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         // Check to see if there are any spells in the list and make nil if not
@@ -129,6 +133,16 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         }
     }
     
+    
+    // Set view height to 0 if no spells in that list
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView.dataSource?.tableView(tableView, numberOfRowsInSection: section) == 0 {
+            return 0
+        }
+        
+        return 60
+    }
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -156,6 +170,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
             return sections.count
         }
     }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
@@ -278,27 +293,10 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         if tabBarController?.viewControllers?.count == 3 {
             switch (tabBar.title)! {
             case "Class Spells":
-              /*  if let spellbookNavigationVC = tabBarController?.viewControllers![1] as? UINavigationController {
-                    if let spellbookVC = spellbookNavigationVC.visibleViewController as? SpellsTableViewController {
-                        if !(spellbookVC.character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
-                            // Check this to make sure nil value doesn't allow it to pass
-                            spellbookVC.character!.wizardKnownSpells.append(spell)
-                        }
-                    }
-                }*/
                 if !(character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
                     character!.wizardKnownSpells.append(spell)
                 }
             default:
-               /* if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
-                    if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
-                        
-                        if !(preparedSpellsVC.character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
-                            // Check this to make sure nil value doesn't allow it to pass
-                            preparedSpellsVC.character!.preparedOrKnownSpells.append(spell)
-                        }
-                    }
-                }*/
                 if !(character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
                     character!.preparedOrKnownSpells.append(spell)
                 }
@@ -306,15 +304,6 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         }
         // if not wizard, do default saving
         else {
-            /*if let preparedSpellsNavigationVC = tabBarController?.viewControllers![0] as? UINavigationController {
-                if let preparedSpellsVC = preparedSpellsNavigationVC.visibleViewController as? SpellsTableViewController {
-
-                    if !(preparedSpellsVC.character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
-                        // Check this to make sure nil value doesn't allow it to pass
-                        preparedSpellsVC.character!.preparedOrKnownSpells.append(spell)
-                    }
-                }
-            }*/
             if !(character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
                 character!.preparedOrKnownSpells.append(spell)
             }

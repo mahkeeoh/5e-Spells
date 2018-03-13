@@ -10,12 +10,9 @@ import Foundation
 
 struct Character {
     let name: String
-    var preparedOrKnownSpells: [Spell] {
-        didSet {
-            print(preparedOrKnownSpells.count)
-        }
-    }
+    var preparedOrKnownSpells: [Spell]
     var wizardKnownSpells: [Spell]
+    var spellList: String
 }
 
 class CharacterModelController {
