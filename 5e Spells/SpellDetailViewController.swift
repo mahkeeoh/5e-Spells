@@ -10,14 +10,14 @@ import UIKit
 
 class SpellDetailViewController: UIViewController {
     
-    @IBOutlet weak var levelTextView: UITextView!
-    @IBOutlet weak var schoolTextView: UITextView!
-    @IBOutlet weak var timeTextView: UITextView!
-    @IBOutlet weak var rangeTextView: UITextView!
-    @IBOutlet weak var componentsTextView: UITextView!
-    @IBOutlet weak var durationTextView: UITextView!
-    @IBOutlet weak var classesTextView: UITextView!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var spellTitle: UILabel!
+    @IBOutlet weak var levelAndSpellType: UILabel!
+    @IBOutlet weak var castingTime: UILabel!
+    @IBOutlet weak var range: UILabel!
+    @IBOutlet weak var components: UILabel!
+    @IBOutlet weak var duration: UILabel!
+    @IBOutlet weak var spellDescription: UILabel!
+    @IBOutlet weak var higherLevels: UILabel!
     
     var spell: Spell? {
         didSet {
@@ -38,14 +38,17 @@ class SpellDetailViewController: UIViewController {
     }
     
     func setupText() {
-        levelTextView.text = "LEVEL: \n" + (spell?.level)!
-        schoolTextView.text = "SCHOOL: \n" + (spell?.school)!
-        timeTextView.text = "CASTING TIME: \n" + (spell?.castingTime)!
-        rangeTextView.text = "RANGE: \n" + (spell?.range)!
-        componentsTextView.text = "COMPONENTS: \n" + (spell?.components)!
-        durationTextView.text = "DURATION: \n" + (spell?.duration)!
-        classesTextView.text = "CLASSES: \n" + (spell?.classes)!
-        descriptionTextView.text = "DESCRIPTION: \n" + (spell?.desc.replacingOccurrences(of: "<p>", with: "\n"))!
+        spellTitle.text = (spell?.name)
+        levelAndSpellType.text = (spell?.level)! + ", " + (spell?.school)!
+        castingTime.text = (spell?.castingTime)
+        range.text = (spell?.range)
+        components.text = (spell?.components)
+        duration.text = (spell?.duration)
+        spellDescription.text = (spell?.desc)
+        higherLevels.text = (spell?.higherLevel)
+       // spellDescription.text = (spell?.desc.replacingOccurrences(of: "<p>", with: "\n"))!
+        //spellDescription.text = spell?.desc
+        print(spellDescription.text!)
     }
 
 }

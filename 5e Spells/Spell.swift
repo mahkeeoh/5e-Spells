@@ -23,7 +23,7 @@ struct Spell: Codable {
     let level: String
     let school: String
     let classes:  String
-    let archtype: String?
+    let archetype: String?
     let domains: String?
     
     enum CodingKeys: String, CodingKey {
@@ -41,7 +41,7 @@ struct Spell: Codable {
         case level
         case school
         case classes = "class"
-        case archtype
+        case archetype
         case domains
     }
 }

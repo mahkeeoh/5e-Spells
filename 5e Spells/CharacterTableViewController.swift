@@ -12,9 +12,6 @@ class CharacterTableViewController: UITableViewController {
     
     var characterModel: CharacterModelController!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(characterModel.characters.description)

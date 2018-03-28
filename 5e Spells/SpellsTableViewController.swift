@@ -37,6 +37,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
             if let spellTabBarController = tabBarController as? SpellTabBarController {
                 spellTabBarController.characterModel.characters[spellTabBarController.index] = character!
             }
+        
         }
     }
     
@@ -195,11 +196,11 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
             spell = spells.filter({$0.level == sections[indexPath.section]})[indexPath.row]
         }
         cell.name.text = spell.name
-        cell.level.text = spell.level
+        cell.level.text = listSubclassSpells(spell)
         
         // change button to "added" if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.name.text})) {
-            cell.addSpellButton?.setTitle("Added", for: .normal)
+            cell.addSpellButton?.setTitle("✓", for: .normal)
             
             // Check wizard's case, only show added in spellbook if it is also prepared
             if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) {
@@ -225,21 +226,38 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) && (tabBar.title != "Class Spells") {
             
+            // First find name of spell (depending on if currently filtering or not)
+            var spellName: String?
+            if isFiltering() {
+                spellName = filteredSpells.filter({$0.level == sections[indexPath.section]})[indexPath.row].name
+                
+            }
+            else {
+                spellName = spells.filter({$0.level == sections[indexPath.section]})[indexPath.row].name
+            }
+            
+            // Filter spells so
+            let filteredPreparedOrKnownSpells = character!.preparedOrKnownSpells.filter { $0.name != spellName }
+            
+            // Take care of wizard's spellbook, then delete in prepared as well
             if (tabBar.title == "Spellbook") {
-                // remove from prepared spells first
-                let spellName = character?.wizardKnownSpells[indexPath.row].name
-                let filteredPreparedOrKnownSpells = character!.preparedOrKnownSpells.filter { $0.name == spellName }
+
                 character!.preparedOrKnownSpells = filteredPreparedOrKnownSpells
                 
                 // Remove from wizard spellbook
-                character!.wizardKnownSpells.remove(at: indexPath.row)
+               // character!.wizardKnownSpells.remove(at: indexPath.row)
+                let filteredWizardSpells = character!.wizardKnownSpells.filter { $0.name != spellName }
+                character!.wizardKnownSpells = filteredWizardSpells
                 spells = character!.wizardKnownSpells
+                sortByLevel()
             }
             
             else {
-                // Remove from prepared or known spells
-                character!.preparedOrKnownSpells.remove(at: indexPath.row)
+                // Else just remove from prepared or known spells
+                //character!.preparedOrKnownSpells.remove(at: indexPath.row)
+                character!.preparedOrKnownSpells = filteredPreparedOrKnownSpells
                 spells = character!.preparedOrKnownSpells
+                sortByLevel()
             }
             
             //Reload tableView
@@ -266,13 +284,97 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         }
     }
     
+    // Add subclass features for each class
+    func listSubclassSpells(_ spell: Spell) -> String! {
+        var levelText = spell.level
+        switch character.name {
+        case "Cleric":
+            switch spell.archetype {
+            case "Cleric: Knowledge"?:
+                levelText += " (Knowledge Domain Only)"
+            case "Cleric: Life"?:
+                levelText += " (Life Domain Only)"
+            case "Cleric: Light"?:
+                levelText += " (Light Domain Only)"
+            case "Cleric: Nature"?:
+                levelText += " (Nature Domain Only)"
+            case "Cleric: Tempest"?:
+                levelText += " (Tempest Domain Only)"
+            case "Cleric: Trickery"?:
+                levelText += " (Trickery Domain Only)"
+            case "Cleric: War"?:
+                levelText += " (War Domain Only)"
+            default:
+                return levelText
+            }
+        case "Paladin":
+            switch spell.archetype {
+            case "Paladin: Devotion"?:
+                levelText += " (Devotion Oath Only)"
+            case "Paladin: Ancients"?:
+                levelText += " (Ancients Oath Only)"
+            case "Paladin: Vengeance"?:
+                levelText += " (Vengeance Oath Only)"
+            default:
+                return levelText
+            }
+        case "Druid":
+            switch spell.archetype {
+            case "Druid: Arctic"?:
+                levelText += " (Arctic Circle Only)"
+            case "Druid: Coast"?:
+                levelText += " (Coast Circle Only)"
+            case "Druid: Desert"?:
+                levelText += " (Desert Circle Only)"
+            case "Druid: Forest"?:
+                levelText += " (Forest Circle Only)"
+            case "Druid: Grassland"?:
+                levelText += " (Grassland Circle Only)"
+            case "Druid: Mountain"?:
+                levelText += " (Mountain Circle Only)"
+            case "Druid: Swamp"?:
+                levelText += " (Swamp Circle Only)"
+            case "Druid: Underdark"?:
+                levelText += " (Underdark Circle Only)"
+            default:
+                return levelText
+            }
+        case "Warlock":
+            switch spell.archetype {
+            case "Warlock: Archfey"?:
+                levelText += " (Archfey Patron Only)"
+            case "Warlock: Fiend"?:
+                levelText += " (Fiend Patron Only)"
+            case "Warlock: Great Old One"?:
+                levelText += " (Great Old One Patron Only)"
+            default:
+                return levelText
+            }
+            
+        
+        default:
+            return levelText
+        }
+        return levelText
+    }
+    
     // Mark: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "spellDetail" {
             if let spellDetailVC = segue.destination.content as? SpellDetailViewController {
                 if let index = tableView.indexPathForSelectedRow {
-                    spellDetailVC.spell = spells[index.row]
+                    var spell: Spell?
+                    
+                    // Again, choose index depending on if filtered or not
+                    if isFiltering() {
+                        spell = filteredSpells.filter({$0.level == sections[index.section]})[index.row]
+                        
+                    }
+                    else {
+                        spell = spells.filter({$0.level == sections[index.section]})[index.row]
+                    }
+                    spellDetailVC.spell = spell!
                 }
             }
         }

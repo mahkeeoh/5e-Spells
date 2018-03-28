@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Character {
+struct Character: Codable {
     let name: String
     var preparedOrKnownSpells: [Spell]
     var wizardKnownSpells: [Spell]
@@ -17,6 +17,19 @@ struct Character {
 
 class CharacterModelController {
 
-    var characters = [Character]()
+    var characters =  [Character]() {
+        didSet {
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(characters), forKey: "characters")
+        }
+    }
+    
+    init() {
+        if let data = UserDefaults.standard.value(forKey: "characters") as? Data {
+            characters = (try? PropertyListDecoder().decode(Array<Character>.self, from: data)) ?? [Character]()
+          //  characters = characters2 ?? [Character]()
+        }
+    }
+
+
     
 }
