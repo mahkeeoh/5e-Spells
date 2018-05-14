@@ -9,7 +9,8 @@
 import Foundation
 
 struct Character: Codable {
-    let name: String
+    let characterClass: String
+    let characterName: String
     var preparedOrKnownSpells: [Spell]
     var wizardKnownSpells: [Spell]
     var spellList: String

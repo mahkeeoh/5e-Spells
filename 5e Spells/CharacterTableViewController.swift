@@ -12,9 +12,9 @@ class CharacterTableViewController: UITableViewController {
     
     var characterModel: CharacterModelController!
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        print(characterModel.characters.description)
+    override func viewDidLoad() {
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = 90.0
     }
 
     // MARK: - Table view data source
@@ -50,7 +50,8 @@ class CharacterTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath)
 
         let character = characterModel.characters[indexPath.row]
-        cell.textLabel?.text = character.name
+        cell.textLabel?.text = character.characterName
+        cell.detailTextLabel?.text = character.characterClass
 
         return cell
     }
@@ -68,14 +69,15 @@ class CharacterTableViewController: UITableViewController {
  
     // Mark: - Navigation
     
-    // Unwind controller froma addCharacterVC
+    // Unwind controller from addCharacterVC
     @IBAction func addCharacterToVC(segue: UIStoryboardSegue) {
         if let addCharacterVC = segue.source as? AddCharacterViewController {
-            var spellList = addCharacterVC.characterChoice!
-            if (addCharacterVC.characterChoice! == "Fighter") || (addCharacterVC.characterChoice! == "Rogue") {
+            var spellList = addCharacterVC.characterClass!
+            if (addCharacterVC.characterClass! == "Fighter") || (addCharacterVC.characterClass! == "Rogue") {
                 spellList = "Wizard"
             }
-            let newCharacter = Character(name: addCharacterVC.characterChoice!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
+            //let newCharacter = Character(name: addCharacterVC.characterClass!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
+            let newCharacter = Character(characterClass: addCharacterVC.characterClass!, characterName: addCharacterVC.nameTextField.text!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
             characterModel.characters.append(newCharacter)
             tableView.reloadData()
         }
@@ -91,7 +93,7 @@ class CharacterTableViewController: UITableViewController {
                     
                     // Set title of tab based on class
                     var firstTabBarTitle = ""
-                    switch characterModel.characters[indexPath.row].name {
+                    switch characterModel.characters[indexPath.row].characterClass {
                     case "Bard", "Ranger", "Sorcerer", "Warlock", "Fighter", "Rogue":
                         firstTabBarTitle = "Known Spells"
                     

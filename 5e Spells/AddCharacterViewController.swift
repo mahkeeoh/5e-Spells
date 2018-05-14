@@ -10,12 +10,12 @@ import UIKit
 
 class AddCharacterViewController: UIViewController {
     
-    var characterChoice: String?
-
+    var characterClass: String?
+    @IBOutlet weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 
@@ -26,7 +26,7 @@ class AddCharacterViewController: UIViewController {
     }
     
     @IBAction func addCharacter(_ sender: UIButton) {
-        characterChoice = sender.titleLabel?.text
+        characterClass = sender.titleLabel?.text
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

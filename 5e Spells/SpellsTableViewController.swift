@@ -61,7 +61,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         // set navigation bar back button
         navigationItem.backBarButtonItem?.title = tabBar.title ?? "Spells"
         
-        
+        tableView.tableFooterView = UIView()
 
     }
     
@@ -196,9 +196,12 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
             spell = spells.filter({$0.level == sections[indexPath.section]})[indexPath.row]
         }
         cell.name.text = spell.name
-        cell.level.text = listSubclassSpells(spell)
+        cell.level.text = listSubclassSpells(spell) + ",  " + spell.castingTime
+        if (spell.concentration == "yes") {
+            cell.level.text = cell.level.text! + "  \u{00A9}"
+        }
         
-        // change button to "added" if spell is in prepared/known/wizardknown list
+        // change button to checkmark if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.name.text})) {
             cell.addSpellButton?.setTitle("✓", for: .normal)
             
@@ -287,7 +290,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     // Add subclass features for each class
     func listSubclassSpells(_ spell: Spell) -> String! {
         var levelText = spell.level
-        switch character.name {
+        switch character.characterClass {
         case "Cleric":
             switch spell.archetype {
             case "Cleric: Knowledge"?:
@@ -388,6 +391,12 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     // Mark: - Cell Protocol
     
     func spellButtonPressed(cell: SpellTableViewCell) {
+        
+        // Provide haptic feedback when added/removed
+        let selection = UISelectionFeedbackGenerator()
+        selection.selectionChanged()
+        
+        // Determine which spell is being selected
         let indexPath = tableView.indexPath(for: cell)
         let spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
         
@@ -395,19 +404,40 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         if tabBarController?.viewControllers?.count == 3 {
             switch (tabBar.title)! {
             case "Class Spells":
+                // Add to wizard list if clicking add button from class list
                 if !(character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
                     character!.wizardKnownSpells.append(spell)
                 }
+                // Else remove from both prepared and wizard list if removed from here
+                else {
+                    let removedWizardSpellList = character!.wizardKnownSpells.filter{$0.name != spell.name}
+                    character!.wizardKnownSpells = removedWizardSpellList
+                    
+                    let removedPreparedSpellList = character!.preparedOrKnownSpells.filter{$0.name != spell.name}
+                    character!.preparedOrKnownSpells = removedPreparedSpellList
+                }
             default:
+                // Add to wizard prepared list if clicking add button from wizard known list
                 if !(character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
                     character!.preparedOrKnownSpells.append(spell)
+                }
+                // else remove just from prepared list
+                else {
+                    let removedPreparedSpellList = character!.preparedOrKnownSpells.filter{$0.name != spell.name}
+                    character!.preparedOrKnownSpells = removedPreparedSpellList
                 }
             }
         }
         // if not wizard, do default saving
         else {
+            // Save spell if it doesn't already exist in prepared/known lists
             if !(character!.preparedOrKnownSpells.contains(where: {$0.name == spell.name})) {
                 character!.preparedOrKnownSpells.append(spell)
+            }
+            // Else remove the spell if clicked again
+            else {
+                let removedPreparedSpellList = character!.preparedOrKnownSpells.filter {$0.name != spell.name}
+                character!.preparedOrKnownSpells = removedPreparedSpellList
             }
         }
         tableView.reloadData()
