@@ -16,7 +16,7 @@
   },
   {
     "name":"Absorb Elements",
-    "desc":"<p>The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.</p>",
+    "desc":"<p> You can make this reaciton when you take acid, cold, fire, lightning, or thunder damage. The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.</p>",
     "page":"xan 150",
     "range":"Self",
@@ -24,7 +24,7 @@
     "ritual":"no",
     "duration":"1 round",
     "concentration":"no",
-    "casting_time":"1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage",
+    "casting_time":"1 reaction",
     "level":"1st-level",
     "school":"Abjuration",
     "class":"Druid, Ranger, Sorcerer, Wizard"
@@ -689,7 +689,7 @@
     "casting_time":"1 action",
     "level":"Cantrip",
     "school":"Evocation",
-    "class":"Sorcerer, Warlock, Wizard",
+    "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Branding Smite",
@@ -773,7 +773,7 @@
     "school":"Transmutation",
     "class":"Sorcerer, Wizard"
   },
-   {
+  {
     "name":"Catnap",
     "desc":"<p>You make a calming gesture, and up to three willing creatures of your choice that you can see within range fall unconscious for the spell's duration. The spell ends on a target early if it takes damage or someone uses an action to shake or slap it awake. If a target remains unconscious for the full duration, that target gains the benefit of a short rest, and it can't be affected by this spell again until it finishes a long rest.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage increases by 1d8, for each slot level above 1st.</p>",
@@ -789,7 +789,7 @@
     "school":"Enchantment",
     "class":"Bard, Sorcerer, Wizard"
   },
-   {
+  {
     "name":"Cause Fear",
     "desc":"<p>You awaken the sense of mortality in one creature you can see within range. A construct or an undead is immune to this effect. The target must succeed on a Wisdom saving throw or become frightened of you until the spell ends. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.</p>",
@@ -804,9 +804,9 @@
     "school":"Necromancy",
     "class":"Warlock, Wizard"
   },
-    {
+  {
     "name":"Ceremony",
-    "desc":"<p>You perform a special religious ceremony that is infused with magic. When you cast the spell, choose one of the following rites, the targe of which must be within 10 feet of you throughout the casting.</p><p>Atonement. You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a successful check, you restore the target to its original alignment.</p><p>Bless Water. You touch one vial of water and cause it to become holy water.</p><p>Coming of Age. You touch one humanoid who is a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this rite only once.</p><p>Dedication. You touch one humanoid who wishes to be dedicated to your god's service. For the next 24 hours, whenever the targe makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this rite only once.</p><p>Funeral Rite. You touch one corpse, and for the next 7 days, the target can't become undead by any means short of a wish spell.</p><p>Wedding. You touch adult humanoids willing to be bonded together in marriage. For the next 7 days, each target gains a +2 bonus to AC while they are within 30 feet of each other. A creature can benefit from this right again only if widowed.",
+    "desc":"<p>You perform a special religious ceremony that is infused with magic. When you cast the spell, choose one of the following rites, the targe of which must be within 10 feet of you throughout the casting.</p><p>Atonement. You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a successful check, you restore the target to its original alignment.</p><p>Bless Water. You touch one vial of water and cause it to become holy water.</p><p>Coming of Age. You touch one humanoid who is a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this rite only once.</p><p>Dedication. You touch one humanoid who wishes to be dedicated to your god's service. For the next 24 hours, whenever the targe makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this rite only once.</p><p>Funeral Rite. You touch one corpse, and for the next 7 days, the target can't become undead by any means short of a wish spell.</p><p>Wedding. You touch adult humanoids willing to be bonded together in marriage. For the next 7 days, each target gains a +2 bonus to AC while they are within 30 feet of each other. A creature can benefit from this right again only if widowed.</p>",
     "page":"xan 151",
     "range":"Touch",
     "components":"V, S, M",
@@ -835,7 +835,7 @@
     "school":"Evocation",
     "class":"Sorcerer, Wizard"
   },
-   {
+  {
     "name":"Chaos Bolt",
     "desc":"<p>You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8+1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below:</p><p>1 - Acid</p><p>2 - Cold</p><p>3 - Fire</p><p>4 - Force</p><p>5 - Lightning</p><p>6 - Poison</p><p>7 - Psychic</p><p>Thunder</p><p>If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again.</p><p>A creature can be target only once by each casting of this spell.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.</p>",
@@ -867,7 +867,7 @@
     "archetype":"Cleric: Trickery",
     "domains":"Trickery"
   },
-   {
+  {
     "name":"Charm Monster",
     "desc":"<p>You attempt to charm a creature you can see within range. It must make a Wisdom saving throw, and it does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature is friendly to you. When the spell ends, the creature knwos it was charmed by you.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.</p>",
@@ -880,7 +880,7 @@
     "casting_time":"1 action",
     "level":"4th-level",
     "school":"Enchantment",
-    "class":"Bard, Druid, Sorcerer, Warlock, Wizard",
+    "class":"Bard, Druid, Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Chill Touch",
@@ -1472,7 +1472,7 @@
     "school":"Transmutation",
     "class":"Cleric, Druid"
   },
-   {
+  {
     "name":"Create Homunculus",
     "desc":"<p>While speaking an intricate incantation, you cut yourself with a jewel-encrusted dagger, taking 2d4 piercing damange that can't be reduced in any way. You then drip your blood on the spell's other components and touch them, transforming them into a special construct called a homunculus.</p><p>The statistics of the homunculus are in the Monster Manual. It is your faithful companion, and it dies if you die. Whenever you finish a long rest, you can spend up to half your Hit Dice if the homunculus is on the same plane of existence as you. When you do so, roll each die and add your Constitution modifier to it. Your hit point maximum is reduced by the total, and the homunculus's hit point maximum and current hit points are both increased by it. The process can reduce you to no lower than 1 hit point, and the change to your and the homunculus's hit points ends when you finish your next long rest. The reduction to your hit point maximum can't be removed by any means before them, except by the homunculus's death.</p><p>You can have only one homunculus at a time. If you cast this spell while your homunculus lives, the spell fails.</p>",
     "page":"xan 152",
@@ -1523,7 +1523,7 @@
     "name":"Crown of Madness",
     "desc":"<p>One humanoid of your choice that you can see within range must succeed on a wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes.</p><p>The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose.</p><p>The target can act normally on its turn if you choose no creature or if none are within its reach.</p><p>On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a wisdom saving throw at the end of each of its turns. On a success, the spell ends.</p>",
     "page":"phb 229",
-    "range":"120 feet"
+    "range":"120 feet",
     "components":"V, S",
     "ritual":"no",
     "duration":"Up to 1 minute",
@@ -1533,7 +1533,7 @@
     "school":"Enchantment",
     "class":"Bard, Sorcerer, Warlock, Wizard"
   },
-    {
+  {
     "name":"Crown of Stars",
     "desc":"<p>Seven star-like motes of light appear and orbit your head until the spell ends. You caj use a bonus action to send one of the motes streaking toward one creature or object within 120 feet of you. When you do so, make a ranged spell attack. One a hit, the target takes 4d12 radiant damage. Whether you hit or miss, the mote is expended. The spell ends early if you expend the last mote.</p<p>If you have four or more motes remaining, they shed bright light in a 30-foot radius and dim light for an additional 30 feet. If you have one to three motes remaining, they shed dim light in a 30-foot radius.</p>",
     "page":"xan 152",
@@ -1594,7 +1594,7 @@
     "school":"Evocation",
     "class":"Bard, Sorcerer, Wizard"
   },
-   {
+  {
     "name":"Danse Macabre",
     "desc":"<p>Threads of dark power leap from your fingers to pierce up to five Small or Medium corpses you can see within range. Each corpse immediately stands up and becomes undead. You decide whether it is a zombie or a skeleton (the statistics for zombies and skeletons are in the Monster Manual), and it gains a bonus to its attack and damage rolls equal to your spellcasting ability modifier.</p><p>You can use a bonus action to mentally command the creatures you make with this spell, issuing the same command to all of them. To receive the command, a creature must be within 60 feet of you. You decide what action the creatures will take and where they will move during their next turn, or you can issue a general command, such as to guard a chamber or passageway against your foes. If you issue no commands, the creatures do nothing except defend themselves against hostile creatures. Once given an order, the creatures continue to follow it until their task is complete.</p><p>The creatures are under your control until the spell ends, after which they become inanimate once more.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 6th level or higher, you animate up to two additional corpses for each slot level above 5th.</p>",
@@ -1607,7 +1607,7 @@
     "casting_time":"1 action",
     "level":"5th-level",
     "school":"Necromancy",
-    "class":"Warlock, Wizard",
+    "class":"Warlock, Wizard"
   },
   {
     "name":"Darkness",
@@ -1641,7 +1641,7 @@
     "school":"Transmutation",
     "class":"Druid, Ranger, Sorcerer, Wizard"
   },
-     {
+  {
     "name":"Dawn",
     "desc":"<p>The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.</p><p>When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make the saving throw whenever it ends its turn in the cylinder.</p><p>If you're within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn.</p>",
     "page":"xan 153",
@@ -1654,7 +1654,7 @@
     "casting_time":"1 action",
     "level":"5th-level",
     "school":"Evocation",
-    "class":"Cleric, Wizard",
+    "class":"Cleric, Wizard"
   },
   {
     "name":"Daylight",
@@ -2005,7 +2005,7 @@
     "domains":"Trickery",
     "patrons":"Archfey, Great Old One"
   },
-   {
+  {
     "name":"Dragon's Breath",
     "desc":"<p>You touch one willing creature and imbue it with the power to spew magical energy from its mouth, provided it has one. Choose acid, cold, fire, lightning, or poison. Until the spell ends, the creature can use an action to exhale energy of the chosen type in a 15-foot cone. Each creature in that area must make a Dexterity saving throw, taking 3d6 damage of the chosen type on a failed save, or half as much damage on a successful one.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot level above 2nd.</p>",
@@ -2019,7 +2019,7 @@
     "casting_time":"1 bonus action",
     "level":"2nd-level",
     "school":"Transmutation",
-    "class":"Sorcerer, Wizard",
+    "class":"Sorcerer, Wizard"
   },
   {
     "name":"Dream",
@@ -2052,7 +2052,7 @@
     "school":"Transmutation",
     "class":"Druid"
   },
-   {
+  {
     "name":"Druid Grove",
     "desc":"<p>You invoke the spirits of nature to protect an area outdoors or underground. The area can be as small as a 30-foot cube or as large as a 90-foot cube. Buildings and other structures are excluded from the affected area. If you cast this spell in the same area every day for a year, the spell lasts until dispeled.<p></p>The spell creates the following effects within the area. When you cast this spell, you can specify creatures as friends who are immune to the effects. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects.<p></p>The entire warded area radiates magic. A dispel magic cast on the area, if successful, removes only one of the following effects, not the entire area. That spell's caster chooses which effect to end. Only when all its effects are gone is this spell dispelled.<p></p>Solid Fog. You can fill any number of 5-foot squares on the ground with thick fog, making them heavily obscured. The fog reaches 10 feet high. In addition, every foot of movement through the fogs costs 2 extra feet. To a creature immune to this effect, the fog obscures nothing and looks like soft mist, with motes of green light floating in the air.<p></p>Grasping Undergrowth. You can fill any number of 5-foot squares on the ground that aren't filled with fog with grasping weeds and vines, as if they were affected by an entangle spell. To a creature immune to this effect, the weeds and vines feel soft and reshape themselves to serve as temporary seats or beds.<p></p>Grove Guardians. You can animate up to four trees in the area, causing them to uproot themselves from the ground. These trees have the same statistics as an awakened tree, which appears in the Monster Manual, except they can't speak, and their bark is covered with druidic symbols. If any creature not immune to this effect enters the warded area, the grove guardians fight until they have driven off or slain the intruders. The grove guardians also obey your spoken commands (no action required by you) that you issue while int he area. If you don't give them commands and no intruders are present, the grove guardians do nothing. The grove guardians can't leave the warded area. When the spell ends, the magic animating them disappears, and the trees take root again if possible.<p></p>Additional Spell Effect. You can place your choice of one of the following magical effects within the warded area:<p></p>- A constant gust of wind in two locations of your choice<p></p>- Spike growth in one location of your choice<p></p>- Wind wall in two locations of your choice<p></p>To a creature immune to this effect, the winds are a fragrant, gentle breeze, and the area of spike growth is harmless.</p>",
     "page":"xan 154",
@@ -2112,7 +2112,7 @@
     "school":"Evocation",
     "class":"Cleric, Druid, Sorcerer"
   },
-   {
+  {
     "name":"Earth Tremor",
     "desc":"<p>You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot diameter portion requiring at least 1 minute to clear by hand.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</p>",
@@ -2171,7 +2171,7 @@
     "school":"Transmutation",
     "class":"Paladin"
   },
-    {
+  {
     "name":"Enemies Abound",
     "desc":"<p>You reach into the mind of one creature you can see and force it to make an Intelligence saving throw. A creature automatically succeeds if it is immuned to being frightened. On a failed save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the spell ends. Each time the target takes damage, it can repeat the saving throw, ending teh effect on itself on a success.</p><p>Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack, spell, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make the attack if it is able to.</p>",
     "page":"xan 155",
@@ -2185,7 +2185,7 @@
     "school":"Enchantment",
     "class":"Bard, Sorcerer, Warlock, Wizard"
   },
-   {
+  {
     "name":"Enervation",
     "desc":"<p>A tendril of inky darkness reaches out from you, touching a creature you can see within range to drain life from it. The target must make a Dexterity saving throw. On a succesful save, the target takes 2d8 necrotic damage, and the spell ends. On a failed save, the target takes 4d8 necrotic damage, and until the spell ends, you can use your action on each of your turns to automatically deal 4d8 necrotic damage to the target. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you.</p><p>Whenever the spell deals damage to a target, you regain hit points equal to half the amount of necrotic damage the target takes.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th.</p>",
@@ -2399,7 +2399,7 @@
     "school":"Necromancy",
     "class":"Sorcerer, Wizard"
   },
-   {
+  {
     "name":"Far Step",
     "desc":"<p>You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.</p>",
     "page":"xan 155",
@@ -3032,7 +3032,7 @@
     "casting_time":"1 action",
     "level":"Cantrip",
     "school":"Evocation",
-    "class":"Sorcerer, Warlock, Wizard",
+    "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Guardian of Faith",
@@ -3797,7 +3797,7 @@
     "casting_time":"1 action",
     "level":"Cantrip",
     "school":"Evocation",
-    "class":"Sorcerer, Warlock, Wizard",
+    "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Locate Animals or Plants",
@@ -5787,7 +5787,7 @@
     "casting_time":"1 action",
     "level":"Cantrip",
     "school":"Conjuration",
-    "class":"Sorcerer, Warlock, Wizard",
+    "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Symbol",
