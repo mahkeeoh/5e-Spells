@@ -10,8 +10,6 @@ import UIKit
 
 class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     
-    @IBOutlet weak var sortingChoice: UISegmentedControl!
-    
    // @IBOutlet weak var tabBar: UITabBarItem!
     var tabBar = UITabBarItem()
     
@@ -57,6 +55,8 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         searchController.searchBar.placeholder = "Search Spells"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchBar.showsBookmarkButton = true
+        searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
         
         // set navigation bar back button
         navigationItem.backBarButtonItem?.title = tabBar.title ?? "Spells"

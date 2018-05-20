@@ -73,7 +73,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="21X-vG-nSh">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="21X-vG-nSh">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Character Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X04-Jb-IY3">
@@ -86,41 +86,41 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-QP-kie">
-                                        <rect key="frame" x="0.0" y="60" width="375" height="630"/>
+                                        <rect key="frame" x="0.0" y="260" width="375" height="430"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="paK-Jz-F7b">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="630"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="430"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-d0-YHm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="126"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="86"/>
                                                         <state key="normal" title="Bard"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Plr-xC-3s7"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWO-fs-ZB3">
-                                                        <rect key="frame" x="0.0" y="126" width="187.66666666666666" height="126"/>
+                                                        <rect key="frame" x="0.0" y="86" width="187.66666666666666" height="86"/>
                                                         <state key="normal" title="Cleric"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="8Ql-3q-PvS"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caA-nD-VpO">
-                                                        <rect key="frame" x="0.0" y="252" width="187.66666666666666" height="126"/>
+                                                        <rect key="frame" x="0.0" y="172" width="187.66666666666666" height="86"/>
                                                         <state key="normal" title="Druid"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Lpu-hH-vvX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0T-tr-HSL">
-                                                        <rect key="frame" x="0.0" y="378" width="187.66666666666666" height="126"/>
+                                                        <rect key="frame" x="0.0" y="258" width="187.66666666666666" height="86"/>
                                                         <state key="normal" title="Fighter"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="GWW-Na-9DZ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raC-aW-fTe">
-                                                        <rect key="frame" x="0.0" y="504" width="187.66666666666666" height="126"/>
+                                                        <rect key="frame" x="0.0" y="344" width="187.66666666666666" height="86"/>
                                                         <state key="normal" title="Paladin"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="juF-ql-qfx"/>
@@ -129,38 +129,38 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-1k-47M">
-                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="630"/>
+                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="430"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glm-4b-N0B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.33333333333334" height="126"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.33333333333334" height="86"/>
                                                         <state key="normal" title="Ranger"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="DZk-Qy-oWl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ji-qI-aU4">
-                                                        <rect key="frame" x="0.0" y="126" width="187.33333333333334" height="126"/>
+                                                        <rect key="frame" x="0.0" y="86" width="187.33333333333334" height="86"/>
                                                         <state key="normal" title="Rogue"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="5DK-YN-L7D"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-92-9Cj">
-                                                        <rect key="frame" x="0.0" y="252" width="187.33333333333334" height="126"/>
+                                                        <rect key="frame" x="0.0" y="172" width="187.33333333333334" height="86"/>
                                                         <state key="normal" title="Sorcerer"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="mUG-se-iZU"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkE-40-JsN">
-                                                        <rect key="frame" x="0.0" y="378" width="187.33333333333334" height="126"/>
+                                                        <rect key="frame" x="0.0" y="258" width="187.33333333333334" height="86"/>
                                                         <state key="normal" title="Warlock"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="YwN-9B-6eX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-eo-aCK">
-                                                        <rect key="frame" x="0.0" y="504" width="187.33333333333334" height="126"/>
+                                                        <rect key="frame" x="0.0" y="344" width="187.33333333333334" height="86"/>
                                                         <state key="normal" title="Wizard"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="CLP-69-Ac5"/>
@@ -428,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhM-sd-VkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4143.1999999999998" y="1050"/>
+            <point key="canvasLocation" x="4505" y="720"/>
         </scene>
         <!--Characters-->
         <scene sceneID="IlS-wq-qdj">
@@ -436,8 +436,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5C-G7-aIe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Characters" id="F51-UH-hP8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u6e-Ni-q6p">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="u6e-Ni-q6p">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -562,7 +562,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUm-PN-FjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776.8000000000002" y="315.51724137931035"/>
+            <point key="canvasLocation" x="2999" y="316"/>
         </scene>
         <!--Prepared Spells-->
         <scene sceneID="BIN-CQ-a0C">
