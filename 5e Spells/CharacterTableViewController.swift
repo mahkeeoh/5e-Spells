@@ -42,6 +42,7 @@ class CharacterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        // retrieve number of characters
         return characterModel.characters.count
     }
 
@@ -99,7 +100,8 @@ class CharacterTableViewController: UITableViewController {
                     
                     case "Cleric", "Druid", "Paladin":
                         firstTabBarTitle = "Prepared Spells"
-                        
+                      
+                    // wizard has a special setup
                     default:
                         firstTabBarTitle = "Prepared Spells"
                         destinationVC.isWizard = true

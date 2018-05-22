@@ -8,12 +8,10 @@
 
 import UIKit
 
-class SpellsTableViewController: UITableViewController, SpellCellDelegate {
+class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISearchBarDelegate {
     
-   // @IBOutlet weak var tabBar: UITabBarItem!
+    
     var tabBar = UITabBarItem()
-    
-    
     
     // Setup initial spell list
     let jsonName = "spells"
@@ -42,12 +40,8 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar = (tabBarController?.tabBar.selectedItem)!
-
-        if let spellJSON = readJson(with: jsonName) as? [Spell] {
-            // Load spells from JSON and sort by level by calling segment control
-            spells = spellJSON
-            sortByLevel()
-        }
+        
+        loadSpells()
         
         // Set search bar parameters
         searchController.searchResultsUpdater = self
@@ -55,14 +49,14 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         searchController.searchBar.placeholder = "Search Spells"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
         searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
         
         // set navigation bar back button
-        navigationItem.backBarButtonItem?.title = tabBar.title ?? "Spells"
-        
+        navigationItem.backBarButtonItem?.title = tabBar.title
+        title = tabBar.title
         tableView.tableFooterView = UIView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,10 +68,8 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         }
         
         // Check if this is a prepared list or all spells list
-        if tabBar.title == "Class Spells" {
-            spells = spells.filter( {(spell: Spell) -> Bool in
-                    return spell.classes.contains(character!.spellList)
-            })
+        if tabBar.title == ("Class Spells") || (tabBar.title == "All Spells") {
+            sortByClass()
         }
         else if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
             spells = character!.preparedOrKnownSpells
@@ -87,6 +79,49 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         }
         sortByLevel()
         tableView.reloadData() 
+    }
+    
+    // Mark: - Spell Preparation
+    
+    func loadSpells() {
+        if let spellJSON = readJson(with: jsonName) as? [Spell] {
+            // Load spells from JSON and sort by level by calling segment control
+            spells = spellJSON
+            sortByLevel()
+        }
+    }
+    
+    func sortByClass() {
+        spells = spells.filter( {(spell: Spell) -> Bool in
+            return spell.classes.contains(character!.spellList)
+        })
+        
+        allSpellsButton.title = "All Spells"
+        allSpellsButton.tintColor = view.tintColor
+        
+        title = "Class Spells"
+    }
+    
+    // Setup "All Spells" button which allows user to view all spells in the book (for specific purposes)
+    @IBOutlet weak var allSpellsButton: UIBarButtonItem!
+    @IBAction func allSpellsButtonClicked(_ sender: UIButton) {
+        
+        // If all spells button clicked, change text and color to indicate
+        if allSpellsButton.title == "All Spells" {
+            allSpellsButton.title = "Class Spells"
+            allSpellsButton.tintColor = UIColor.red
+            
+            // Change title to clarify
+            title = "All Spells"
+            
+            // And load all spells
+            loadSpells()
+        }
+        // Or revert back to normal text/color
+        else {
+            sortByClass()
+        }
+        
     }
     
     
@@ -108,6 +143,12 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
+    
+    // Segue to filterVC if filter (bookmark) bar is pressed
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        self.performSegue(withIdentifier: "filterVC", sender: self)
+    }
+    
     
 
 
@@ -222,12 +263,13 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         return cell
     }
     
+    // only edit spells outside of class list
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return (tabBar.title != "Class Spells")
+        return ((tabBar.title != "Class Spells") || tabBar.title != "All Spells")
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) && (tabBar.title != "Class Spells") {
+        if (editingStyle == .delete) && ((tabBar.title != "Class Spells") || tabBar.title != "All Spells") {
             
             // First find name of spell (depending on if currently filtering or not)
             var spellName: String?
@@ -403,7 +445,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate {
         // Check if wizard first and add accordingly
         if tabBarController?.viewControllers?.count == 3 {
             switch (tabBar.title)! {
-            case "Class Spells":
+            case "Class Spells", "All Spells":
                 // Add to wizard list if clicking add button from class list
                 if !(character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
                     character!.wizardKnownSpells.append(spell)
