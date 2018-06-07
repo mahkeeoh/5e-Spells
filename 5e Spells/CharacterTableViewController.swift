@@ -73,11 +73,12 @@ class CharacterTableViewController: UITableViewController {
     // Unwind controller from addCharacterVC
     @IBAction func addCharacterToVC(segue: UIStoryboardSegue) {
         if let addCharacterVC = segue.source as? AddCharacterViewController {
+            // retrieve character spell list
             var spellList = addCharacterVC.characterClass!
             if (addCharacterVC.characterClass! == "Fighter") || (addCharacterVC.characterClass! == "Rogue") {
                 spellList = "Wizard"
             }
-            //let newCharacter = Character(name: addCharacterVC.characterClass!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
+            // add new character to characterModel
             let newCharacter = Character(characterClass: addCharacterVC.characterClass!, characterName: addCharacterVC.nameTextField.text!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
             characterModel.characters.append(newCharacter)
             tableView.reloadData()

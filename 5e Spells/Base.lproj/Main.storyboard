@@ -27,17 +27,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u77-bF-xrE">
-                                            <rect key="frame" x="16.000000000000004" y="25" width="33.333333333333336" height="20.333333333333332"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Karius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u77-bF-xrE">
+                                            <rect key="frame" x="16" y="15.333333333333334" width="70" height="31.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9P7-yS-fr3">
-                                            <rect key="frame" x="15.999999999999996" y="48.333333333333329" width="32.666666666666664" height="14.333333333333334"/>
+                                            <rect key="frame" x="16" y="51.333333333333329" width="44" height="20.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -74,53 +74,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="21X-vG-nSh">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="10" y="88" width="355" height="690"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Character Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X04-Jb-IY3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Zcp-YL-lTv"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <action selector="textFieldChanged:" destination="iaO-LR-tkK" eventType="editingChanged" id="9H9-Tn-F7a"/>
+                                        </connections>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-QP-kie">
-                                        <rect key="frame" x="0.0" y="260" width="375" height="430"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-QP-kie">
+                                        <rect key="frame" x="0.0" y="260" width="355" height="430"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="paK-Jz-F7b">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="430"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="430"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-d0-YHm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="86"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="86"/>
                                                         <state key="normal" title="Bard"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Plr-xC-3s7"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWO-fs-ZB3">
-                                                        <rect key="frame" x="0.0" y="86" width="187.66666666666666" height="86"/>
+                                                        <rect key="frame" x="0.0" y="86" width="172.66666666666666" height="86"/>
                                                         <state key="normal" title="Cleric"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="8Ql-3q-PvS"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caA-nD-VpO">
-                                                        <rect key="frame" x="0.0" y="172" width="187.66666666666666" height="86"/>
+                                                        <rect key="frame" x="0.0" y="172" width="172.66666666666666" height="86"/>
                                                         <state key="normal" title="Druid"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Lpu-hH-vvX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0T-tr-HSL">
-                                                        <rect key="frame" x="0.0" y="258" width="187.66666666666666" height="86"/>
+                                                        <rect key="frame" x="0.0" y="258" width="172.66666666666666" height="86"/>
                                                         <state key="normal" title="Fighter"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="GWW-Na-9DZ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raC-aW-fTe">
-                                                        <rect key="frame" x="0.0" y="344" width="187.66666666666666" height="86"/>
+                                                        <rect key="frame" x="0.0" y="344" width="172.66666666666666" height="86"/>
                                                         <state key="normal" title="Paladin"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="juF-ql-qfx"/>
@@ -129,38 +132,38 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-1k-47M">
-                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="430"/>
+                                                <rect key="frame" x="182.66666666666663" y="0.0" width="172.33333333333337" height="430"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glm-4b-N0B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.33333333333334" height="86"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.33333333333334" height="86"/>
                                                         <state key="normal" title="Ranger"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="DZk-Qy-oWl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ji-qI-aU4">
-                                                        <rect key="frame" x="0.0" y="86" width="187.33333333333334" height="86"/>
+                                                        <rect key="frame" x="0.0" y="86" width="172.33333333333334" height="86"/>
                                                         <state key="normal" title="Rogue"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="5DK-YN-L7D"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-92-9Cj">
-                                                        <rect key="frame" x="0.0" y="172" width="187.33333333333334" height="86"/>
+                                                        <rect key="frame" x="0.0" y="172" width="172.33333333333334" height="86"/>
                                                         <state key="normal" title="Sorcerer"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="mUG-se-iZU"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkE-40-JsN">
-                                                        <rect key="frame" x="0.0" y="258" width="187.33333333333334" height="86"/>
+                                                        <rect key="frame" x="0.0" y="258" width="172.33333333333334" height="86"/>
                                                         <state key="normal" title="Warlock"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="YwN-9B-6eX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-eo-aCK">
-                                                        <rect key="frame" x="0.0" y="344" width="187.33333333333334" height="86"/>
+                                                        <rect key="frame" x="0.0" y="344" width="172.33333333333334" height="86"/>
                                                         <state key="normal" title="Wizard"/>
                                                         <connections>
                                                             <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="CLP-69-Ac5"/>
@@ -171,19 +174,14 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="X04-Jb-IY3" firstAttribute="top" secondItem="21X-vG-nSh" secondAttribute="top" id="BvJ-nw-opL"/>
-                                    <constraint firstAttribute="trailing" secondItem="X04-Jb-IY3" secondAttribute="trailing" id="gXo-4t-cAI"/>
-                                    <constraint firstItem="X04-Jb-IY3" firstAttribute="leading" secondItem="21X-vG-nSh" secondAttribute="leading" id="rlA-7a-6e3"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="21X-vG-nSh" firstAttribute="leading" secondItem="gbd-wS-CVu" secondAttribute="leading" id="5eJ-iT-SbX"/>
-                            <constraint firstItem="gbd-wS-CVu" firstAttribute="trailing" secondItem="21X-vG-nSh" secondAttribute="trailing" id="SG0-B9-sKd"/>
-                            <constraint firstItem="gbd-wS-CVu" firstAttribute="bottom" secondItem="21X-vG-nSh" secondAttribute="bottom" id="ePo-Pn-da7"/>
-                            <constraint firstItem="21X-vG-nSh" firstAttribute="top" secondItem="gbd-wS-CVu" secondAttribute="top" id="gUE-Ce-Z9f"/>
+                            <constraint firstItem="21X-vG-nSh" firstAttribute="leading" secondItem="54B-MV-aDA" secondAttribute="leading" constant="10" id="IVN-5d-qlm"/>
+                            <constraint firstItem="21X-vG-nSh" firstAttribute="top" secondItem="gbd-wS-CVu" secondAttribute="top" id="LhI-oO-uXO"/>
+                            <constraint firstItem="21X-vG-nSh" firstAttribute="bottom" secondItem="gbd-wS-CVu" secondAttribute="bottom" id="M0q-C3-Ki1"/>
+                            <constraint firstAttribute="trailing" secondItem="21X-vG-nSh" secondAttribute="trailing" constant="10" id="SOU-LN-E3k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gbd-wS-CVu"/>
                     </view>
