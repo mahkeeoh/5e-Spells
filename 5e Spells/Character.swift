@@ -30,7 +30,5 @@ class CharacterModelController {
           //  characters = characters2 ?? [Character]()
         }
     }
-
-
     
 }

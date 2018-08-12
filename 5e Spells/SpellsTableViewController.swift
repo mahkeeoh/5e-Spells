@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISearchBarDelegate {
+class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate, UISearchBarDelegate {
     
     
     var tabBar = UITabBarItem()
@@ -45,16 +45,30 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
         
         // Set search bar parameters
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = true
         searchController.searchBar.placeholder = "Search Spells"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.delegate = self
-        searchController.searchBar.showsBookmarkButton = true
+        searchController.searchBar.showsBookmarkButton = false // Add filter functionality at a future date
+        searchController.searchBar.tintColor = Constants.buttonColor
         searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
+        if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            if let backgroundview = textFieldInsideSearchBar.subviews.first {
+                
+                // Background color
+                backgroundview.backgroundColor = UIColor.white
+                
+                // Rounded corner
+                backgroundview.layer.cornerRadius = 10;
+                backgroundview.clipsToBounds = true;
+            }
+        }
+
         
         // set navigation bar back button
         navigationItem.backBarButtonItem?.title = tabBar.title
+        navigationItem.backBarButtonItem?.tintColor = Constants.buttonColor
         title = tabBar.title
         tableView.tableFooterView = UIView()
     }
@@ -78,7 +92,6 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
             spells = character!.wizardKnownSpells
         }
         sortByLevel()
-        tableView.reloadData() 
     }
     
     // Mark: - Spell Preparation
@@ -88,6 +101,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
             // Load spells from JSON and sort by level by calling segment control
             spells = spellJSON
             sortByLevel()
+            
         }
     }
     
@@ -97,10 +111,11 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
         })
         
         allSpellsButton.title = "All Spells"
-        allSpellsButton.tintColor = view.tintColor
+        allSpellsButton.tintColor = Constants.buttonColor
         
         title = "Class Spells"
     }
+    
     
     // Setup "All Spells" button which allows user to view all spells in the book (for specific purposes)
     @IBOutlet weak var allSpellsButton: UIBarButtonItem!
@@ -116,6 +131,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
             
             // And load all spells
             loadSpells()
+            
         }
         // Or revert back to normal text/color
         else {
@@ -241,6 +257,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
         if (spell.concentration == "yes") {
             cell.level.text = cell.level.text! + "  \u{00A9}"
         }
+        cell.addSpellButton.tintColor = Constants.buttonColor
         
         // change button to checkmark if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.name.text})) {
@@ -262,6 +279,7 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
 
         return cell
     }
+    
     
     // only edit spells outside of class list
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -290,7 +308,6 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
                 character!.preparedOrKnownSpells = filteredPreparedOrKnownSpells
                 
                 // Remove from wizard spellbook
-               // character!.wizardKnownSpells.remove(at: indexPath.row)
                 let filteredWizardSpells = character!.wizardKnownSpells.filter { $0.name != spellName }
                 character!.wizardKnownSpells = filteredWizardSpells
                 spells = character!.wizardKnownSpells
@@ -299,7 +316,6 @@ class SpellsTableViewController: UITableViewController, SpellCellDelegate, UISea
             
             else {
                 // Else just remove from prepared or known spells
-                //character!.preparedOrKnownSpells.remove(at: indexPath.row)
                 character!.preparedOrKnownSpells = filteredPreparedOrKnownSpells
                 spells = character!.preparedOrKnownSpells
                 sortByLevel()

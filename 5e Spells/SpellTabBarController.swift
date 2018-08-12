@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpellTabBarController: UITabBarController {
+class SpellTabBarController: DesignOfTabBarController {
     
    // var character: Character?
     var index: Int!

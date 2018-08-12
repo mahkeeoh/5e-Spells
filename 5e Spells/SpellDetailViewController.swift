@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SpellDetailViewController: UIViewController {
+class SpellDetailViewController: DesignOfViewController {
     
     
     // Setup all outlets
-    @IBOutlet weak var spellTitle: UILabel!
     @IBOutlet weak var levelAndSpellType: UILabel!
     @IBOutlet weak var castingTime: UILabel!
     @IBOutlet weak var range: UILabel!
@@ -40,11 +39,11 @@ class SpellDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupText()
+        title = spell?.name
 
     }
     
     func setupText() {
-        spellTitle.text = (spell?.name)
         levelAndSpellType.text = (spell?.level)! + ", " + (spell?.school)!
         castingTime.text = (spell?.castingTime)
         range.text = (spell?.range)
@@ -60,7 +59,7 @@ class SpellDetailViewController: UIViewController {
         if (spell?.concentration == "yes") {
             duration.text = duration.text! + "  \u{00A9}"
         }
-        spellDescription.text = "Description: " + (spell?.desc)!
+        spellDescription.text = (spell?.desc)!
         if spell?.higherLevel != nil {
             higherLevels.text = "Higher Level: " + (spell?.higherLevel)!
         }

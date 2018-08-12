@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CharacterTableViewController: UITableViewController {
+class CharacterTableViewController: DesignOfTableViewController {
     
     var characterModel: CharacterModelController!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 90.0
     }
@@ -73,6 +74,7 @@ class CharacterTableViewController: UITableViewController {
     // Unwind controller from addCharacterVC
     @IBAction func addCharacterToVC(segue: UIStoryboardSegue) {
         if let addCharacterVC = segue.source as? AddCharacterViewController {
+            addCharacterVC.nameTextField.resignFirstResponder()
             // retrieve character spell list
             var spellList = addCharacterVC.characterClass!
             if (addCharacterVC.characterClass! == "Fighter") || (addCharacterVC.characterClass! == "Rogue") {
