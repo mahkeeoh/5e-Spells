@@ -45,17 +45,17 @@ class SpellDetailViewController: DesignOfViewController {
     
     func setupText() {
         levelAndSpellType.text = (spell?.level)! + ", " + (spell?.school)!
-        castingTime.text = (spell?.castingTime)
-        range.text = (spell?.range)
+        castingTime.text = "Casting Time: " + (spell?.castingTime)!
+        range.text = "Range: " + (spell?.range)!
         
         // add components and include materials if applicable
-        components.text = (spell?.components)
+        components.text = "Components: " + (spell?.components)!
         if (spell?.material != nil) {
             addMaterials()
         }
         
         // add duration and concentration symbol if applicable
-        duration.text = (spell?.duration)
+        duration.text = "Duration: " + (spell?.duration)!
         if (spell?.concentration == "yes") {
             duration.text = duration.text! + "  \u{00A9}"
         }
@@ -69,7 +69,7 @@ class SpellDetailViewController: DesignOfViewController {
        // let attribute = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10.0)]
        // let materialText = NSAttributedString(string: (spell?.material)!, attributes: attribute)
         let materialText = spell?.material
-        components.text = components.text! + "*\n" + materialText!
+        components.text = components.text! + " (" + materialText! + ")"
 
     }
 

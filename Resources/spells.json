@@ -2489,6 +2489,20 @@
     "class":"Ritual Caster, Wizard"
   },
   {
+    "name":"Find Greater Steed",
+ "desc":"<p>You summon a spirit that assumes the form of a loyal, majestic mount. Appearing in an unoccupied space within range, the spirit takes on a form you choose: a griffon, a pegasus, a peryton, a dire wolf, a rhinoceros, or a saber-toothed tiger. The creature has the statistics provided in the Monster Manual for the chosen form, though it is a celestial, a fey, or a fiend (your choice) instead of a normal creature type. Additionally, if it has an Intelligence score of 5 or lower, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak.</p><p>You control the mount in combat. While the mount is within 1 mile of you, you can communicate with it telepathically. While mounted on it, you can make any spell you cast that targets only you also target the mount.</p><p>The mount disappears temporarily when it drops to 0 hit points or when you dismiss it as an action. Casting this spell again re-summons the bonded mount, with all its hit points restored and any conditions removed.</p><p>You can't have more than one mount bonded by this spell or find steed at the same time. As an action, you can release a mount from its bond, causing it to disappear permanantly.</p><p>Whenever the mount disappears, it leaves behind any objects it was wearing or carrying</p>",
+    "page":"xan 156",
+    "range":"30 feet",
+    "components":"V, S",
+    "ritual":"no",
+    "duration":"Instantaneous",
+    "concentration":"no",
+    "casting_time":"10 minutes",
+    "level":"4th-level",
+    "school":"Conjuration",
+    "class":"Paladin"
+ },
+  {
     "name":"Find Steed",
     "desc":"<p>You summon a spirit that assumes the form of an unusually intelligent, strong, and loyal steed, creating a long-lasting bond with it. Appearing in an unoccupied space within range, the steed takes on a form that you choose, such as a warhorse, a pony, a camel, an elk, or a mastiff. (Your DM might allow other animals to be summoned as steeds.) The steed has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of its normal type. Additionally, if your steed has an Intelligence of 5 or less, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak.</p><p>Your steed serves you as a mount, both in combat and out, and you have an instinctive bond with it that allows you to fight as a seamless unit. While mounted on your steed, you can make any spell you cast that targets only you also target your steed.</p><p>When the steed drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss your steed at any time as an action, causing it to disappear. In either case, casting this spell again summons the same steed, restored to its hit point maximum.</p><p>While your steed is within 1 mile of you, you can communicate with it telepathically.</p><p>You can’t have more than one steed bonded by this spell at a time. As an action, you can release the steed from its bond at any time, causing it to disappear.</p>",
     "page":"phb 240",
@@ -2613,7 +2627,7 @@
     "name":"Flame Arrows",
     "desc":"<p>You touch a quiver containing arrows or bolts. When a target is hit by a ranged weapon attack using a piece of ammunition drawn from the quiver, the target takes an extra 1d6 fire damage. The spell's magic ends on the piece of ammunition when it hits or misses, and the spell ends when twelve pieces of ammunition have been drawn from the quiver.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 4th level or higher, the number of pieces of ammunition you can affect with this spell increases by two for each slot level above 3rd.</p>",
-    "page":"ee pc 18",
+    "page":"xan 156",
     "range":"Touch",
     "components":"V, S",
     "ritual":"no",
@@ -2808,7 +2822,7 @@
   {
     "name":"Frostbite",
     "desc":"<p>You cause numbing frost to form on one creature that you can see within range. The target must make a Constitution saving throw. On a failed save, the target takes 1d6 cold damage, and it has disadvantage on the next weapon attack roll it makes before the end of its next turn.</p><p>The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
-    "page":"ee pc 18",
+    "page":"xan 156",
     "range":"60 feet",
     "components":"V, S",
     "ritual":"no",
@@ -3051,6 +3065,20 @@
     "domains":"Life, Light",
     "oaths":"Devotion"
   },
+ {
+    "name":"Guardian of Nature",
+    "desc":"<p>A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose one of the following forms to assume: Primal Beast or Great Tree.</p><p>Primal Beast. Bestial fur covers your body, your facial features become feral, and you gain the following benefits:</p><p>-Your walking speed increases by 10 feet.</p><p>-You gain darkvision with a range of 120 feet.</p><p>-You make Strength-based attack rolls with advantage.</p><p>-Your melee weapon attack deals an extra 1d6 force damage on a hit.</p><p></p><p>Great Tree. Your skin appears barky, leaves sprout from your hair, and you gain the following benefits:</p><p>-You gain 10 temporary hit points.</p><p>-You make Constitution saving throws with advantage.</p><p>-You make Dexterity- and Wisdom-based attack rolls with advantage.</p><p>-While you are on the ground, the ground within 15 feet of you is difficult terrain for your enemies.</p>",
+    "page":"xan 157",
+    "range":"self",
+    "components":"V",
+    "ritual":"no",
+    "duration":"up to 1 minute",
+    "concentration":"yes",
+    "casting_time":"1 bonus action",
+    "level":"4th-level",
+    "school":"Transumtation",
+    "class":"Druid, Ranger",
+ },
   {
     "name":"Guards and Wards",
     "desc":"<p>You create a ward that protects up to 2,500 square feet of floor space (an area 50 feet square, or one hundred 5-foot squares or twenty-five 10-foot squares). The warded area can be up to 20 feet tall, and shaped as you desire. You can ward several stories of a stronghold by dividing the area among them, as long as you can walk into each contiguous area while you are casting the spell.</p><p>When you cast this spell, you can specify individuals that are unaffected by any or all of the effects that you choose. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects.</p><p>Guards and wards creates the following effects within the warded area.</p><p><b>Corridors.</b> Fog fills all the warded corridors, making them heavily obscured. In addition, at each intersection or branching passage offering a choice of direction, there is a 50 percent chance that a creature other than you will believe it is going in the opposite direction from the one it chooses.</p><p><b>Doors.</b> All doors in the warded area are magically locked, as if sealed by an arcane lock spell. In addition, you can cover up to ten doors with an illusion (equivalent to the illusory object function of the minor illusion spell) to make them appear as plain sections of wall. </p><p><b>Stairs.</b> Webs fill all stairs in the warded area from top to bottom, as the web spell. These strands regrow in 10 minutes if they are burned or torn away while guards and wards lasts.</p><p><b>Other Spell Effect.</b> You can place your choice of one of the following magical effects within the warded area of the stronghold.</p><p>- Place dancing lights in four corridors. You can design nate a simple program that the lights repeat as long as guards and wards lasts.</p><p>- Place magic mouth in two locations.</p><p>- Place stinking cloud in two locations. The vapors appear in the places you designate; they return within 10 minutes if dispersed by wind while guards and wards lasts.</p><p>- Place a constant gust of wind in one corridor or room.</p><p>- Place a suggestion in one location. You select an area of up to 5 feet square, and any creature that enters or passes through the area receives the suggestion mentally.</p><p>The whole warded area radiates magic. A dispel magic cast on a specific effect, if successful, removes only that effect.</p><p>You can create a permanently guarded and warded structure by casting this spell there every day for one year.</p>",
@@ -3098,7 +3126,7 @@
   {
     "name":"Gust",
     "desc":"<p>You seize the air and compel it to create one of the following effects at a point you can see within 'range':</p><p>- One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you.</p><p>- You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.</p><p>- You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.</p>",
-    "page":"ee pc 19",
+    "page":"xan 157",
     "range":"30 feet",
     "components":"V, S",
     "ritual":"no",
@@ -3221,6 +3249,21 @@
     "school":"Evocation",
     "class":"Cleric, Druid"
   },
+     {
+    "name":"Healing Spirit",
+    "desc":"<p>You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice).</p><p>Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead.</p><p>As a bonus action on your turn, you can ove the spirit up to 30 feet to a space you can see.</p>",
+    "higher_level":"<p>When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above second.</p>",
+    "page":"xan 157",
+    "range":"60 feet",
+    "components":"V, S",
+    "ritual":"no",
+    "duration":"Up to 1 minute",
+    "concentration":"yes",
+    "casting_time":"1 action",
+    "level":"2nd-level",
+    "school":"Conjuration",
+    "class":"Druid, Ranger"
+     },
   {
     "name":"Healing Word",
     "desc":"<p>A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.</p>",
@@ -3365,6 +3408,20 @@
     "school":"Abjuration",
     "class":"Cleric"
   },
+ {
+    "name":"Holy Weapon",
+    "desc":"<p>You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration.</p><p>As a bonus action on your turn, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of you must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.</p>",
+    "page":"xan 157",
+    "range":"Touch",
+    "components":"V, S",
+    "ritual":"no",
+    "duration":"Up to 1 hour",
+    "concentration":"yes",
+    "casting_time":"1 bonus action",
+    "level":"5th-level",
+    "school":"Evocation",
+    "class":"Cleric, Paladin"
+ },
   {
     "name":"Hunger of Hadar",
     "desc":"<p>You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are blinded.</p><p>The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it.</p>",
@@ -3416,7 +3473,7 @@
     "name":"Ice Knife",
     "desc":"<p>You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of the point where the ice exploded must succeed on a Dexterity saving throw or take 2d6 cold damage.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st.</p>",
-    "page":"ee pc 19",
+    "page":"xan 157",
     "range":"60 feet",
     "components":"S, M",
     "material":"A drop of water or piece of ice.",
@@ -3466,6 +3523,20 @@
     "domains":"Knowledge"
   },
   {
+    "name":"Illusory Dragon",
+ "desc":"<p>By gathering threads of shadow material from the Shadowfell, you create a Huge shadowy dragon in an unoccupied space that you can see within range. The illusion lasts for the spell's duration and occupies its space, as if it were a creature.</p><p>When the illusion appears, any of your enemies that it can see must succeed on a Wisdom saving throw or become frightened of it for 1 minute. If a frightened creature ends its turn in a location where it doesn't have line of sight of the illusion, it can repeat the saving throw, ending the effect on itself on a success.</p><p>As a bonus action on your turn, you can move the illusion up to 60 feet. At any point during its movement, you can cause it to exhale a blast of energy in a 60-foot cone originating from its space. When you create the dragon, choose a damage type: acid, cold, fire, lightning, necrotic, or poison. Each creature in the cone must make an Intelligence saving throw, taking 7d6 damage of the chosen damage type on a failed save, or half as much damage on a successful one.</p><p>The illusion is tangible because of the shadow stuff used to create it, but attacks miss it automatically. it succeeds on all saving throws, and it is immune to all damage and conditions. A creature that uses an action to examine the dragon can determine that it is an illusion by succeeding on an Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through it and has advantage on saving throws against its breath.</p>",
+    "page":"xan 157",
+    "range":"60 feet",
+    "components":"S",
+    "ritual":"no",
+    "duration":"Up to 1 minute",
+    "concentration":"yes",
+    "casting_time":"1 action",
+    "level":"8th-level",
+    "school":"Illusion",
+    "class":"Wizard"
+  },
+  {
     "name":"Illusory Script",
     "desc":"<p>You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration.</p><p>To you and any creatures you designate when you cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entirely different message, written in a different hand and language, though the language must be one you know.</p><p>Should the spell be dispelled, the original script and the illusion both disappear.</p><p>A creature with truesight can read the hidden message.</p>",
     "page":"phb 252",
@@ -3482,8 +3553,8 @@
   },
   {
     "name":"Immolation",
-    "desc":"<p>Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 7d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 3d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished through nonmagical means.</p><p>If damage from this spell reduces a target to 0 hit points, the target is turned to ash.</p>",
-    "page":"ee pc 19",
+    "desc":"<p>Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 4d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished through nonmagical means.</p><p>If damage from this spell reduces a target to 0 hit points, the target is turned to ash.</p>",
+    "page":"xan 158",
     "range":"90 feet",
     "components":"V",
     "ritual":"no",
@@ -3524,6 +3595,37 @@
     "class":"Sorcerer, Wizard"
   },
   {
+    "name":"Infernal Calling",
+    "desc":"<p>Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends.</p><p>The devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for a limited service. The DM has the creature's statistics.</p><p>On each of your turns, you can try to issue a verbal command to the devil (no action required by you). It obeys the command if the likely outcome is in accordance with its desires, especially if the result would draw you toward evil. Otherwise, you must make a Charisma (Deception, Intimidation, or Persuasion) check contested by its Wisdom (Insight) check. You make the check with advantage if you say the devil's true name. If your check fails, the devil becomes immune to your verbal commands for the duration of the spell, though it can still carry out your commands if it chooses. If your check succeeds, the devil carries out your command- such as \"attack my enemies,\" \"explore the room ahead,\" or \"bear this message to the queen\"- until it completes the activity, at which point it returns to you to report having done so.</p><p>If your concentration ends before the spell reaches its full duration, the devil doesn't disappear if it has become immune to your verbal commands. Instead, it acts in whatever manner it chooses for 3d6 minutes, and then it disappears.</p><p>If you possess an individual devil's talisman, you can summon that devil if it is of the appropriate challenge rating plus 1, and it obeys all your commands, with no Charisma check required.</p>",
+    "higher_level":"<p>When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th.</p>",
+    "page":"xan 158",
+    "range":"90 feet",
+    "components":"V, S, M",
+    "material":"A ruby worth at least 999 gp.",
+    "ritual":"no",
+    "duration":"Up to 1 hour",
+    "concentration":"yes",
+    "casting_time":"1 minute",
+    "level":"5th-level",
+    "school":"Conjuration",
+    "class":"Warlock, Wizard"
+  },
+  {
+    "name":"Infestation",
+    "desc":"<p>You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5 feet in a random direction if it can move and its speed is at least 5 feet. Roll a d4 for the direction: 1, north; 2, south; 3, east; or 4 west. This movement doesn't provoke opportunity attacks, and if the direction rolled is blocked, the target doesn't move.</p><p>The spell's damage increases by 1d6 when you reach 5th level(2d6), 11th level(3d6), and 17th level (4d6).</p>",
+    "page":"xan 158",
+    "range":"30 feet",
+    "components":"V, S, M",
+    "material":"A living flea.",
+    "ritual":"no",
+    "duration":"Instantaneous",
+    "concentration":"no",
+    "casting_time":"1 action",
+    "level":"Cantrip",
+    "school":"Conjuration",
+    "class":"Druid, Sorcerer, Warlock, Wizard"
+  },
+  {
     "name":"Inflict Wounds",
     "desc":"<p>Make a melee spell attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st.</p>",
@@ -3559,7 +3661,7 @@
   {
     "name":"Investiture of Flame",
     "desc":"<p>Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits:</p><p>- You are immune to fire damage and have resistance to cold damage.</p><p>- Any creature that moves within 5 feet of you for the first time on a turn or ends its turn there takes 1d10 fire damage.</p><p>- You can use your action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 4d8 fire damage on a failed save, or half as much damage on a successful one.</p>",
-    "page":"ee pc 19",
+    "page":"xan 159",
     "range":"Self",
     "components":"V, S",
     "ritual":"no",
@@ -3573,7 +3675,7 @@
   {
     "name":"Investiture of Ice",
     "desc":"<p>Until the spell ends, ice rimes your body, and you gain the following benefits:</p><p>- You are immune to cold damage and have resistance to fire damage.</p><p>- You can move across difficult terrain created by ice or snow without spending extra movement.</p><p>- The ground in a 10-foot radius around you is icy and is difficult terrain for creatures other than you. The radius moves with you.</p><p>- You can use your action to create a 15-foot cone of freezing wind extending from your outstretched hand in a direction you choose. Each creature in the cone must make a Constitution saving throw. A creature takes 4d6 cold damage on a failed save, or half as much damage on a successful one. A creature that fails its save against this effect has its speed halved until the start of your next turn.</p>",
-    "page":"ee pc 19",
+    "page":"xan 159",
     "range":"Self",
     "components":"V, S",
     "ritual":"no",
@@ -3587,7 +3689,7 @@
   {
     "name":"Investiture of Stone",
     "desc":"<p>Until the spell ends, bits of rock spread across your body, and you gain the following benefits:</p><p>- You have resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons.</p><p>- You can use your action to create a small earthquake on the ground in a 15-foot radius centered on you. Other creatures on that ground must succeed on a Dexterity saving throw or be knocked prone.</p><p>- You can move across difficult terrain made of earth or stone without spending extra movement. You can move through solid earth or stone as if it was air and without destabilizing it, but you can't end your movement there. If you do so, you are ejected to the nearest unoccupied space, this spell ends, and you are stunned until the end of your next turn.</p>",
-    "page":"ee pc 19",
+    "page":"xan 159",
     "range":"Self",
     "components":"V, S",
     "ritual":"no",
@@ -3601,7 +3703,7 @@
   {
     "name":"Investiture of Wind",
     "desc":"<p>Until the spell ends, wind whirls around you, and you gain the following benefits:</p><p>- Ranged weapon attacks made against you have disadvantage on the attack roll.</p><p>- You gain a flying speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it.</p><p>- You can use your action to create a 15-foot cube of swirling wind centered on a point you can see within 60 feet of you. Each creature in that area must make a Constitution saving throw. A creature takes 2d10 bludgeoning damage on a failed save, or half as much damage on a successful one. If a Large or smaller creature fails the save, that creature is also pushed up to 10 feet away from the center of the cube.</p>",
-    "page":"ee pc 20",
+    "page":"xan 160",
     "range":"Self",
     "components":"V, S",
     "ritual":"no",
@@ -3630,6 +3732,21 @@
     "archetype":"Druid: Grassland",
     "circles":"Grassland"
   },
+  {
+    "name":"Invulnerability",
+    "desc":"<p>You are immune to all damage until the spell ends.</p>",
+    "page":"xan 160",
+    "range":"Self",
+    "components":"V, S, M",
+    "material":"A small piece of adamantine worth at least 500 gp, which the spell consumes",
+    "ritual":"no",
+    "duration":"Up to 10 minutes",
+    "concentration":"yes",
+    "casting_time":"1 action",
+    "level":"9th-level",
+    "school":"Abjuration",
+    "class":"Wizard"
+ },
   {
     "name":"Jump",
     "desc":"<p>You touch a creature. The creature’s jump distance is tripled until the spell ends.</p>",
@@ -3753,6 +3870,21 @@
     "class":"Bard, Cleric, Sorcerer, Wizard"
   },
   {
+    "name":"Life Transference",
+    "desc":"<p>You sacrifice some of your health to mend another creature's injuries. You take 4d8 necrotic damage, and one creature of your choice that you can see within range regains a number of hit points equal to twice the necrotic damage you take.</p>",
+    "higher_level":"<p>When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd</p>",
+    "page":"xan 160",
+    "range":"30 feet",
+    "components":"V, S",
+    "ritual":"no",
+    "duration":"Instantaneous",
+    "concentration":"no",
+    "casting_time":"1 action",
+    "level":"3rd-level",
+    "school":"Necromancy",
+    "class":"Cleric, Wizard"
+ },
+  {
     "name":"Lightning Arrow",
     "desc":"<p>The next time you make a ranged weapon attack during the spell’s duration, the weapon’s ammunition, or the weapon itself if it’s a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon’s normal damage.</p><p>Whether you hit or miss, each creature within 10 feet of the target must make a dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one.</p><p>The piece of ammunition or weapon then returns to its normal form.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.</p>",
@@ -3862,9 +3994,24 @@
     "class":"Bard, Druid, Ranger, Wizard"
   },
   {
+    "name":"Maddening Darkness",
+    "desc":"<p>Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Non-magical light, as well as light created by spells of 8th level or lower, can't illuminate the area.</p><p>Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking 8d8 psycihic damage on a failed save, or half as much damage on a successful one.</p>",
+    "page":"xan 160",
+    "range":"150 feet",
+    "components":"V, M",
+    "material":"A drop of pitch mixed with a drop of mercury.",
+    "ritual":"no",
+    "duration":"Up to 10 minute",
+    "concentration":"yes",
+    "casting_time":"1 action",
+    "level":"8th-level",
+    "school":"Evocation",
+    "class":"Warlock, Wizard"
+ },
+  {
     "name":"Maelstrom",
     "desc":"<p>A mass of 5-foot-deep water appears and swirls in a 30-foot radius centered on a point you can see within range. The point must be on ground or in a body of water. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take 6d6 bludgeoning damage and be pulled 10 feet toward the center.</p>",
-    "page":"ee pc 20",
+    "page":"xan 160",
     "range":"120 feet",
     "components":"V, S, M",
     "material":"Paper or leaf in the shape of a funnel.",
@@ -3969,7 +4116,7 @@
   {
     "name":"Magic Stone",
     "desc":"<p>You touch one to three pebbles and imbue them with magic. You or someone else can make a ranged spell attack with one of the pebbles by throwing it or hurling it with a sling. If thrown, it has a range of 60 feet. If someone else attacks with the pebble, that attacker adds your spellcasting ability modifier, not the attacker's, to the attack roll. On a hit, the target takes bludgeoning damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, the spell then ends on the stone.</p><p>If you cast this spell again, the spell ends early on any pebbles still affected by it.</p>",
-    "page":"ee pc 20",
+    "page":"xan 160",
     "range":"Touch",
     "components":"V, S",
     "ritual":"no",
@@ -4059,6 +4206,21 @@
     "class":"Cleric"
   },
   {
+     "name":"Mass Polymorph",
+    "desc":"<p>You transform up to ten creatures of your choice that you can see within range. An unwilling target must succeed on a Wisdom saving throw to resist the transformation. An unwilling shapechanger automatically succeeds on the save.</p><p>Each target assumes a beast form of your choice, and you can choose the same form or different ones for each target. The new form can be any beast you have seen whose challenge rating is equal to or less than the target’s (or half the target’s level, if the target doesn’t have a challenge rating). The target’s game statistics, including mental ability scores, are replaced by the statistics of the chosen beast, but the target retains its hit points, alignment, and personality.</p><p>Each target gains a number of temporary hit points equal to the hit points of its new form. These temporary hit points can’t be replaced by temporary hit points from another source. A target reverts to its normal form when it has no more temporary hit points or it dies. If the spell ends before then, the creature loses all its temporary hit points and reverts to its normal form.</p><p>The creature is limited in the actions it can perform by the nature of its new form. It can’t speak, cast spells, or do anything else that requires hands or speech.</p><p>The target’s gear melds into the new form. The target can’t activate, use, wield, or otherwise benefit from any of its equipment.</p>",
+     "page":"xan 160",
+     "range":"120 feet",
+     "components":"V, S, M",
+    "material":"A caterpillar cocoon.",
+     "ritual":"no",
+     "duration":"Up to 1 hour",
+     "concentration":"yes",
+     "casting_time":"1 action",
+     "level":"9th-level",
+     "school":"Transmutation",
+     "class":"Bard, Sorcerer, Wizard"
+  },
+  {
     "name":"Mass Suggestion",
     "desc":"<p>You suggest a course of activity (limited to a sentence or two) and magically influence up to twelve creatures of your choice that you can see within range and that can hear and understand you. Creatures that can’t be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act automatically negates the effect of the spell.</p><p>Each target must make a wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.</p><p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a group of soldiers give all their money to the first beggar they meet. If the condition isn’t met before the spell ends, the activity isn’t performed.</p><p>If you or any of your companions damage a creature affected by this spell, the spell ends for that creature.</p>",
     "higher_level":"<p>When you cast this spell using a 7th-level spell slot, the duration is 10 days. When you use an 8th-level spell slot, the duration is 30 days. When you use a 9th-level spell slot, the duration is a year and a day.</p>",
@@ -4077,7 +4239,7 @@
   {
     "name":"Maximilian's Earthen Grasp",
     "desc":"<p>You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes 2d6 bludgeoning damage and is restrained for the spell's duration.</p><p>As an action, you can cause the hand to crush the restrained target, who must make a Strength saving throw. It takes 2d6 bludgeoning damage on a failed save, or half as much damage on a successful one. To break out, the restrained target can make a Strength check against your spell save DC. On a success, the target escapes and is no longer restrained by the hand.</p><p>As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained target if you do either.</p>",
-    "page":"ee pc 20",
+    "page":"xan 161",
     "range":"30 feet",
     "components":"V, S, M",
     "material":"A miniature hand sculpted from clay.",
@@ -4141,7 +4303,7 @@
     "name":"Melf's Minute Meteors",
     "desc":"<p>You create six tiny meteors in your space. They float in the air and orbit you for the spell's duration. When you cast the spell - and as a bonus action on each of your turns thereafter-you can expend one or two of the meteors, sending them streaking toward a point or points you choose within 120 feet of you. Once a meteor reaches its destination or impacts against a solid surface, the meteor explodes. Each creature within 5 feet of the point where the meteor explodes must make a Dexterity saving throw. A creature takes 2d6 fire damage on a failed save, or half as much damage on a successful one.</p>",
     "higher_level":"<p>When you cast this spell using a spell slot of 4th level or higher, the number of meteors created increases by two for each slot level above 3rd.</p>",
-    "page":"ee pc 20",
+    "page":"xan 161",
     "range":"Self",
     "components":"V, S, M",
     "material":"Niter, sulfur, and pine tar formed into a bead.",
@@ -4167,6 +4329,20 @@
     "level":"Cantrip",
     "school":"Transmutation",
     "class":"Cleric, Bard, Druid, Sorcerer, Wizard"
+  },
+  {
+     "name":"Mental Prison",
+     "desc":"<p>You attempt to bind a creature within an illusory cell that only it perceives. One creature you can see within range must make an Intelligence saving throw. The target succeeds automatically if it is immune to being charmed. On a successful save, the target takes 5d10 psychic damage, and the spell ends. On a failed save, the target takes 5d10 psychic damage, and you make the area immediately around the target’s space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can’t see or hear anything beyond it and is restrained for the spell’s duration. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, the target takes 10d10 psychic damage, and the spell ends.</p>",
+     "page":"xan 161",
+     "range":"60 feet",
+     "components":"S",
+     "ritual":"no",
+     "duration":"Up to 1 minute",
+     "concentration":"yes",
+     "casting_time":"1 action",
+     "level":"6th-level",
+     "school":"Illusion",
+     "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Message",
@@ -4198,6 +4374,21 @@
     "class":"Sorcerer, Wizard"
   },
   {
+     "name":"Mighty Fortress",
+    "desc":"<p>A fortress of stone erupts from a square area of ground of your choice that you can see within range. The area is 120 feet on each side, and it must not have any buildings or other structures on it. Any creatures in the area are harmlessly lifted up as the fortress rises.</p><p>The fortress has four turrets with square bases, each one 20 feet on a side and 30 feet tall, with one turret on each corner. The turrets are connected to each other by stone walls that are each 80 feet long, creating an enclosed area. Each wall is 1 foot thick and is composed of panels that are 10 feet wide and 20 feet tall. Each panel is contiguous with two other panels or one other panel and a turret. You can place up to four stone doors in the fortress’s outer wall.</p><p>A small keep stands inside the enclosed area. The keep has a square base that is 50 feet on each side, and it has three floors with 10-foot-high ceilings. Each of the floors can be divided into as many rooms as you like, provided each room is at least 5 feet on each side. The floors of the keep are connected by stone staircases, its walls are 6 inches thick, and interior rooms can have stone doors or open archways as you choose. The keep is furnished and decorated however you like, and it contains sufficient food to serve a nine-course banquet for up to 100 people each day. Furnishings, food, and other objects created by this spell crumble to dust if removed from the fortress.</p><p>A staff of one hundred invisible servants obeys anycommand given to them by creatures you designate when you cast the spell. Each servant functions as if created by the unseen servant spell.</p><p>The walls, turrets, and keep are all made of stone that can be damaged. Each 10—foot—bya10-foot section of stone has AC 15 and 30 hit points per inch of thickness. It is immune to poison and psychic damage. Reducing a section of stone to 0 hit points destroys it and might cause connected sections to buckle and collapse at the DM’s discretion.</p><p>After 7 days or when you cast this spell somewhere else, the fortress harmlessly crumbles and sinks back into the ground, leaving any creatures that were inside it safely on the ground.</p><p>Casting this spell on the same spot once every 7 days for a year makes the fortress permanent.</p>",
+     "page":"xan 161",
+     "range":"1 mile",
+     "components":"V, S, M",
+     "material":"A diamond worth at least 500 gp, which the spell consumes.",
+     "ritual":"no",
+     "duration":"Instantaneous",
+     "concentration":"no",
+     "casting_time":"1 minute",
+     "level":"8th-level",
+     "school":"Conjuration",
+     "class":"Wizard"
+  },
+  {
     "name":"Mind Blank",
     "desc":"<p>Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition. The spell even foils wish spells and spells or effects of similar power used to affect the target’s mind or to gain information about the target.</p>",
     "page":"phb 259",
@@ -4210,6 +4401,20 @@
     "level":"8th-level",
     "school":"Abjuration",
     "class":"Bard, Wizard"
+  },
+  {
+      "name":"Mind Spike",
+      "desc":"<p>You reach into the mind of one creature you can see within range. The target must make a Wisdom saving throw, taking 3d8 psychic damage on a failed save, or half as much damage on a successful one. On a failed save, you also always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can’t become hidden from you, and if it’s invisible, it gains no benefit from that condition against you.</p>",
+      "page":"xan 162",
+      "range":"60 feet",
+      "components":"S",
+      "ritual":"no",
+      "duration":"Up to 1 hour",
+      "concentration":"yes",
+      "casting_time":"1 action",
+      "level":"2nd-level",
+      "school":"Divination",
+      "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Minor Illusion",
@@ -4308,7 +4513,7 @@
   {
     "name":"Mold Earth",
     "desc":"<p>You choose a portion of dirt or stone that you can see within range and that fits within a 5-foot cube. You manipulate it in one of the following ways:</p><p>- If you target an area of loose earth, you can instantaneously excavate it, move it along the ground, and deposit it up to 5 feet away. This movement doesn't have enough force to cause damage.</p><p>- You cause shapes, colors, or both to appear on the dirt or stone, spelling out words, creating images, or shaping patterns. The changes last for 1 hour.</p><p>- If the dirt or stone you target is on the ground, you cause it to become difficult terrain. Alternatively, you can cause the ground to become normal terrain if it is already difficult terrain. This change lasts for 1 hour. If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.</p>",
-    "page":"ee pc 21",
+    "page":"xan 162",
     "range":"30 feet",
     "components":"S",
     "ritual":"no",

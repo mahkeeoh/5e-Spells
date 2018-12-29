@@ -8,25 +8,29 @@
 
 import UIKit
 
-class CharacterTableViewController: DesignOfTableViewController {
+class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITableViewDataSource {
     
     var characterModel: CharacterModelController!
+    @IBOutlet weak var tableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 90.0
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         if characterModel.characters.count == 0 {
             
             // Set up background label if table is empty
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text = "Add a character with the + button above"
+            noDataLabel.text = "Add a character with the + button below"
             noDataLabel.textColor = UIColor.black
             noDataLabel.textAlignment = .center
             tableView.backgroundView = noDataLabel
@@ -41,14 +45,14 @@ class CharacterTableViewController: DesignOfTableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // retrieve number of characters
         return characterModel.characters.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath)
 
         let character = characterModel.characters[indexPath.row]
@@ -58,7 +62,7 @@ class CharacterTableViewController: DesignOfTableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             
             // Remove from characters
@@ -68,7 +72,14 @@ class CharacterTableViewController: DesignOfTableViewController {
             tableView.reloadData()
         }
     }
+    
+    // need this to deselect cell for whatever reason
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
  
+    
     // Mark: - Navigation
     
     // Unwind controller from addCharacterVC

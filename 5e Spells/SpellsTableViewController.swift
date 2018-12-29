@@ -45,8 +45,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         // Set search bar parameters
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Spells"
+        navigationItem.leftBarButtonItem?.tintColor = Constants.buttonColor
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.delegate = self
@@ -208,11 +209,16 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             
             // Set up background label if table is empty
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            if (tabBar.title == "Prepared Spells") {
-                noDataLabel.text = "No Spells Prepared"
+            noDataLabel.lineBreakMode = .byWordWrapping
+            noDataLabel.numberOfLines = 0
+            if ((tabBar.title == "Prepared Spells") && (character.characterClass == "Wizard")) {
+                noDataLabel.text = "No Spells Prepared, add some from the Spellbook tab below!"
+            }
+            else if (tabBar.title == "Prepared Spells") {
+                noDataLabel.text = "No Spells Prepared, add some from the Class Spells tab below!"
             }
             else {
-                noDataLabel.text = "No Spells Known"
+                noDataLabel.text = "No Spells Known, add some from the Class Spells tab below!"
             }
             
             noDataLabel.textColor = UIColor.black
@@ -253,7 +259,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             spell = spells.filter({$0.level == sections[indexPath.section]})[indexPath.row]
         }
         cell.name.text = spell.name
-        cell.level.text = listSubclassSpells(spell) + ",  " + spell.castingTime
+        cell.level.text = spell.castingTime + ", " + spell.range
         if (spell.concentration == "yes") {
             cell.level.text = cell.level.text! + "  \u{00A9}"
         }
@@ -465,6 +471,11 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
                 // Add to wizard list if clicking add button from class list
                 if !(character!.wizardKnownSpells.contains(where: {$0.name == spell.name})) {
                     character!.wizardKnownSpells.append(spell)
+                    
+                    // Check if spell is cantrip and add to prepared as well if so
+                    if (spell.level == "Cantrip") {
+                        character!.preparedOrKnownSpells.append(spell)
+                    }
                 }
                 // Else remove from both prepared and wizard list if removed from here
                 else {

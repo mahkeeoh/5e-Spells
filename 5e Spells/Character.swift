@@ -27,7 +27,6 @@ class CharacterModelController {
     init() {
         if let data = UserDefaults.standard.value(forKey: "characters") as? Data {
             characters = (try? PropertyListDecoder().decode(Array<Character>.self, from: data)) ?? [Character]()
-          //  characters = characters2 ?? [Character]()
         }
     }
     

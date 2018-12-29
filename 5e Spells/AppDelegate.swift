@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if let characterVC = window?.rootViewController?.content as? CharacterTableViewController {
+        if let characterVC = window?.rootViewController?.content as? CharacterViewController {
             characterVC.characterModel = CharacterModelController()
         }
         return true

@@ -22,7 +22,7 @@ extension UIViewController
                 do
                 {
                     let spells = try decoder.decode([FailableDecodable<Spell>].self, from: data).flatMap { $0.base }
-                
+                    print("Spell count: \(spells.count)")
                     return spells
                 } catch
                 {
