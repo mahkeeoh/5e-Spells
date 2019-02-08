@@ -15,6 +15,7 @@
 		2601640720364C410053FA5B /* spells.json in Resources */ = {isa = PBXBuildFile; fileRef = 2601640620364C400053FA5B /* spells.json */; };
 		2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640820364CBD0053FA5B /* SpellsTableViewController.swift */; };
 		2601640B20364D240053FA5B /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640A20364D240053FA5B /* Spell.swift */; };
+		261FE30421FE6B13003CA651 /* ArchitectsDaughter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 261FE30321FE6B13003CA651 /* ArchitectsDaughter.ttf */; };
 		264A4F47203F985600E4BFBF /* SpellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */; };
 		265504492113A99100F6C4EF /* DesignOfViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265504482113A99100F6C4EF /* DesignOfViews.swift */; };
 		2655044B2113AF6200F6C4EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655044A2113AF6200F6C4EF /* Constants.swift */; };
@@ -38,6 +39,7 @@
 		2601640620364C400053FA5B /* spells.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spells.json; sourceTree = "<group>"; };
 		2601640820364CBD0053FA5B /* SpellsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellsTableViewController.swift; sourceTree = "<group>"; };
 		2601640A20364D240053FA5B /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
+		261FE30321FE6B13003CA651 /* ArchitectsDaughter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ArchitectsDaughter.ttf; sourceTree = "<group>"; };
 		264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailViewController.swift; sourceTree = "<group>"; };
 		265504482113A99100F6C4EF /* DesignOfViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfViews.swift; sourceTree = "<group>"; };
 		2655044A2113AF6200F6C4EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				260163F020364ACB0053FA5B /* 5e Spells */,
 				260163EF20364ACB0053FA5B /* Products */,
+				261FE30221FE6AF7003CA651 /* Font */,
 				2601640520364B700053FA5B /* Resources */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +112,14 @@
 				2601640320364B060053FA5B /* ReadJSON.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		261FE30221FE6AF7003CA651 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				261FE30321FE6B13003CA651 /* ArchitectsDaughter.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				260163FC20364ACB0053FA5B /* LaunchScreen.storyboard in Resources */,
+				261FE30421FE6B13003CA651 /* ArchitectsDaughter.ttf in Resources */,
 				260163F920364ACB0053FA5B /* Assets.xcassets in Resources */,
 				2601640720364C410053FA5B /* spells.json in Resources */,
 				260163F720364ACB0053FA5B /* Main.storyboard in Resources */,

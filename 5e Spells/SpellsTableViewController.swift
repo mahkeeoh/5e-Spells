@@ -13,6 +13,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
     
     var tabBar = UITabBarItem()
     
+    // Variables for filter parameters
+    var spellDetailsFilter:[[String: [String]]] = []
+    
     // Setup initial spell list
     let jsonName = "spells"
     var spells = [Spell]() {
@@ -41,6 +44,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         super.viewDidLoad()
         tabBar = (tabBarController?.tabBar.selectedItem)!
         
+        // Add header view to show if filter is active
+        tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0.0))
+        
         loadSpells()
         
         // Set search bar parameters
@@ -51,7 +57,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.delegate = self
-        searchController.searchBar.showsBookmarkButton = false // Add filter functionality at a future date
+        searchController.searchBar.showsBookmarkButton = true
         searchController.searchBar.tintColor = Constants.buttonColor
         searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
         if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField {
@@ -71,7 +77,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         navigationItem.backBarButtonItem?.title = tabBar.title
         navigationItem.backBarButtonItem?.tintColor = Constants.buttonColor
         title = tabBar.title
-        tableView.tableFooterView = UIView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +90,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         // Check if this is a prepared list or all spells list
         if tabBar.title == ("Class Spells") || (tabBar.title == "All Spells") {
+            loadSpells()
             sortByClass()
         }
         else if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
@@ -93,7 +100,17 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             spells = character!.wizardKnownSpells
         }
         sortByLevel()
+        
+        spells = checkSpellFilters(spells)
+        
+        // Set search bar to appear initially
+       // navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    /*override func viewDidAppear(_ animated: Bool) {
+        // Hide search bar while scrolling
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }*/
     
     // Mark: - Spell Preparation
     
@@ -115,6 +132,55 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         allSpellsButton.tintColor = Constants.buttonColor
         
         title = "Class Spells"
+    }
+    
+    // Setup filtering functionality (from filter choices as opposed to search bar)
+    
+    let filterTypes = ["level", "castingTime", "school", "range", "concentration"]
+    
+    func checkSpellFilters(_ spells: [Spell]) -> [Spell] {
+        var newSpells = spells
+        var count = 0
+        // filter through dictionaries
+        for filterType in spellDetailsFilter {
+            for category in filterTypes {
+                // if there are filters in that category
+                if ((filterType[category]?.count != nil) && (filterType[category]?.count != 0)) {
+                    count += 1
+                    // Show view that alerts user a filter is in use
+                    tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20.0)
+                    let filterDetails = filterType[category]
+                    // grab those filters and filter the spells associated
+                    var tempSpells: [Spell] = []
+                    for detail in filterDetails! {
+                        switch category {
+                        case "level": tempSpells.append(contentsOf: newSpells.filter({$0.level == detail}))
+                        case "castingTime":tempSpells.append(contentsOf: newSpells.filter({$0.castingTime == detail}))
+                        case "school":tempSpells.append(contentsOf: newSpells.filter({$0.school ==  detail}))
+                        case "range":tempSpells.append(contentsOf: newSpells.filter({$0.range == detail}))
+                        case "concentration":tempSpells.append(contentsOf: newSpells.filter({$0.concentration == detail}))
+                        default: continue
+                        }
+                    }
+                    newSpells = tempSpells
+                }
+            }
+        }
+        // If no filters are in use, hide filter notification view
+        if count > 0 {
+            tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0)
+            tableView.tableHeaderView?.backgroundColor = .gray
+            let textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
+            textBox.text = "Filter Enabled"
+            textBox.textColor = .white
+            textBox.backgroundColor = .gray
+            textBox.textAlignment = .center
+            tableView.tableHeaderView?.addSubview(textBox)
+        }
+        else {
+            tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0.0)
+        }
+        return newSpells
     }
     
     
@@ -139,6 +205,8 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             sortByClass()
         }
         
+       spells =  checkSpellFilters(spells)
+        
     }
     
     
@@ -154,7 +222,6 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         filteredSpells = spells.filter( {(spell: Spell) -> Bool in
                 return spell.name.lowercased().contains(searchText.lowercased())
             })
-      //  tableView.reloadData() added to didset???
     }
     
     func isFiltering() -> Bool {
@@ -192,14 +259,18 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         }
     }
     
+
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.backgroundView?.backgroundColor = Constants.headerColor
+    }
     
     // Set view height to 0 if no spells in that list
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView.dataSource?.tableView(tableView, numberOfRowsInSection: section) == 0 {
             return 0
         }
-        
-        return 60
+        return 40
     }
 
 
@@ -263,7 +334,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         if (spell.concentration == "yes") {
             cell.level.text = cell.level.text! + "  \u{00A9}"
         }
+        cell.imageView?.image = UIImage(named: spell.school)
         cell.addSpellButton.tintColor = Constants.buttonColor
+        cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
         
         // change button to checkmark if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.name.text})) {
@@ -442,6 +515,14 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
                         spell = spells.filter({$0.level == sections[index.section]})[index.row]
                     }
                     spellDetailVC.spell = spell!
+                }
+            }
+        }
+        else if segue.identifier == "filterVC" {
+            if let filterVC = segue.destination.content as? FilterTableViewController {
+                filterVC.spellDetailsFilter = spellDetailsFilter
+                filterVC.callback = { [unowned self] result in
+                    self.spellDetailsFilter = result
                 }
             }
         }

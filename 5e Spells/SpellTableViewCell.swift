@@ -13,6 +13,7 @@ class SpellTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var addSpellButton: UIButton!
+    @IBOutlet weak var schoolImage: UIImageView!
     
     @IBAction func spellButtonPressed(_ sender: UIButton) {
         delegate?.spellButtonPressed(cell: self)

@@ -12,10 +12,12 @@ import UIKit
 struct Constants {
     
     static func newBarColor() -> UIColor {
-        return #colorLiteral(red: 0.3254901961, green: 0.4705882353, blue: 0.231372549, alpha: 1)
+        return #colorLiteral(red: 0, green: 0.3019607843, blue: 0.2509803922, alpha: 1)
     }
     
     static let barColor = newBarColor()
     static let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-    static let buttonColor = #colorLiteral(red: 0.7019607843, green: 0.7764705882, blue: 0.337254902, alpha: 1)
+    static let buttonColor = #colorLiteral(red: 0.1137254902, green: 0.9137254902, blue: 0.7137254902, alpha: 1)
+    static let headerColor = #colorLiteral(red: 0.9211695194, green: 0.9211695194, blue: 0.9211695194, alpha: 1)
+    
 }
