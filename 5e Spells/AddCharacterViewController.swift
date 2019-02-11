@@ -81,15 +81,54 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
     
     @IBAction func addCharacter(_ sender: UIButton) {
         characterClass = sender.titleLabel?.text
-        sender.backgroundColor = Constants.buttonColor
-        sender.setTitleColor(UIColor.white, for: UIControlState.normal)
+      //  sender.backgroundColor = Constants.buttonColor
+       // sender.setTitleColor(UIColor.white, for: UIControlState.normal)
+        var classSelectedImageTitle = ""
+        var classUnselecteddImageTitle = ""
+        switch characterClass {
+        case "Bard":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Cleric":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Druid":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Fighter":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Paladin":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Ranger":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Rogue":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Sorcerer":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Warlock":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        case "Wizard":
+            classSelectedImageTitle = "Class_Fighter_Selected"
+            classUnselecteddImageTitle = "Class_Fighter"
+        default:
+            break
+        }
+        sender.setImage((UIImage(named: classSelectedImageTitle)), for: UIControlState.normal)
         if lastButtonPressed != sender {
-            lastButtonPressed?.backgroundColor = nil
-            lastButtonPressed?.setTitleColor(Constants.buttonColor, for: UIControlState.normal)
+           // lastButtonPressed?.backgroundColor = nil
+           // lastButtonPressed?.setTitleColor(Constants.buttonColor, for: UIControlState.normal)
+            lastButtonPressed?.setImage((UIImage(named: classUnselecteddImageTitle)), for: UIControlState.normal)
             lastButtonPressed = sender
         }
         checkSaveButton()
     }
-
+    
+    
     
 }

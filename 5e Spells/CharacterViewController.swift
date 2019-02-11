@@ -98,6 +98,19 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "addCharacterSegue" {
+            if characterModel.characters.count == 0 {
+                return true
+            }
+            else {
+                performSegue(withIdentifier: "payPremiumSegue", sender: self)
+                return false
+            }
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewSpells" {
             if let destinationVC = segue.destination as? SpellTabBarController {

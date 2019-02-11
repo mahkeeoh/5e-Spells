@@ -62,7 +62,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <state key="normal" title="ADD"/>
                                         <connections>
-                                            <segue destination="66n-Xx-8gv" kind="presentation" id="hMh-Ip-836"/>
+                                            <segue destination="66n-Xx-8gv" kind="presentation" identifier="addCharacterSegue" id="hMh-Ip-836"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -80,11 +80,72 @@
                     <navigationItem key="navigationItem" title="Characters" id="aPr-JQ-lrx"/>
                     <connections>
                         <outlet property="tableView" destination="gnl-jW-TmB" id="RhV-Ug-r5x"/>
+                        <segue destination="IQH-aq-6bc" kind="presentation" identifier="payPremiumSegue" id="FcD-1W-7CZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNC-am-atq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1762.4000000000001" y="-652.46305418719214"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yzz-Jp-PJf">
+            <objects>
+                <viewController id="mId-bz-VoO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FIK-fJ-4PW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="oww-dx-EhJ">
+                                <rect key="frame" x="0.0" y="323.66666666666669" width="375" height="165"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade now to unlock unlimited characters!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjZ-1L-uSt">
+                                        <rect key="frame" x="31" y="0.0" width="313.33333333333331" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOl-sT-Gza">
+                                        <rect key="frame" x="87.666666666666686" y="115" width="200" height="50"/>
+                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="ILx-Be-hvh"/>
+                                            <constraint firstAttribute="height" constant="50" id="xkQ-aT-qZO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <state key="normal" title="Upgrade for 99¢">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oww-dx-EhJ" firstAttribute="leading" secondItem="FIK-fJ-4PW" secondAttribute="leading" id="E3Y-IO-4gb"/>
+                            <constraint firstAttribute="trailing" secondItem="oww-dx-EhJ" secondAttribute="trailing" id="XbG-fg-gA7"/>
+                            <constraint firstItem="oww-dx-EhJ" firstAttribute="centerX" secondItem="FIK-fJ-4PW" secondAttribute="centerX" id="aH0-KR-ULX"/>
+                            <constraint firstItem="oww-dx-EhJ" firstAttribute="centerY" secondItem="FIK-fJ-4PW" secondAttribute="centerY" id="zbV-oM-3a0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8bR-O4-HXo"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ukn-vq-ZCx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WDZ-v1-DZT">
+                            <color key="tintColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="eIp-DT-1Lh" kind="unwind" unwindAction="addCharacterToVCWithSegue:" id="f0I-XG-pRg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Zj-wY-ltE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eIp-DT-1Lh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3735.1999999999998" y="-651.72413793103453"/>
         </scene>
         <!--Add Character View Controller-->
         <scene sceneID="YL8-9a-d1O">
@@ -109,162 +170,209 @@
                                             <action selector="textFieldChanged:" destination="iaO-LR-tkK" eventType="editingChanged" id="9H9-Tn-F7a"/>
                                         </connections>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-QP-kie">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJg-tc-gr7">
                                         <rect key="frame" x="0.0" y="70" width="345" height="570"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="paK-Jz-F7b">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="570"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-QP-kie">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="885"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-d0-YHm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="114"/>
-                                                        <state key="normal" title="Bard">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Plr-xC-3s7"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWO-fs-ZB3">
-                                                        <rect key="frame" x="0.0" y="114" width="167.66666666666666" height="114"/>
-                                                        <state key="normal" title="Cleric">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="8Ql-3q-PvS"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caA-nD-VpO">
-                                                        <rect key="frame" x="0.0" y="228" width="167.66666666666666" height="114"/>
-                                                        <state key="normal" title="Druid">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Lpu-hH-vvX"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0T-tr-HSL">
-                                                        <rect key="frame" x="0.0" y="342" width="167.66666666666666" height="114"/>
-                                                        <state key="normal" title="Fighter">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="GWW-Na-9DZ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raC-aW-fTe">
-                                                        <rect key="frame" x="0.0" y="456" width="167.66666666666666" height="114"/>
-                                                        <state key="normal" title="Paladin">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="juF-ql-qfx"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-1k-47M">
-                                                <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="570"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glm-4b-N0B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="114"/>
-                                                        <state key="normal" title="Ranger">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="DZk-Qy-oWl"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ji-qI-aU4">
-                                                        <rect key="frame" x="0.0" y="114" width="167.33333333333334" height="114"/>
-                                                        <state key="normal" title="Rogue">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="5DK-YN-L7D"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-92-9Cj">
-                                                        <rect key="frame" x="0.0" y="228" width="167.33333333333334" height="114"/>
-                                                        <state key="normal" title="Sorcerer">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="mUG-se-iZU"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkE-40-JsN">
-                                                        <rect key="frame" x="0.0" y="342" width="167.33333333333334" height="114"/>
-                                                        <state key="normal" title="Warlock">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="YwN-9B-6eX"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-eo-aCK">
-                                                        <rect key="frame" x="0.0" y="456" width="167.33333333333334" height="114"/>
-                                                        <state key="normal" title="Wizard">
-                                                            <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="CLP-69-Ac5"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="paK-Jz-F7b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="165" height="885"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-d0-YHm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="FRq-d0-YHm" secondAttribute="height" multiplier="1:1" id="gi1-br-iNw"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Bard" image="Class_Fighter"/>
+                                                                <state key="selected" image="Class_Fighter_Selected"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Plr-xC-3s7"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWO-fs-ZB3">
+                                                                <rect key="frame" x="0.0" y="180" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="aWO-fs-ZB3" secondAttribute="height" multiplier="1:1" id="5Ue-r4-5QG"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Cleric" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="8Ql-3q-PvS"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caA-nD-VpO">
+                                                                <rect key="frame" x="0.0" y="360" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="caA-nD-VpO" secondAttribute="height" multiplier="1:1" id="MQJ-CA-BZw"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Druid" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="Lpu-hH-vvX"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0T-tr-HSL">
+                                                                <rect key="frame" x="0.0" y="540" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="V0T-tr-HSL" secondAttribute="height" multiplier="1:1" id="rcj-go-aTR"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Fighter" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="GWW-Na-9DZ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raC-aW-fTe">
+                                                                <rect key="frame" x="0.0" y="720" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="raC-aW-fTe" secondAttribute="height" multiplier="1:1" id="Z5a-4S-xic"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Paladin" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="juF-ql-qfx"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-1k-47M">
+                                                        <rect key="frame" x="180" y="0.0" width="165" height="885"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glm-4b-N0B">
+                                                                <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Glm-4b-N0B" secondAttribute="height" multiplier="1:1" id="Qdr-eQ-n9Z"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Ranger" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="DZk-Qy-oWl"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ji-qI-aU4">
+                                                                <rect key="frame" x="0.0" y="180" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="3Ji-qI-aU4" secondAttribute="height" multiplier="1:1" id="Idu-vE-0RQ"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Rogue" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="5DK-YN-L7D"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-92-9Cj">
+                                                                <rect key="frame" x="0.0" y="360" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Vde-92-9Cj" secondAttribute="height" multiplier="1:1" id="rUT-W4-xbB"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Sorcerer" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="mUG-se-iZU"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkE-40-JsN">
+                                                                <rect key="frame" x="0.0" y="540" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="gkE-40-JsN" secondAttribute="height" multiplier="1:1" id="7Xy-NL-3YN"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Warlock" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="YwN-9B-6eX"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-eo-aCK">
+                                                                <rect key="frame" x="0.0" y="720" width="165" height="165"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Hpi-eo-aCK" secondAttribute="height" multiplier="1:1" id="ywV-ZU-2vC"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Wizard" image="Class_Fighter">
+                                                                    <color key="titleColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addCharacter:" destination="iaO-LR-tkK" eventType="touchUpInside" id="CLP-69-Ac5"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Ges-QP-kie" secondAttribute="trailing" id="5pd-Um-OQf"/>
+                                            <constraint firstItem="Ges-QP-kie" firstAttribute="top" secondItem="WJg-tc-gr7" secondAttribute="top" id="NxC-Pe-ZdE"/>
+                                            <constraint firstItem="Ges-QP-kie" firstAttribute="height" secondItem="WJg-tc-gr7" secondAttribute="height" priority="250" id="cu9-XD-KCT"/>
+                                            <constraint firstItem="Ges-QP-kie" firstAttribute="leading" secondItem="WJg-tc-gr7" secondAttribute="leading" id="dht-qY-K15"/>
+                                            <constraint firstItem="Ges-QP-kie" firstAttribute="width" secondItem="WJg-tc-gr7" secondAttribute="width" id="jZ9-30-t7L"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ges-QP-kie" secondAttribute="bottom" id="p0L-vS-VW3"/>
+                                        </constraints>
+                                    </scrollView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="WJg-tc-gr7" secondAttribute="bottom" id="Axb-zR-bfy"/>
+                                    <constraint firstItem="WJg-tc-gr7" firstAttribute="leading" secondItem="21X-vG-nSh" secondAttribute="leading" id="XNe-wf-zo4"/>
+                                    <constraint firstAttribute="trailing" secondItem="WJg-tc-gr7" secondAttribute="trailing" id="aNR-hN-YqX"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -298,7 +406,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sw2-eo-4G9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZF8-tt-UkQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2735" y="-1391"/>
+            <point key="canvasLocation" x="2733.5999999999999" y="-1391.3793103448277"/>
         </scene>
         <!--Spells Table View Controller-->
         <scene sceneID="HsT-vi-8x1">
@@ -975,7 +1083,29 @@
             </objects>
             <point key="canvasLocation" x="1377" y="1009"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d45-Cd-g7w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IQH-aq-6bc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nLu-m7-WmB">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mId-bz-VoO" kind="relationship" relationship="rootViewController" id="iUP-Fj-faU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oXb-JP-Kvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2792.8000000000002" y="-651.72413793103453"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Class_Fighter" width="245.75999450683594" height="245.75999450683594"/>
+        <image name="Class_Fighter_Selected" width="1024" height="1024"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="o4M-Ra-Uo7"/>
         <segue reference="Sgv-Wu-lbE"/>
