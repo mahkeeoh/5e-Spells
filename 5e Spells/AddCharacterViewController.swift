@@ -31,6 +31,7 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
         border.borderWidth = width
         nameTextField.layer.addSublayer(border)
         nameTextField.layer.masksToBounds = true
+        nameTextField.textColor = Constants.textColor
         
         // Set up notification to change view when keyboard appears
         NotificationCenter.default.addObserver(

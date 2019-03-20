@@ -53,9 +53,10 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Spells"
-        navigationItem.leftBarButtonItem?.tintColor = Constants.buttonColor
         navigationItem.searchController = searchController
+        navigationItem.title = tabBarItem.title
         definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false // This should be fix to have search bar always appear
         searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
         searchController.searchBar.tintColor = Constants.buttonColor
@@ -74,8 +75,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
 
         
         // set navigation bar back button
-        navigationItem.backBarButtonItem?.title = tabBar.title
-        navigationItem.backBarButtonItem?.tintColor = Constants.buttonColor
+       // navigationItem.backBarButtonItem?.title = tabBar.title
+        
+      //  navigationItem.backBarButtonItem?.tintColor = Constants.navButtonColor
         title = tabBar.title
         
     }
@@ -129,7 +131,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         })
         
         allSpellsButton.title = "All Spells"
-        allSpellsButton.tintColor = Constants.buttonColor
+        allSpellsButton.tintColor = Constants.navButtonColor
         
         title = "Class Spells"
     }
@@ -205,7 +207,17 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             sortByClass()
         }
         
-       spells =  checkSpellFilters(spells)
+        spells =  checkSpellFilters(spells)
+        
+        // animate tableview appearing
+        let trans = CATransform3DMakeTranslation(-tableView.frame.size.width, 0.0, 0.0)
+        tableView.layer.transform = trans
+        
+        UIView.beginAnimations("Move", context: nil)
+        UIView.setAnimationDuration(0.3)
+        // UIView.setAnimationDelay(0.1 * Double(indexPath.row))
+        tableView.layer.transform = CATransform3DIdentity
+        UIView.commitAnimations()
         
     }
     
@@ -282,6 +294,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.lineBreakMode = .byWordWrapping
             noDataLabel.numberOfLines = 0
+            noDataLabel.textColor = Constants.textColor
             if ((tabBar.title == "Prepared Spells") && (character.characterClass == "Wizard")) {
                 noDataLabel.text = "No Spells Prepared, add some from the Spellbook tab below!"
             }
@@ -291,8 +304,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             else {
                 noDataLabel.text = "No Spells Known, add some from the Class Spells tab below!"
             }
-            
-            noDataLabel.textColor = UIColor.black
+
             noDataLabel.textAlignment = .center
             tableView.backgroundView = noDataLabel
             tableView.separatorStyle = .none
@@ -329,21 +341,25 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         else {
             spell = spells.filter({$0.level == sections[indexPath.section]})[indexPath.row]
         }
-        cell.name.text = spell.name
-        cell.level.text = spell.castingTime + ", " + spell.range
+        cell.nameLabel.text = spell.name
+        cell.nameLabel.textColor = Constants.textColor
+        cell.actionTypeLabel.text = spell.castingTime
+        cell.actionTypeLabel.textColor = Constants.textColor
+        cell.rangeLabel.text = spell.range
+        cell.rangeLabel.textColor = Constants.textColor
         if (spell.concentration == "yes") {
-            cell.level.text = cell.level.text! + "  \u{00A9}"
+            cell.actionTypeLabel.text = cell.actionTypeLabel.text! + "  \u{00A9}"
         }
-        cell.imageView?.image = UIImage(named: spell.school)
+        cell.schoolImage.image = UIImage(named: spell.school)
         cell.addSpellButton.tintColor = Constants.buttonColor
-        cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
+        cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
         
         // change button to checkmark if spell is in prepared/known/wizardknown list
-        if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.name.text})) {
+        if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
             cell.addSpellButton?.setTitle("✓", for: .normal)
             
             // Check wizard's case, only show added in spellbook if it is also prepared
-            if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.name.text})) {
+            if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
                 cell.addSpellButton?.setTitle("+", for: .normal)
             }
         }
@@ -362,11 +378,11 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
     
     // only edit spells outside of class list
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return ((tabBar.title != "Class Spells") || tabBar.title != "All Spells")
+        return !((tabBar.title == "Class Spells") || tabBar.title == "All Spells")
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) && ((tabBar.title != "Class Spells") || tabBar.title != "All Spells") {
+        if (editingStyle == .delete) && !((tabBar.title == "Class Spells") || tabBar.title == "All Spells") {
             
             // First find name of spell (depending on if currently filtering or not)
             var spellName: String?
@@ -538,8 +554,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
     func spellButtonPressed(cell: SpellTableViewCell) {
         
         // Provide haptic feedback when added/removed
-        let selection = UISelectionFeedbackGenerator()
-        selection.selectionChanged()
+        let selection = UIImpactFeedbackGenerator()
+        //selection.selectionChanged()
+        selection.impactOccurred()
         
         // Determine which spell is being selected
         let indexPath = tableView.indexPath(for: cell)

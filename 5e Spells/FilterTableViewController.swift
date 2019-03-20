@@ -9,11 +9,24 @@
 import UIKit
 
 class FilterTableViewController: DesignOfTableViewController {
-
+    
+    // Add connection to cells to set color
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var castingLabel: UILabel!
+    @IBOutlet weak var schoolLabel: UILabel!
+    @IBOutlet weak var rangeLabel: UILabel!
+    @IBOutlet weak var concentrationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setFilterTypes()
+        levelLabel.textColor = Constants.textColor
+        castingLabel.textColor = Constants.textColor
+        schoolLabel.textColor = Constants.textColor
+        rangeLabel.textColor = Constants.textColor
+        concentrationLabel.textColor = Constants.textColor
+        navigationController?.navigationBar.tintColor = Constants.navButtonColor
         
         // Add Reset button
         let resetButton = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetFilters))
@@ -47,7 +60,6 @@ class FilterTableViewController: DesignOfTableViewController {
         setFilterTypes()
         navigationController?.popViewController(animated: true)
     }
-    
     
     // Navigation to detail view
 

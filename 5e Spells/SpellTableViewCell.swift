@@ -10,14 +10,16 @@ import UIKit
 
 class SpellTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var level: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var actionTypeLabel: UILabel!
+    @IBOutlet weak var rangeLabel: UILabel!
     @IBOutlet weak var addSpellButton: UIButton!
     @IBOutlet weak var schoolImage: UIImageView!
-    
-    @IBAction func spellButtonPressed(_ sender: UIButton) {
+ 
+    @IBAction func spellButtonPressed(_ sender: Any) {
         delegate?.spellButtonPressed(cell: self)
     }
+    
     
     var delegate: SpellCellDelegate?
     

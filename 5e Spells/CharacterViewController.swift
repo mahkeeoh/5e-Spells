@@ -31,7 +31,7 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
             // Set up background label if table is empty
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text = "Add a character with the + button below"
-            noDataLabel.textColor = UIColor.black
+            noDataLabel.textColor = Constants.textColor
             noDataLabel.textAlignment = .center
             tableView.backgroundView = noDataLabel
             tableView.separatorStyle = .none
@@ -57,7 +57,9 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
 
         let character = characterModel.characters[indexPath.row]
         cell.textLabel?.text = character.characterName
+        cell.textLabel?.textColor = Constants.textColor
         cell.detailTextLabel?.text = character.characterClass
+        cell.detailTextLabel?.textColor = Constants.textColor
 
         return cell
     }

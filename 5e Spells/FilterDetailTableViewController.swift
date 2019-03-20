@@ -50,6 +50,8 @@ class FilterDetailTableViewController: DesignOfTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterDetailCell", for: indexPath)
 
         cell.textLabel?.text = filterValues[filterType!][indexPath.row]
+        cell.textLabel?.textColor = Constants.textColor
+        cell.tintColor = Constants.buttonColor
         if (checkCurrentlyFiltered(cellText: cell.textLabel?.text ?? "")) {
             cell.accessoryType = .checkmark
         }

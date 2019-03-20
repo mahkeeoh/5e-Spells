@@ -16,7 +16,7 @@ class DesignOfTableViewController: UITableViewController {
             navCon.navigationBar.barTintColor = Constants.barColor
             navCon.navigationBar.titleTextAttributes = Constants.textAttributes
             navCon.navigationBar.largeTitleTextAttributes = Constants.textAttributes
-            navCon.navigationBar.tintColor = Constants.buttonColor
+            navCon.navigationBar.tintColor =  Constants.navButtonColor
         }
     }
     
@@ -30,7 +30,7 @@ class DesignOfViewController: UIViewController {
             navCon.navigationBar.barTintColor = Constants.barColor
             navCon.navigationBar.titleTextAttributes = Constants.textAttributes
             navCon.navigationBar.largeTitleTextAttributes = Constants.textAttributes
-            navCon.navigationBar.tintColor = Constants.buttonColor
+            navCon.navigationBar.tintColor = Constants.navButtonColor
         }
     }
 }
@@ -42,7 +42,7 @@ class DesignOfTabBarController: UITabBarController {
             navCon.navigationBar.barTintColor = Constants.barColor
             navCon.navigationBar.titleTextAttributes = Constants.textAttributes
             navCon.navigationBar.largeTitleTextAttributes = Constants.textAttributes
-           navCon.navigationBar.tintColor = Constants.buttonColor
+           navCon.navigationBar.tintColor = Constants.navButtonColor
 
         }
         tabBar.barTintColor = Constants.barColor
