@@ -17,7 +17,18 @@ class DesignOfTableViewController: UITableViewController {
             navCon.navigationBar.titleTextAttributes = Constants.textAttributes
             navCon.navigationBar.largeTitleTextAttributes = Constants.textAttributes
             navCon.navigationBar.tintColor =  Constants.navButtonColor
+            
+            createGradientLayer()
         }
+        
+    }
+
+    // Set gradient for navigation bar
+    func createGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = Constants.gradientColor
+       // navigationController?.navigationBar.setBackgroundImage(self.image, for: <#T##UIBarPosition#>, barMetrics: <#T##UIBarMetrics#>)
     }
     
     

@@ -49,12 +49,21 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         loadSpells()
         
+        // Set character icon button
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "CharacterIcon"), for: .normal)
+        button.addTarget(self, action: #selector(returnToCharacters(_:)), for: .touchUpInside)
+        button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
+        
         // Set search bar parameters
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Spells"
         navigationItem.searchController = searchController
-        navigationItem.title = tabBarItem.title
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false // This should be fix to have search bar always appear
         searchController.searchBar.delegate = self
@@ -72,18 +81,12 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
                 backgroundview.clipsToBounds = true;
             }
         }
-
-        
-        // set navigation bar back button
-       // navigationItem.backBarButtonItem?.title = tabBar.title
-        
-      //  navigationItem.backBarButtonItem?.tintColor = Constants.navButtonColor
-        title = tabBar.title
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+
         // reload character data in case something changed while changing between tabs
         if let tabBarController = tabBarController as? SpellTabBarController {
             let index = tabBarController.index!
@@ -105,15 +108,8 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         spells = checkSpellFilters(spells)
         
-        // Set search bar to appear initially
-       // navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
-    /*override func viewDidAppear(_ animated: Bool) {
-        // Hide search bar while scrolling
-        navigationItem.hidesSearchBarWhenScrolling = true
-    }*/
-    
+
     // Mark: - Spell Preparation
     
     func loadSpells() {
@@ -351,26 +347,38 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             cell.actionTypeLabel.text = cell.actionTypeLabel.text! + "  \u{00A9}"
         }
         cell.schoolImage.image = UIImage(named: spell.school)
-        cell.addSpellButton.tintColor = Constants.buttonColor
-        cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+       // cell.addSpellButton.tintColor = Constants.buttonColor
+       // cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
         
         // change button to checkmark if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
-            cell.addSpellButton?.setTitle("✓", for: .normal)
+          //  cell.addSpellButton?.setTitle("✓", for: .normal)
+            let image = UIImage(named: "CheckButton")
+            let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.addSpellButton.setImage(renderedImage, for: .normal)
             
             // Check wizard's case, only show added in spellbook if it is also prepared
             if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
-                cell.addSpellButton?.setTitle("+", for: .normal)
+                //cell.addSpellButton?.setTitle("+", for: .normal)
+                let image = UIImage(named: "PlusButton")
+                let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                cell.addSpellButton.setImage(renderedImage, for: .normal)
             }
         }
         else {
-            cell.addSpellButton.setTitle("+", for: .normal)
+            //cell.addSpellButton.setTitle("+", for: .normal)
+            let image = UIImage(named: "PlusButton")
+            let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.addSpellButton.setImage(renderedImage, for: .normal)
         }
         
         // Don't show button in Prepared/Known Spells tab
         if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
             cell.addSpellButton.isHidden = true
         }
+        
+        cell.addSpellButton.tintColor = Constants.buttonColor
+        cell.addSpellButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
 
         return cell
     }

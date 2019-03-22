@@ -22,6 +22,7 @@ class SpellTableViewCell: UITableViewCell {
     
     
     var delegate: SpellCellDelegate?
+
     
 }
 

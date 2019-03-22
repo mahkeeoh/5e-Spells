@@ -22,5 +22,6 @@ struct Constants {
     static let navButtonColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     static let headerColor = #colorLiteral(red: 0.9211695194, green: 0.9211695194, blue: 0.9211695194, alpha: 1)
     static let textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+    static let gradientColor = [UIColor.init(displayP3Red: 125, green: 100, blue: 201, alpha: 1), UIColor.init(displayP3Red: 182, green: 141, blue: 221, alpha: 1   )]
     
 }

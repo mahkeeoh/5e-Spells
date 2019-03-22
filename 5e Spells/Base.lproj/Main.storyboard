@@ -455,12 +455,13 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv3-xa-hga">
-                                            <rect key="frame" x="363" y="22.333333333333329" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv3-xa-hga">
+                                            <rect key="frame" x="364" y="15" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="VC9-Zy-9eI"/>
+                                                <constraint firstAttribute="width" secondItem="zv3-xa-hga" secondAttribute="height" multiplier="1:1" id="Gha-VJ-vyZ"/>
+                                                <constraint firstAttribute="width" constant="45" id="VC9-Zy-9eI"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" image="PlusButton"/>
                                             <connections>
                                                 <action selector="spellButtonPressed:" destination="wEu-lH-zLD" eventType="touchDown" id="6B2-pT-243"/>
                                             </connections>
@@ -499,12 +500,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UZW-iL-DRg">
-                        <barButtonItem key="backBarButtonItem" title="All Spells" id="ztQ-DC-Zh4"/>
-                        <barButtonItem key="leftBarButtonItem" image="CharacterIcon" id="KE9-Di-sPV">
-                            <connections>
-                                <action selector="returnToCharacters:" destination="DT7-UZ-okk" id="FvO-Wq-aa6"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="All Spells" id="twI-N4-Izh">
                             <connections>
                                 <action selector="allSpellsButtonClicked:" destination="DT7-UZ-okk" id="ZjR-SN-pZR"/>
@@ -943,12 +938,13 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fr-Al-xEM">
-                                            <rect key="frame" x="363" y="22.333333333333329" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fr-Al-xEM">
+                                            <rect key="frame" x="364" y="15" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="Z2R-0a-kFG"/>
+                                                <constraint firstAttribute="width" secondItem="4fr-Al-xEM" secondAttribute="height" multiplier="1:1" id="VU9-GD-reI"/>
+                                                <constraint firstAttribute="width" constant="45" id="Z2R-0a-kFG"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" image="PlusButton"/>
                                             <connections>
                                                 <action selector="spellButtonPressed:" destination="JXo-8r-Iry" eventType="touchDown" id="NT2-tH-wyh"/>
                                             </connections>
@@ -986,14 +982,7 @@
                             <outlet property="delegate" destination="c8W-MA-fiA" id="F7G-Ob-71O"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sv3-kg-gkG">
-                        <barButtonItem key="backBarButtonItem" title="Prepared Spells" id="uy5-ve-9Ps"/>
-                        <barButtonItem key="leftBarButtonItem" image="CharacterIcon" id="iIb-2e-ddY">
-                            <connections>
-                                <action selector="returnToCharacters:" destination="c8W-MA-fiA" id="YqP-gB-axb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="sv3-kg-gkG"/>
                     <connections>
                         <segue destination="egW-JU-pTJ" kind="show" identifier="filterVC" id="o4M-Ra-Uo7"/>
                     </connections>
@@ -1002,11 +991,11 @@
             </objects>
             <point key="canvasLocation" x="3048.8000000000002" y="345.81280788177344"/>
         </scene>
-        <!--Prepared Spells-->
+        <!--Navigation Controller-->
         <scene sceneID="BIN-CQ-a0C">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N6h-Fw-x6K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Prepared Spells" id="HLr-Q9-xDZ"/>
+                    <tabBarItem key="tabBarItem" title="" id="HLr-Q9-xDZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="E6Y-n9-HiW">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
@@ -1021,11 +1010,11 @@
             </objects>
             <point key="canvasLocation" x="1910" y="308"/>
         </scene>
-        <!--Class Spells-->
+        <!--Navigation Controller-->
         <scene sceneID="9mZ-go-mcz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yyi-Cc-usr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Class Spells" id="rRK-5r-ZjZ"/>
+                    <tabBarItem key="tabBarItem" title="" id="rRK-5r-ZjZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pjJ-WN-9cj">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
@@ -1079,12 +1068,13 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcj-85-CsN">
-                                            <rect key="frame" x="363" y="22.333333333333329" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcj-85-CsN">
+                                            <rect key="frame" x="364" y="15" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="siL-s1-HJO"/>
+                                                <constraint firstAttribute="width" secondItem="Gcj-85-CsN" secondAttribute="height" multiplier="1:1" id="3qA-Wu-QUW"/>
+                                                <constraint firstAttribute="width" constant="45" id="siL-s1-HJO"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" image="PlusButton"/>
                                             <connections>
                                                 <action selector="spellButtonPressed:" destination="pUG-Ia-00u" eventType="touchDown" id="Woh-xZ-Cst"/>
                                             </connections>
@@ -1122,14 +1112,7 @@
                             <outlet property="delegate" destination="yT4-i2-dsB" id="1dZ-wt-V3W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="udN-MC-0bK">
-                        <barButtonItem key="backBarButtonItem" title="All Spells" id="nI6-Ib-Nlg"/>
-                        <barButtonItem key="leftBarButtonItem" image="CharacterIcon" id="TO4-Q1-eGV">
-                            <connections>
-                                <action selector="returnToCharacters:" destination="yT4-i2-dsB" id="bLI-pk-phf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="udN-MC-0bK"/>
                     <connections>
                         <segue destination="egW-JU-pTJ" kind="show" identifier="filterVC" id="WXs-xd-CyR"/>
                     </connections>
@@ -1138,11 +1121,11 @@
             </objects>
             <point key="canvasLocation" x="2252" y="1008.6206896551724"/>
         </scene>
-        <!--Spellbook-->
+        <!--Navigation Controller-->
         <scene sceneID="jiY-OO-1wV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uBe-r6-zx2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Spellbook" id="ykR-Ns-fGf"/>
+                    <tabBarItem key="tabBarItem" title="" id="ykR-Ns-fGf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bJ0-IQ-A1D">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
@@ -1177,12 +1160,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CharacterIcon" width="50" height="50"/>
         <image name="Class_Fighter" width="512" height="512"/>
         <image name="Class_Fighter_Selected" width="512" height="512"/>
+        <image name="PlusButton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WXs-xd-CyR"/>
-        <segue reference="TUn-ds-rG8"/>
+        <segue reference="o4M-Ra-Uo7"/>
+        <segue reference="Lfx-vD-wPd"/>
     </inferredMetricsTieBreakers>
 </document>
