@@ -344,7 +344,12 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         cell.rangeLabel.text = spell.range
         cell.rangeLabel.textColor = Constants.textColor
         if (spell.concentration == "yes") {
-            cell.actionTypeLabel.text = cell.actionTypeLabel.text! + "  \u{00A9}"
+            //cell.actionTypeLabel.text = cell.actionTypeLabel.text! + "  \u{00A9}"
+            let image = UIImage(named: "ConcentrationImage")
+            let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.concentrationImage.image = renderedImage
+            cell.concentrationImage.tintColor = Constants.buttonColor
+           // cell.concentrationImage.image.im
         }
         cell.schoolImage.image = UIImage(named: spell.school)
        // cell.addSpellButton.tintColor = Constants.buttonColor

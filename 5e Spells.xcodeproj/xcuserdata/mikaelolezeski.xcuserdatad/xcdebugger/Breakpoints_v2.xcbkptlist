@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.42557"
+            timestampString = "574923951.77798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "548"
-            endingLineNumber = "548"
+            startingLineNumber = "553"
+            endingLineNumber = "553"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.426158"
+            timestampString = "574923951.778206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.426568"
+            timestampString = "574923951.778304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -148,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.427001"
+            timestampString = "574923951.778392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -164,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.4274679"
+            timestampString = "574923951.778479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.42784"
+            timestampString = "574923951.778565"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "563"
-            endingLineNumber = "563"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "spellButtonPressed(cell:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.428211"
+            timestampString = "574923951.778627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,11 +212,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "5e Spells/SpellsTableViewController.swift"
-            timestampString = "574748008.428452"
+            timestampString = "574923951.778688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "5e Spells/SpellsTableViewController.swift"
+            timestampString = "574923951.778746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
