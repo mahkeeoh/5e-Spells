@@ -49,15 +49,19 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         loadSpells()
         
-        // Set character icon button
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "CharacterIcon"), for: .normal)
-        button.addTarget(self, action: #selector(returnToCharacters(_:)), for: .touchUpInside)
-        button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        // Set footer so blank cells don't show
+        tableView.tableFooterView = UIView()
         
-        let barButton = UIBarButtonItem(customView: button)
+        // Set character icon button
+        let characterButton = UIButton(type: .custom)
+        characterButton.setImage(UIImage(named: "CharacterIcon"), for: .normal)
+        characterButton.addTarget(self, action: #selector(returnToCharacters(_:)), for: .touchUpInside)
+        characterButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        
+        let leftBarButton = UIBarButtonItem(customView: characterButton)
         //assign button to navigationbar
-        self.navigationItem.leftBarButtonItem = barButton
+        navigationItem.leftBarButtonItem = leftBarButton
+        
         
         // Set search bar parameters
         searchController.searchResultsUpdater = self
@@ -121,6 +125,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         }
     }
     
+    
     func sortByClass() {
         spells = spells.filter( {(spell: Spell) -> Bool in
             return spell.classes.contains(character!.spellList)
@@ -146,7 +151,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
                 if ((filterType[category]?.count != nil) && (filterType[category]?.count != 0)) {
                     count += 1
                     // Show view that alerts user a filter is in use
-                    tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20.0)
+                   // tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20.0)
                     let filterDetails = filterType[category]
                     // grab those filters and filter the spells associated
                     var tempSpells: [Spell] = []
@@ -166,6 +171,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         }
         // If no filters are in use, hide filter notification view
         if count > 0 {
+            tableView.tableHeaderView?.isHidden = false
             tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0)
             tableView.tableHeaderView?.backgroundColor = .gray
             let textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
@@ -176,9 +182,28 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             tableView.tableHeaderView?.addSubview(textBox)
         }
         else {
-            tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0.0)
+           // tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0.0)
+            tableView.tableHeaderView?.isHidden = true
         }
         return newSpells
+    }
+    
+    // Setup "Clear Spells" button
+    @IBOutlet weak var clearSpellsButton: UIBarButtonItem!
+    @IBAction func clearSpellsButtonClicked(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Clear all prepared spells?", message: "Are you sure you want to clear all of your prepared spells?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.character.preparedOrKnownSpells.removeAll()
+            self.spells = self.character!.preparedOrKnownSpells
+            self.tableView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+            return
+        }))
+        
+        present(alert, animated: true)
     }
     
     

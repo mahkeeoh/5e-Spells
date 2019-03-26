@@ -13,6 +13,7 @@ class FilterDetailTableViewController: DesignOfTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
     }
     
     var filterType: Int?
