@@ -26,15 +26,16 @@ class SpellTabBarController: DesignOfTabBarController {
             if let spellVC = viewController.content as? SpellsTableViewController {
                 spellVC.character = characterModel.characters[index]
                 
-                // set first tab to either prepared or known
-              /*  if isFirstVC {
-                    spellVC.title = classTabName
-                    isFirstVC = false
-                }*/
                 switch count {
-                case 0: spellVC.title = classTabName
-                case 1: spellVC.title = "Spellbook"
-                default: spellVC.title = "Class Spells"
+                case 0:
+                    spellVC.title = classTabName
+                    spellVC.tabBarController?.tabBar.items?[0].image = UIImage(named: "PreparedTabImage")
+                case 1:
+                    spellVC.title = "Spellbook"
+                    spellVC.tabBarController?.tabBar.items?[1].image = UIImage(named: "SpellbookTabImage")
+                default:
+                    spellVC.title = "Class Spells"
+                    spellVC.tabBarController?.tabBar.items?[2].image = UIImage(named: "ClassTabImage")
                 }
                 
                 count += 1

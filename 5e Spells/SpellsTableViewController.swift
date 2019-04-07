@@ -73,7 +73,13 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
         searchController.searchBar.tintColor = Constants.buttonColor
-        searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
+        
+        let filterImage = UIImage(named: "FilterIcon")
+        let filterImageView = UIImageView(image: filterImage)
+        filterImageView.image = filterImageView.image?.withRenderingMode(.alwaysTemplate)
+        filterImageView.tintColor = Constants.buttonColor
+        searchController.searchBar.setImage(filterImageView.image, for: .bookmark, state: .normal)
+       // searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
         if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             if let backgroundview = textFieldInsideSearchBar.subviews.first {
                 

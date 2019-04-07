@@ -21,11 +21,14 @@
 		2655044B2113AF6200F6C4EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655044A2113AF6200F6C4EF /* Constants.swift */; };
 		2660BBF420F1769A00F15D7A /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */; };
 		2660BBF620F301F900F15D7A /* FilterDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */; };
+		26765DDF2255A9BE00568435 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26765DDE2255A9BE00568435 /* StoreKit.framework */; };
+		26765DE12255AAE100568435 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26765DE02255AAE100568435 /* IAPHelper.swift */; };
 		269C1AB720462B6400412C7B /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB620462B6400412C7B /* CharacterViewController.swift */; };
 		269C1AB920462C4800412C7B /* AddCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB820462C4800412C7B /* AddCharacterViewController.swift */; };
 		269C1ABC2047AA3A00412C7B /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */; };
 		26C30C1C204B001F00A6E990 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C30C1B204B001F00A6E990 /* Character.swift */; };
 		26C30C1E204B1F2800A6E990 /* SpellTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */; };
+		26F0C363224DAE8100A5C5AA /* AppPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,11 +48,14 @@
 		2655044A2113AF6200F6C4EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetailTableViewController.swift; sourceTree = "<group>"; };
+		26765DDE2255A9BE00568435 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		26765DE02255AAE100568435 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		269C1AB620462B6400412C7B /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		269C1AB820462C4800412C7B /* AddCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterViewController.swift; sourceTree = "<group>"; };
 		269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		26C30C1B204B001F00A6E990 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTabBarController.swift; sourceTree = "<group>"; };
+		26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPurchaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26765DDF2255A9BE00568435 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +77,7 @@
 				260163EF20364ACB0053FA5B /* Products */,
 				261FE30221FE6AF7003CA651 /* Font */,
 				2601640520364B700053FA5B /* Resources */,
+				26765DDD2255A9BE00568435 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,10 +101,12 @@
 				2601640A20364D240053FA5B /* Spell.swift */,
 				26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */,
 				2601640820364CBD0053FA5B /* SpellsTableViewController.swift */,
+				26765DE02255AAE100568435 /* IAPHelper.swift */,
 				269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */,
 				264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */,
 				2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */,
 				2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */,
+				26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */,
 				260163F520364ACB0053FA5B /* Main.storyboard */,
 				260163F820364ACB0053FA5B /* Assets.xcassets */,
 				260163FD20364ACB0053FA5B /* Info.plist */,
@@ -120,6 +130,14 @@
 				261FE30321FE6B13003CA651 /* ArchitectsDaughter.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		26765DDD2255A9BE00568435 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26765DDE2255A9BE00568435 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +173,11 @@
 					260163ED20364ACB0053FA5B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -200,6 +223,7 @@
 				269C1AB920462C4800412C7B /* AddCharacterViewController.swift in Sources */,
 				2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */,
 				2601640420364B060053FA5B /* ReadJSON.swift in Sources */,
+				26765DE12255AAE100568435 /* IAPHelper.swift in Sources */,
 				269C1AB720462B6400412C7B /* CharacterViewController.swift in Sources */,
 				2601640B20364D240053FA5B /* Spell.swift in Sources */,
 				26C30C1E204B1F2800A6E990 /* SpellTabBarController.swift in Sources */,
@@ -207,6 +231,7 @@
 				260163F220364ACB0053FA5B /* AppDelegate.swift in Sources */,
 				26C30C1C204B001F00A6E990 /* Character.swift in Sources */,
 				2660BBF620F301F900F15D7A /* FilterDetailTableViewController.swift in Sources */,
+				26F0C363224DAE8100A5C5AA /* AppPurchaseViewController.swift in Sources */,
 				2655044B2113AF6200F6C4EF /* Constants.swift in Sources */,
 				265504492113A99100F6C4EF /* DesignOfViews.swift in Sources */,
 				264A4F47203F985600E4BFBF /* SpellDetailViewController.swift in Sources */,

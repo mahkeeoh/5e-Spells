@@ -87,28 +87,28 @@
             </objects>
             <point key="canvasLocation" x="1762.4000000000001" y="-652.46305418719214"/>
         </scene>
-        <!--Design Of View Controller-->
+        <!--App Purchase View Controller-->
         <scene sceneID="Yzz-Jp-PJf">
             <objects>
-                <viewController id="mId-bz-VoO" customClass="DesignOfViewController" customModule="_e_Spells" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mId-bz-VoO" customClass="AppPurchaseViewController" customModule="_e_Spells" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FIK-fJ-4PW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="oww-dx-EhJ">
-                                <rect key="frame" x="0.0" y="263" width="414" height="210.33333333333337"/>
+                                <rect key="frame" x="25" y="245.33333333333337" width="364" height="245.66666666666663"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dEa-av-cfx">
-                                        <rect key="frame" x="13.666666666666657" y="0.0" width="387" height="93.333333333333329"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dEa-av-cfx">
+                                        <rect key="frame" x="25.333333333333343" y="0.0" width="313.33333333333326" height="128.66666666666666"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade now to unlock unlimited characters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjZ-1L-uSt">
-                                                <rect key="frame" x="0.0" y="0.0" width="387" height="48"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade now to unlock unlimited characters and remove ads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjZ-1L-uSt">
+                                                <rect key="frame" x="0.0" y="0.0" width="313.33333333333331" height="48"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for supporting independent developers!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oco-la-e7b">
-                                                <rect key="frame" x="0.0" y="73" width="387" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="87.999999999999972" width="313.33333333333331" height="40.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -116,8 +116,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOl-sT-Gza">
-                                        <rect key="frame" x="107" y="160.33333333333331" width="200" height="50"/>
-                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="82" y="195.66666666666666" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="ILx-Be-hvh"/>
                                             <constraint firstAttribute="height" constant="50" id="xkQ-aT-qZO"/>
@@ -131,14 +130,17 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="upgradeButtonPressed:" destination="mId-bz-VoO" eventType="touchUpInside" id="oJ5-hN-sQP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oww-dx-EhJ" firstAttribute="leading" secondItem="FIK-fJ-4PW" secondAttribute="leading" id="E3Y-IO-4gb"/>
-                            <constraint firstAttribute="trailing" secondItem="oww-dx-EhJ" secondAttribute="trailing" id="XbG-fg-gA7"/>
+                            <constraint firstItem="oww-dx-EhJ" firstAttribute="leading" secondItem="FIK-fJ-4PW" secondAttribute="leading" constant="25" id="E3Y-IO-4gb"/>
+                            <constraint firstAttribute="trailing" secondItem="oww-dx-EhJ" secondAttribute="trailing" constant="25" id="XbG-fg-gA7"/>
                             <constraint firstItem="oww-dx-EhJ" firstAttribute="centerX" secondItem="FIK-fJ-4PW" secondAttribute="centerX" id="aH0-KR-ULX"/>
                             <constraint firstItem="oww-dx-EhJ" firstAttribute="centerY" secondItem="FIK-fJ-4PW" secondAttribute="centerY" id="zbV-oM-3a0"/>
                         </constraints>
@@ -151,6 +153,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailText" destination="Oco-la-e7b" id="XLF-Fw-zRH"/>
+                        <outlet property="headerText" destination="WjZ-1L-uSt" id="bnH-fF-4wj"/>
+                        <outlet property="upgradeButton" destination="uOl-sT-Gza" id="uTd-Y2-3jF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zj-wY-ltE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eIp-DT-1Lh" userLabel="Exit" sceneMemberID="exit"/>
