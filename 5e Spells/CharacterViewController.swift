@@ -102,7 +102,10 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "addCharacterSegue" {
-            if characterModel.characters.count == 0 {
+            //if characterModel.characters.count == 0 {
+            //    return true
+           // }
+            if (SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) || (characterModel.characters.count == 0) {
                 return true
             }
             else {

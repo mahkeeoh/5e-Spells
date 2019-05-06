@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate, UISearchBarDelegate {
     
@@ -39,6 +40,8 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         }
     }
+    
+    // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +95,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             }
         }
         
+        // Check rating request
+        checkRatingRequest()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,13 +125,25 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         spells = checkSpellFilters(spells)
         
     }
+    
+    // Check if it is time to request a rating
+    func checkRatingRequest() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let cc = appDelegate.currentCount
+        if (cc == 10) || (cc == 30) || (cc == 50) {
+            if #available( iOS 10.3,*){
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
 
-    // Mark: - Spell Preparation
+    // MARK: - Spell Preparation
     
     func loadSpells() {
         if let spellJSON = readJson(with: jsonName) as? [Spell] {
             // Load spells from JSON and sort by level by calling segment control
             spells = spellJSON
+            
             sortByLevel()
             
         }
@@ -176,8 +194,19 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             }
         }
         // If no filters are in use, hide filter notification view
+        
+        let newTableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
+        newTableViewHeader.backgroundColor = .gray
+        let textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
+        textBox.text = "Filter Enabled"
+        textBox.textColor = .white
+        textBox.backgroundColor = .gray
+        textBox.textAlignment = .center
+        newTableViewHeader.addSubview(textBox)
+        
         if count > 0 {
-            tableView.tableHeaderView?.isHidden = false
+           /* tableView.tableHeaderView?.isHidden = false
+
             tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0)
             tableView.tableHeaderView?.backgroundColor = .gray
             let textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
@@ -185,11 +214,12 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             textBox.textColor = .white
             textBox.backgroundColor = .gray
             textBox.textAlignment = .center
-            tableView.tableHeaderView?.addSubview(textBox)
+            tableView.tableHeaderView?.addSubview(textBox)*/
+            tableView.tableHeaderView = newTableViewHeader
         }
         else {
-           // tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0.0)
-            tableView.tableHeaderView?.isHidden = true
+          //  tableView.tableHeaderView?.isHidden = true
+            tableView.tableHeaderView = nil
         }
         return newSpells
     }
@@ -197,7 +227,14 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
     // Setup "Clear Spells" button
     @IBOutlet weak var clearSpellsButton: UIBarButtonItem!
     @IBAction func clearSpellsButtonClicked(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Clear all prepared spells?", message: "Are you sure you want to clear all of your prepared spells?", preferredStyle: .alert)
+        
+        var alert: UIAlertController
+        if (tabBar.title == "Prepared Spells") {
+            alert = UIAlertController(title: "Clear all prepared spells?", message: "Are you sure you want to clear all of your prepared spells?", preferredStyle: .alert)
+        }
+        else {
+            alert = UIAlertController(title: "Clear all known spells?", message: "Are you sure you want to clear all of your known spells?", preferredStyle: .alert)
+        }
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             self.character.preparedOrKnownSpells.removeAll()
@@ -558,7 +595,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         return levelText
     }
     
-    // Mark: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "spellDetail" {

@@ -19,6 +19,7 @@
 		264A4F47203F985600E4BFBF /* SpellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */; };
 		265504492113A99100F6C4EF /* DesignOfViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265504482113A99100F6C4EF /* DesignOfViews.swift */; };
 		2655044B2113AF6200F6C4EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655044A2113AF6200F6C4EF /* Constants.swift */; };
+		265B97C82263D39B00B8E4A4 /* SpellProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265B97C72263D39B00B8E4A4 /* SpellProducts.swift */; };
 		2660BBF420F1769A00F15D7A /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */; };
 		2660BBF620F301F900F15D7A /* FilterDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */; };
 		26765DDF2255A9BE00568435 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26765DDE2255A9BE00568435 /* StoreKit.framework */; };
@@ -46,6 +47,7 @@
 		264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailViewController.swift; sourceTree = "<group>"; };
 		265504482113A99100F6C4EF /* DesignOfViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfViews.swift; sourceTree = "<group>"; };
 		2655044A2113AF6200F6C4EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		265B97C72263D39B00B8E4A4 /* SpellProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellProducts.swift; sourceTree = "<group>"; };
 		2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetailTableViewController.swift; sourceTree = "<group>"; };
 		26765DDE2255A9BE00568435 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -101,12 +103,13 @@
 				2601640A20364D240053FA5B /* Spell.swift */,
 				26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */,
 				2601640820364CBD0053FA5B /* SpellsTableViewController.swift */,
-				26765DE02255AAE100568435 /* IAPHelper.swift */,
 				269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */,
 				264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */,
 				2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */,
 				2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */,
 				26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */,
+				26765DE02255AAE100568435 /* IAPHelper.swift */,
+				265B97C72263D39B00B8E4A4 /* SpellProducts.swift */,
 				260163F520364ACB0053FA5B /* Main.storyboard */,
 				260163F820364ACB0053FA5B /* Assets.xcassets */,
 				260163FD20364ACB0053FA5B /* Info.plist */,
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				265B97C82263D39B00B8E4A4 /* SpellProducts.swift in Sources */,
 				269C1ABC2047AA3A00412C7B /* SpellTableViewCell.swift in Sources */,
 				269C1AB920462C4800412C7B /* AddCharacterViewController.swift in Sources */,
 				2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */,
@@ -379,6 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YZ54TVF57;
 				INFOPLIST_FILE = "5e Spells/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zestyflav.-e-Spells";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -396,6 +401,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YZ54TVF57;
 				INFOPLIST_FILE = "5e Spells/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zestyflav.-e-Spells";
 				PRODUCT_NAME = "$(TARGET_NAME)";
