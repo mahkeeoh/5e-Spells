@@ -88,35 +88,35 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
         var classUnselecteddImageTitle = ""
         switch characterClass {
         case "Bard":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Bard_Selected"
+            classUnselecteddImageTitle = "Class_Bard"
         case "Cleric":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Cleric_Selected"
+            classUnselecteddImageTitle = "Class_Cleric"
         case "Druid":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Druid_Selected"
+            classUnselecteddImageTitle = "Class_Druid"
         case "Fighter":
             classSelectedImageTitle = "Class_Fighter_Selected"
             classUnselecteddImageTitle = "Class_Fighter"
         case "Paladin":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Paladin_Selected"
+            classUnselecteddImageTitle = "Class_Paladin"
         case "Ranger":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Ranger_Selected"
+            classUnselecteddImageTitle = "Class_Ranger"
         case "Rogue":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Rogue_Selected"
+            classUnselecteddImageTitle = "Class_Rogue"
         case "Sorcerer":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Sorcerer_Selected"
+            classUnselecteddImageTitle = "Class_Sorcerer"
         case "Warlock":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Warlock_Selected"
+            classUnselecteddImageTitle = "Class_Warlock"
         case "Wizard":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
+            classSelectedImageTitle = "Class_Wizard_Selected"
+            classUnselecteddImageTitle = "Class_Wizard"
         default:
             break
         }

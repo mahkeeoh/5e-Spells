@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let characterVC = window?.rootViewController?.content as? CharacterViewController {
             characterVC.characterModel = CharacterModelController()
         }
+        
+        // Setting up google ads
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // get current number of times app has been launched
         currentCount = UserDefaults.standard.integer(forKey: "launchCount")
