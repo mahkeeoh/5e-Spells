@@ -27,6 +27,7 @@
 		269C1AB720462B6400412C7B /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB620462B6400412C7B /* CharacterViewController.swift */; };
 		269C1AB920462C4800412C7B /* AddCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB820462C4800412C7B /* AddCharacterViewController.swift */; };
 		269C1ABC2047AA3A00412C7B /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */; };
+		26A717532295028E006855EC /* CharacterViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A717522295028E006855EC /* CharacterViewControllerCell.swift */; };
 		26C30C1C204B001F00A6E990 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C30C1B204B001F00A6E990 /* Character.swift */; };
 		26C30C1E204B1F2800A6E990 /* SpellTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */; };
 		26F0C363224DAE8100A5C5AA /* AppPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */; };
@@ -57,6 +58,7 @@
 		269C1AB620462B6400412C7B /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		269C1AB820462C4800412C7B /* AddCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterViewController.swift; sourceTree = "<group>"; };
 		269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
+		26A717522295028E006855EC /* CharacterViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewControllerCell.swift; sourceTree = "<group>"; };
 		26C30C1B204B001F00A6E990 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTabBarController.swift; sourceTree = "<group>"; };
 		26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPurchaseViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				260163F120364ACB0053FA5B /* AppDelegate.swift */,
 				269C1AB620462B6400412C7B /* CharacterViewController.swift */,
+				26A717522295028E006855EC /* CharacterViewControllerCell.swift */,
 				269C1AB820462C4800412C7B /* AddCharacterViewController.swift */,
 				26C30C1B204B001F00A6E990 /* Character.swift */,
 				265504482113A99100F6C4EF /* DesignOfViews.swift */,
@@ -315,6 +318,7 @@
 				2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */,
 				2601640420364B060053FA5B /* ReadJSON.swift in Sources */,
 				26765DE12255AAE100568435 /* IAPHelper.swift in Sources */,
+				26A717532295028E006855EC /* CharacterViewControllerCell.swift in Sources */,
 				269C1AB720462B6400412C7B /* CharacterViewController.swift in Sources */,
 				2601640B20364D240053FA5B /* Spell.swift in Sources */,
 				26C30C1E204B1F2800A6E990 /* SpellTabBarController.swift in Sources */,

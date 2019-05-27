@@ -14,6 +14,7 @@ struct Character: Codable {
     var preparedOrKnownSpells: [Spell]
     var wizardKnownSpells: [Spell]
     var spellList: String
+    var imageString: String
 }
 
 class CharacterModelController {

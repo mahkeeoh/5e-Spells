@@ -13,6 +13,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
     
     
     var tabBar = UITabBarItem()
+    var textBox = UITextView()
     
     // Variables for filter parameters
     var spellDetailsFilter:[[String: [String]]] = []
@@ -75,7 +76,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         navigationItem.hidesSearchBarWhenScrolling = false // This should be fix to have search bar always appear
         searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
+        
         searchController.searchBar.tintColor = Constants.buttonColor
+        
         
         let filterImage = UIImage(named: "FilterIcon")
         let filterImageView = UIImageView(image: filterImage)
@@ -133,6 +136,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         if (cc == 10) || (cc == 30) || (cc == 50) {
             if #available( iOS 10.3,*){
                 SKStoreReviewController.requestReview()
+                appDelegate.currentCount? += 1
             }
         }
     }
@@ -197,11 +201,15 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         let newTableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
         newTableViewHeader.backgroundColor = .gray
-        let textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
+        textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
         textBox.text = "Filter Enabled"
+        textBox.font = UIFont(name: Constants.font, size: 15)
         textBox.textColor = .white
         textBox.backgroundColor = .gray
         textBox.textAlignment = .center
+        
+        textBox.contentOffset.y = 4
+        
         newTableViewHeader.addSubview(textBox)
         
         if count > 0 {
@@ -348,6 +356,10 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         }
         return 40
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0
+    }
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -420,29 +432,28 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
            // cell.concentrationImage.image.im
         }
         cell.schoolImage.image = UIImage(named: spell.school)
-       // cell.addSpellButton.tintColor = Constants.buttonColor
-       // cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+
         
         // change button to checkmark if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
-          //  cell.addSpellButton?.setTitle("✓", for: .normal)
             let image = UIImage(named: "CheckButton")
             let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             cell.addSpellButton.setImage(renderedImage, for: .normal)
+            cell.addSpellButton.tintColor = Constants.buttonColor
             
             // Check wizard's case, only show added in spellbook if it is also prepared
             if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
-                //cell.addSpellButton?.setTitle("+", for: .normal)
                 let image = UIImage(named: "PlusButton")
                 let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
                 cell.addSpellButton.setImage(renderedImage, for: .normal)
+                cell.addSpellButton.tintColor = .gray
             }
         }
         else {
-            //cell.addSpellButton.setTitle("+", for: .normal)
             let image = UIImage(named: "PlusButton")
             let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             cell.addSpellButton.setImage(renderedImage, for: .normal)
+            cell.addSpellButton.tintColor = .gray
         }
         
         // Don't show button in Prepared/Known Spells tab
@@ -450,7 +461,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             cell.addSpellButton.isHidden = true
         }
         
-        cell.addSpellButton.tintColor = Constants.buttonColor
+        //cell.addSpellButton.tintColor = Constants.buttonColor
         cell.addSpellButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
 
         return cell
@@ -636,7 +647,6 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         // Provide haptic feedback when added/removed
         let selection = UIImpactFeedbackGenerator()
-        //selection.selectionChanged()
         selection.impactOccurred()
         
         // Determine which spell is being selected

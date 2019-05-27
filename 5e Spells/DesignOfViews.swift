@@ -17,40 +17,14 @@ class DesignOfTableViewController: UITableViewController {
             navCon.navigationBar.titleTextAttributes = Constants.textAttributes
             navCon.navigationBar.largeTitleTextAttributes = Constants.textAttributes
             navCon.navigationBar.tintColor =  Constants.navButtonColor
+        //    tableView.backgroundColor = Constants.tableViewBackgroundColor
             
-            createGradientLayer()
         }
         
     }
 
-    // Set gradient for navigation bar
-    func createGradientLayer() {
-       /* let gradientLayer = CAGradientLayer()
-        let sizeLength = UIScreen.main.bounds.size.height * 2
-        let defaultNavigationBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: 64)
-        gradientLayer.frame = defaultNavigationBarFrame
-        gradientLayer.colors = Constants.gradientColor
-        
-        navigationController?.navigationBar.setBackgroundImage(self.image(fromLayer: gradientLayer), for: .default)
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
-        //Create View behind navigation bar and add gradient
-        let behindView = UIView(frame: CGRect(x: 0, y:0, width: UIApplication.shared.statusBarFrame.width, height: UIApplication.shared.statusBarFrame.height + (navigationController?.navigationBar.frame.height)!))
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = Constants.gradientColor
-        behindView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        self.navigationController?.view.insertSubview(behindView, belowSubview: navigationController!.navigationBar)*/
-
-
-
-    }
     
-    func image(fromLayer layer: CALayer) -> UIImage {
+  /*  func image(fromLayer layer: CALayer) -> UIImage {
         UIGraphicsBeginImageContext(layer.frame.size)
         
         layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -61,7 +35,7 @@ class DesignOfTableViewController: UITableViewController {
         
         return outputImage!
     }
-    
+    */
     
 }
 
@@ -87,8 +61,9 @@ class DesignOfTabBarController: UITabBarController {
            navCon.navigationBar.tintColor = Constants.navButtonColor
 
         }
-        tabBar.barTintColor = Constants.barColor
-        tabBar.unselectedItemTintColor = UIColor.white
+        tabBar.barTintColor = Constants.tabColor
+       // tabBar.unselectedItemTintColor = UIColor.white
+        tabBar.unselectedItemTintColor = Constants.textColor
         tabBar.tintColor = Constants.buttonColor
     }
 }

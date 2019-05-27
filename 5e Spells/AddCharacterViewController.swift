@@ -11,15 +11,31 @@ import UIKit
 class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
     
     var characterClass: String?
+    var characterImageString: String?
     @IBOutlet weak var nameTextField: UITextField! {
         didSet {nameTextField.delegate = self}
     }
     var lastButtonPressed: UIButton?
     
     @IBOutlet weak var keyboardDistanceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bardButton: UIButton!
+    @IBOutlet weak var clericButton: UIButton!
+    @IBOutlet weak var druidButton: UIButton!
+    @IBOutlet weak var fighterButton: UIButton!
+    @IBOutlet weak var paladinButton: UIButton!
+    @IBOutlet weak var rangerButton: UIButton!
+    @IBOutlet weak var rogueButton: UIButton!
+    @IBOutlet weak var sorcererButton: UIButton!
+    @IBOutlet weak var warlockButton: UIButton!
+    @IBOutlet weak var wizardButton: UIButton!
+    
+    var buttonArray = [UIButton]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // add buttons to array
+        buttonArray = [bardButton, clericButton, druidButton, fighterButton, paladinButton, rangerButton, rogueButton, sorcererButton, warlockButton, wizardButton]
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         // Set up so text field has a nice underline below it
@@ -81,55 +97,141 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
     }
     
     @IBAction func addCharacter(_ sender: UIButton) {
+        
+        lastButtonPressed = sender
         characterClass = sender.titleLabel?.text
-      //  sender.backgroundColor = Constants.buttonColor
-       // sender.setTitleColor(UIColor.white, for: UIControlState.normal)
-        var classSelectedImageTitle = ""
-        var classUnselecteddImageTitle = ""
-        switch characterClass {
-        case "Bard":
-            classSelectedImageTitle = "Class_Bard_Selected"
-            classUnselecteddImageTitle = "Class_Bard"
-        case "Cleric":
-            classSelectedImageTitle = "Class_Cleric_Selected"
-            classUnselecteddImageTitle = "Class_Cleric"
-        case "Druid":
-            classSelectedImageTitle = "Class_Druid_Selected"
-            classUnselecteddImageTitle = "Class_Druid"
-        case "Fighter":
-            classSelectedImageTitle = "Class_Fighter_Selected"
-            classUnselecteddImageTitle = "Class_Fighter"
-        case "Paladin":
-            classSelectedImageTitle = "Class_Paladin_Selected"
-            classUnselecteddImageTitle = "Class_Paladin"
-        case "Ranger":
-            classSelectedImageTitle = "Class_Ranger_Selected"
-            classUnselecteddImageTitle = "Class_Ranger"
-        case "Rogue":
-            classSelectedImageTitle = "Class_Rogue_Selected"
-            classUnselecteddImageTitle = "Class_Rogue"
-        case "Sorcerer":
-            classSelectedImageTitle = "Class_Sorcerer_Selected"
-            classUnselecteddImageTitle = "Class_Sorcerer"
-        case "Warlock":
-            classSelectedImageTitle = "Class_Warlock_Selected"
-            classUnselecteddImageTitle = "Class_Warlock"
-        case "Wizard":
-            classSelectedImageTitle = "Class_Wizard_Selected"
-            classUnselecteddImageTitle = "Class_Wizard"
-        default:
-            break
+        for buttonLabel in buttonArray {
+            let buttonLabelClass = buttonLabel.titleLabel?.text
+            if lastButtonPressed?.titleLabel?.text == buttonLabelClass {
+                var classSelectedImageTitle = ""
+                switch buttonLabelClass {
+                    case "Bard":
+                        classSelectedImageTitle = "Class_Bard_Selected"
+                        characterImageString = "Class_Bard_Selected"
+                    case "Cleric":
+                        classSelectedImageTitle = "Class_Cleric_Selected"
+                        characterImageString = "Class_Cleric_Selected"
+                    case "Druid":
+                        classSelectedImageTitle = "Class_Druid_Selected"
+                        characterImageString = "Class_Druid_Selected"
+                    case "Fighter":
+                        classSelectedImageTitle = "Class_Fighter_Selected"
+                        characterImageString = "Class_Fighter_Selected"
+                    case "Paladin":
+                        classSelectedImageTitle = "Class_Paladin_Selected"
+                        characterImageString = "Class_Paladin_Selected"
+                    case "Ranger":
+                        classSelectedImageTitle = "Class_Ranger_Selected"
+                        characterImageString = "Class_Ranger_Selected"
+                    case "Rogue":
+                        classSelectedImageTitle = "Class_Rogue_Selected"
+                        characterImageString = "Class_Rogue_Selected"
+                    case "Sorcerer":
+                        classSelectedImageTitle = "Class_Sorcerer_Selected"
+                        characterImageString = "Class_Sorcerer_Selected"
+                    case "Warlock":
+                        classSelectedImageTitle = "Class_Warlock_Selected"
+                        characterImageString = "Class_Warlock_Selected"
+                    case "Wizard":
+                        classSelectedImageTitle = "Class_Wizard_Selected"
+                        characterImageString = "Class_Wizard_Selected"
+                    default:
+                        break
+                    }
+                buttonLabel.setImage(UIImage(named: classSelectedImageTitle), for: .normal)
+            }
+            else {
+                var classUnselectedImageTitle = ""
+                switch buttonLabelClass {
+                    case "Bard":
+                        classUnselectedImageTitle = "Class_Bard"
+                    case "Cleric":
+                        classUnselectedImageTitle = "Class_Cleric"
+                    case "Druid":
+                        classUnselectedImageTitle = "Class_Druid"
+                    case "Fighter":
+                        classUnselectedImageTitle = "Class_Fighter"
+                    case "Paladin":
+                        classUnselectedImageTitle = "Class_Paladin"
+                    case "Ranger":
+                        classUnselectedImageTitle = "Class_Ranger"
+                    case "Rogue":
+                        classUnselectedImageTitle = "Class_Rogue"
+                    case "Sorcerer":
+                        classUnselectedImageTitle = "Class_Sorcerer"
+                    case "Warlock":
+                        classUnselectedImageTitle = "Class_Warlock"
+                    case "Wizard":
+                        classUnselectedImageTitle = "Class_Wizard"
+                    default:
+                        break
+                }
+                
+                buttonLabel.setImage(UIImage(named: classUnselectedImageTitle), for: .normal)
+                
+            }
         }
-        sender.setImage((UIImage(named: classSelectedImageTitle)), for: UIControlState.normal)
-        if lastButtonPressed != sender {
-           // lastButtonPressed?.backgroundColor = nil
-           // lastButtonPressed?.setTitleColor(Constants.buttonColor, for: UIControlState.normal)
-            lastButtonPressed?.setImage((UIImage(named: classUnselecteddImageTitle)), for: UIControlState.normal)
-            lastButtonPressed = sender
-        }
+        
         checkSaveButton()
+        
+//        characterClass = sender.titleLabel?.text
+//        var classSelectedImageTitle = ""
+//        var classUnselecteddImageTitle = ""
+//        switch characterClass {
+//        case "Bard":
+//            classSelectedImageTitle = "Class_Bard_Selected"
+//            characterImageString = "Class_Bard_Selected"
+//            classUnselecteddImageTitle = "Class_Bard"
+//        case "Cleric":
+//            classSelectedImageTitle = "Class_Cleric_Selected"
+//            characterImageString = "Class_Cleric_Selected"
+//            classUnselecteddImageTitle = "Class_Cleric"
+//        case "Druid":
+//            classSelectedImageTitle = "Class_Druid_Selected"
+//            characterImageString = "Class_Druid_Selected"
+//            classUnselecteddImageTitle = "Class_Druid"
+//        case "Fighter":
+//            classSelectedImageTitle = "Class_Fighter_Selected"
+//            characterImageString = "Class_Fighter_Selected"
+//            classUnselecteddImageTitle = "Class_Fighter"
+//        case "Paladin":
+//            classSelectedImageTitle = "Class_Paladin_Selected"
+//            characterImageString = "Class_Paladin_Selected"
+//            classUnselecteddImageTitle = "Class_Paladin"
+//        case "Ranger":
+//            classSelectedImageTitle = "Class_Ranger_Selected"
+//            characterImageString = "Class_Ranger_Selected"
+//            classUnselecteddImageTitle = "Class_Ranger"
+//        case "Rogue":
+//            classSelectedImageTitle = "Class_Rogue_Selected"
+//            characterImageString = "Class_Rogue_Selected"
+//            classUnselecteddImageTitle = "Class_Rogue"
+//        case "Sorcerer":
+//            classSelectedImageTitle = "Class_Sorcerer_Selected"
+//            characterImageString = "Class_Sorcerer_Selected"
+//            classUnselecteddImageTitle = "Class_Sorcerer"
+//        case "Warlock":
+//            classSelectedImageTitle = "Class_Warlock_Selected"
+//            characterImageString = "Class_Warlock_Selected"
+//            classUnselecteddImageTitle = "Class_Warlock"
+//        case "Wizard":
+//            classSelectedImageTitle = "Class_Wizard_Selected"
+//            characterImageString = "Class_Wizard_Selected"
+//            classUnselecteddImageTitle = "Class_Wizard"
+//        default:
+//            break
+//        }
+//
+//        sender.setImage((UIImage(named: classSelectedImageTitle)), for: UIControlState.normal)
+//        if lastButtonPressed != sender {
+//           // lastButtonPressed?.backgroundColor = nil
+//           // lastButtonPressed?.setTitleColor(Constants.buttonColor, for: UIControlState.normal)
+//            lastButtonPressed?.setImage((UIImage(named: classUnselecteddImageTitle)), for: UIControlState.normal)
+//            lastButtonPressed = sender
+//        }
+//        checkSaveButton()
+//    }
     }
-    
     
     
 }

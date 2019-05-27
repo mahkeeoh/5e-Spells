@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class SpellDetailViewController: DesignOfViewController {
+class SpellDetailViewController: DesignOfViewController  {
     
     
     // Setup all outlets
@@ -19,7 +20,9 @@ class SpellDetailViewController: DesignOfViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var spellDescription: UILabel!
     @IBOutlet weak var higherLevels: UILabel!
+    @IBOutlet weak var concentration: UILabel!
     
+    @IBOutlet weak var bannerView: GADBannerView!
     
     
     
@@ -47,6 +50,17 @@ class SpellDetailViewController: DesignOfViewController {
         duration.textColor = Constants.textColor
         spellDescription.textColor = Constants.textColor
         higherLevels.textColor = Constants.textColor
+        concentration.textColor = Constants.textColor
+        
+        if (SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) {
+            bannerView.removeFromSuperview()
+        }
+        else {
+            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+        }
     }
     
     func setupText() {
@@ -80,15 +94,18 @@ class SpellDetailViewController: DesignOfViewController {
         components.attributedText = componentBold
         
         // add duration and concentration symbol if applicable
-        //duration.text = "Duration: " + (spell?.duration)!
         let durationBold = NSMutableAttributedString(string: "Duration: ", attributes: attrs)
         let durationText = NSMutableAttributedString(string: spell?.duration ?? "")
         durationBold.append(durationText)
-        if (spell?.concentration == "yes") {
-            let concentrationSymbol = NSMutableAttributedString(string: "  \u{00A9}")
-            durationBold.append(concentrationSymbol)
-        }
+
         duration.attributedText = durationBold
+        
+        // add duration and concentration symbol if applicable
+        let concentrationBold = NSMutableAttributedString(string: "Concentration: ", attributes: attrs)
+        let concentrationText = NSMutableAttributedString(string: spell?.concentration.capitalized ?? "")
+        concentrationBold.append(concentrationText)
+
+        concentration.attributedText = concentrationBold
         
         spellDescription.text = (spell?.desc)!
         if spell?.higherLevel != nil {
