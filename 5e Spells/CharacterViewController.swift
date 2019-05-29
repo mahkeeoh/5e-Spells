@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITableViewDataSource {
+class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
     
     
     var characterModel: CharacterModelController!
@@ -24,15 +24,14 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 90.0
         addButton.tintColor = Constants.buttonColor
-        
-        
-        
+        bannerView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Configuring Advertisements
         if !(SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) {
-            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+            bannerView.adUnitID = "ca-app-pub-6718527310816875/2490473069"
+           // bannerView.adUnitID =  "ca-app-pub-3940256099942544/2934735716" TEST AD
             bannerView.rootViewController = self
             bannerView.backgroundColor = .clear
             bannerView.load(GADRequest())

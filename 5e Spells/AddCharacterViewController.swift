@@ -107,34 +107,34 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
                 switch buttonLabelClass {
                     case "Bard":
                         classSelectedImageTitle = "Class_Bard_Selected"
-                        characterImageString = "Class_Bard_Selected"
+                        characterImageString = "Class_Bard_Rounded"
                     case "Cleric":
                         classSelectedImageTitle = "Class_Cleric_Selected"
-                        characterImageString = "Class_Cleric_Selected"
+                        characterImageString = "Class_Cleric_Rounded"
                     case "Druid":
                         classSelectedImageTitle = "Class_Druid_Selected"
-                        characterImageString = "Class_Druid_Selected"
+                        characterImageString = "Class_Druid_Rounded"
                     case "Fighter":
                         classSelectedImageTitle = "Class_Fighter_Selected"
-                        characterImageString = "Class_Fighter_Selected"
+                        characterImageString = "Class_Fighter_Rounded"
                     case "Paladin":
                         classSelectedImageTitle = "Class_Paladin_Selected"
-                        characterImageString = "Class_Paladin_Selected"
+                        characterImageString = "Class_Paladin_Rounded"
                     case "Ranger":
                         classSelectedImageTitle = "Class_Ranger_Selected"
-                        characterImageString = "Class_Ranger_Selected"
+                        characterImageString = "Class_Ranger_Rounded"
                     case "Rogue":
                         classSelectedImageTitle = "Class_Rogue_Selected"
-                        characterImageString = "Class_Rogue_Selected"
+                        characterImageString = "Class_Rogue_Rounded"
                     case "Sorcerer":
                         classSelectedImageTitle = "Class_Sorcerer_Selected"
-                        characterImageString = "Class_Sorcerer_Selected"
+                        characterImageString = "Class_Sorcerer_Rounded"
                     case "Warlock":
                         classSelectedImageTitle = "Class_Warlock_Selected"
-                        characterImageString = "Class_Warlock_Selected"
+                        characterImageString = "Class_Warlock_Rounded"
                     case "Wizard":
                         classSelectedImageTitle = "Class_Wizard_Selected"
-                        characterImageString = "Class_Wizard_Selected"
+                        characterImageString = "Class_Wizard_Rounded"
                     default:
                         break
                     }

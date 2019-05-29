@@ -35,17 +35,30 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lnI-O4-BeN">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1nZ-lB-8i1">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkF-M7-aYb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="89.666666666666671"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1nZ-lB-8i1">
+                                                                            <rect key="frame" x="10" y="10" width="69.666666666666671" height="69.666666666666671"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="1nZ-lB-8i1" secondAttribute="height" multiplier="1:1" id="JzN-TL-3QD"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="1nZ-lB-8i1" secondAttribute="height" multiplier="1:1" id="JzN-TL-3QD"/>
+                                                                        <constraint firstItem="1nZ-lB-8i1" firstAttribute="top" secondItem="WkF-M7-aYb" secondAttribute="top" constant="10" id="Mzy-qV-3wU"/>
+                                                                        <constraint firstItem="1nZ-lB-8i1" firstAttribute="leading" secondItem="WkF-M7-aYb" secondAttribute="leading" constant="10" id="OPw-bR-zCc"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="1nZ-lB-8i1" secondAttribute="bottom" constant="10" id="VwK-ZR-m2n"/>
+                                                                        <constraint firstAttribute="width" secondItem="WkF-M7-aYb" secondAttribute="height" multiplier="1:1" id="e5H-0s-7z2"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="1nZ-lB-8i1" secondAttribute="trailing" constant="10" id="kfk-m1-6qg"/>
                                                                     </constraints>
-                                                                </imageView>
+                                                                </view>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-rx-U9L">
                                                                     <rect key="frame" x="99.666666666666657" y="0.0" width="275.33333333333337" height="89.666666666666671"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-At-PQ2">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="15"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="239" height="15"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="15" id="duF-o4-jrS"/>
@@ -64,7 +77,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtE-qL-DpQ">
-                                                                            <rect key="frame" x="0.0" y="74.666666666666671" width="240" height="15"/>
+                                                                            <rect key="frame" x="0.0" y="74.666666666666671" width="239" height="15"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="15" id="tup-qe-XOn"/>
@@ -74,8 +87,9 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="1nZ-lB-8i1" secondAttribute="bottom" id="GGf-lu-iTB"/>
-                                                                <constraint firstItem="1nZ-lB-8i1" firstAttribute="top" secondItem="lnI-O4-BeN" secondAttribute="top" id="fCA-Qh-FEB"/>
+                                                                <constraint firstItem="WkF-M7-aYb" firstAttribute="leading" secondItem="lnI-O4-BeN" secondAttribute="leading" id="H2r-8D-tBp"/>
+                                                                <constraint firstItem="WkF-M7-aYb" firstAttribute="top" secondItem="lnI-O4-BeN" secondAttribute="top" id="PJG-Ko-mx4"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WkF-M7-aYb" secondAttribute="bottom" id="ZS1-1P-tdc"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
@@ -1383,7 +1397,7 @@
         <image name="Class_Ranger_Selected" width="1024" height="1024"/>
         <image name="Class_Rogue_Selected" width="1024" height="1024"/>
         <image name="Class_Sorcerer_Selected" width="1024" height="1024"/>
-        <image name="Class_Warlock_Selected" width="1024" height="1024"/>
+        <image name="Class_Warlock_Selected" width="512" height="512"/>
         <image name="Class_Wizard_Selected" width="1024" height="1024"/>
         <image name="PlusButton" width="96" height="96"/>
     </resources>

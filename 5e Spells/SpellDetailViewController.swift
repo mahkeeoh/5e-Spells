@@ -56,7 +56,7 @@ class SpellDetailViewController: DesignOfViewController  {
             bannerView.removeFromSuperview()
         }
         else {
-            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+            bannerView.adUnitID = "ca-app-pub-6718527310816875/2490473069"
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
             bannerView.adSize = kGADAdSizeSmartBannerPortrait

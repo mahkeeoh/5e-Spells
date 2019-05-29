@@ -45,6 +45,12 @@ class AppPurchaseViewController: DesignOfViewController {
         navigationItem.backBarButtonItem?.tintColor = Constants.buttonColor
         headerText.textColor = Constants.textColor
         detailText.textColor = Constants.textColor
+        
+        if !(IAPHelper.canMakePayments()) {
+            headerText.text = "Purchases not available at this time"
+            detailText.text = ""
+            upgradeButton.isHidden = true
+        }
 
     }
     

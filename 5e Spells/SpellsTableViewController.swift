@@ -429,7 +429,6 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             cell.concentrationImage.image = renderedImage
             cell.concentrationImage.tintColor = Constants.buttonColor
-           // cell.concentrationImage.image.im
         }
         cell.schoolImage.image = UIImage(named: spell.school)
 
