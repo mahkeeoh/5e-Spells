@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="oww-dx-EhJ">
-                                <rect key="frame" x="25" y="283.33333333333331" width="325" height="245.66666666666669"/>
+                                <rect key="frame" x="25" y="151.33333333333334" width="325" height="509.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dEa-av-cfx">
                                         <rect key="frame" x="6" y="0.0" width="313.33333333333331" height="128.66666666666666"/>
@@ -195,7 +195,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOl-sT-Gza">
-                                        <rect key="frame" x="62.666666666666686" y="195.66666666666669" width="200" height="50"/>
+                                        <rect key="frame" x="62.666666666666686" y="195.66666666666666" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="ILx-Be-hvh"/>
                                             <constraint firstAttribute="height" constant="50" id="xkQ-aT-qZO"/>
@@ -213,7 +213,38 @@
                                             <action selector="upgradeButtonPressed:" destination="mId-bz-VoO" eventType="touchUpInside" id="oJ5-hN-sQP"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GN2-4I-mZr">
+                                        <rect key="frame" x="0.0" y="312.66666666666663" width="325" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="InU-iG-Y0Y"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-zJ-TkO">
+                                        <rect key="frame" x="0.0" y="459.66666666666663" width="325" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="djW-Z1-lC9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Restore Your Purchase">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="restoreButtonPressed:" destination="mId-bz-VoO" eventType="touchUpInside" id="7o5-l7-N0V"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="GN2-4I-mZr" firstAttribute="leading" secondItem="oww-dx-EhJ" secondAttribute="leading" id="1Z4-Iy-JUr"/>
+                                    <constraint firstAttribute="trailing" secondItem="GN2-4I-mZr" secondAttribute="trailing" id="7Ti-Eh-gH9"/>
+                                    <constraint firstAttribute="trailing" secondItem="l7N-zJ-TkO" secondAttribute="trailing" id="b9g-e2-sbq"/>
+                                    <constraint firstItem="l7N-zJ-TkO" firstAttribute="leading" secondItem="oww-dx-EhJ" secondAttribute="leading" id="u3d-NJ-RRn"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,6 +266,7 @@
                     <connections>
                         <outlet property="detailText" destination="Oco-la-e7b" id="XLF-Fw-zRH"/>
                         <outlet property="headerText" destination="WjZ-1L-uSt" id="bnH-fF-4wj"/>
+                        <outlet property="restoreButton" destination="l7N-zJ-TkO" id="lGn-2s-lTW"/>
                         <outlet property="upgradeButton" destination="uOl-sT-Gza" id="uTd-Y2-3jF"/>
                     </connections>
                 </viewController>
@@ -652,10 +684,10 @@
                                 <rect key="frame" x="15" y="140" width="345" height="589"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-bZ-zGV">
-                                        <rect key="frame" x="0.0" y="10" width="345" height="935.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="10" width="345" height="963.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tF0-Xx-9kY">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="188.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="217"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1Q-Nj-REG">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
@@ -670,7 +702,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r0F-2r-tnZ">
-                                                        <rect key="frame" x="0.0" y="55" width="345" height="133.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="55" width="345" height="162"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26p-qD-xoN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -728,19 +760,32 @@
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEj-hM-ERy">
+                                                                <rect key="frame" x="0.0" y="141.66666666666669" width="345" height="20.333333333333343"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Ritual">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAk-oA-l3b">
-                                                <rect key="frame" x="0.0" y="188.66666666666669" width="345" height="1"/>
+                                                <rect key="frame" x="0.0" y="217" width="345" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="HzS-q5-M0e"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09E-y1-l1m">
-                                                <rect key="frame" x="0.0" y="189.66666666666669" width="345" height="573.66666666666652"/>
+                                                <rect key="frame" x="0.0" y="218" width="345" height="573.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFD-I0-slv">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="573.66666666666663"/>
@@ -758,14 +803,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNH-uJ-cDO">
-                                                <rect key="frame" x="0.0" y="763.33333333333337" width="345" height="50"/>
+                                                <rect key="frame" x="0.0" y="791.66666666666663" width="345" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="FNR-vI-q9e"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVQ-Qt-5gX">
-                                                <rect key="frame" x="0.0" y="813.33333333333337" width="345" height="72"/>
+                                                <rect key="frame" x="0.0" y="841.66666666666663" width="345" height="72"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nop-DB-EDQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="72"/>
@@ -783,7 +828,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVr-RJ-pon">
-                                                <rect key="frame" x="0.0" y="885.33333333333326" width="345" height="50"/>
+                                                <rect key="frame" x="0.0" y="913.66666666666674" width="345" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA4-yj-sfZ" customClass="GADBannerView">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
@@ -829,6 +874,7 @@
                         <outlet property="higherLevels" destination="Nop-DB-EDQ" id="H6m-Gm-IRX"/>
                         <outlet property="levelAndSpellType" destination="o1Q-Nj-REG" id="jCm-Df-vNI"/>
                         <outlet property="range" destination="xNs-L3-9iJ" id="4Kg-Cw-IdC"/>
+                        <outlet property="ritual" destination="fEj-hM-ERy" id="VJ5-jb-pIH"/>
                         <outlet property="spellDescription" destination="jFD-I0-slv" id="BUF-VN-UpS"/>
                     </connections>
                 </viewController>

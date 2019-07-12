@@ -650,7 +650,16 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         // Determine which spell is being selected
         let indexPath = tableView.indexPath(for: cell)
-        let spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+       // let spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+        var spell: Spell
+        
+        if isFiltering() {
+            spell = filteredSpells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+            
+        }
+        else {
+            spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+        }
         
         // Check if wizard first and add accordingly
         if tabBarController?.viewControllers?.count == 3 {

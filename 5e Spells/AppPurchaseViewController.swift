@@ -21,6 +21,7 @@ class AppPurchaseViewController: DesignOfViewController {
     @IBOutlet weak var detailText: UILabel!
     fileprivate var productIDs: [String] = []
     fileprivate var productArray: [SKProduct] = []
+    @IBOutlet weak var restoreButton: UIButton!
     
     var products: [SKProduct] = []
     
@@ -45,6 +46,8 @@ class AppPurchaseViewController: DesignOfViewController {
         navigationItem.backBarButtonItem?.tintColor = Constants.buttonColor
         headerText.textColor = Constants.textColor
         detailText.textColor = Constants.textColor
+        restoreButton.titleLabel?.textColor = Constants.textColor
+        
         
         if !(IAPHelper.canMakePayments()) {
             headerText.text = "Purchases not available at this time"
@@ -53,5 +56,10 @@ class AppPurchaseViewController: DesignOfViewController {
         }
 
     }
+    
+    @IBAction func restoreButtonPressed(_ sender: Any) {
+        SpellProducts.store.restorePurchases()
+    }
+    
     
 }

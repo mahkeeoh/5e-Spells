@@ -49,13 +49,13 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
         nameTextField.layer.masksToBounds = true
         nameTextField.textColor = Constants.textColor
         
-        // Set up notification to change view when keyboard appears
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: NSNotification.Name.UIKeyboardWillShow,
-            object: nil
-        )
+//        // Set up notification to change view when keyboard appears
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(keyboardWillShow),
+//            name: NSNotification.Name.UIKeyboardWillShow,
+//            object: nil
+//        )
     }
     
     
@@ -79,15 +79,15 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
     }
     
     // Change view if keyboard appears
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            keyboardDistanceConstraint.constant = -(keyboardRectangle.height)
-            UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
-            }
-        }
-    }
+//    @objc func keyboardWillShow(_ notification: Notification) {
+//        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+//            let keyboardRectangle = keyboardFrame.cgRectValue
+//            keyboardDistanceConstraint.constant = -(keyboardRectangle.height)
+//            UIView.animate(withDuration: 0.5) {
+//                self.view.layoutIfNeeded()
+//            }
+//        }
+//    }
 
     // MARK: - Navigation
 

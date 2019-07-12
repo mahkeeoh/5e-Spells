@@ -21,6 +21,7 @@ class SpellDetailViewController: DesignOfViewController  {
     @IBOutlet weak var spellDescription: UILabel!
     @IBOutlet weak var higherLevels: UILabel!
     @IBOutlet weak var concentration: UILabel!
+    @IBOutlet weak var ritual: UILabel!
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -29,10 +30,11 @@ class SpellDetailViewController: DesignOfViewController  {
     var spell: Spell? {
         didSet {
             // Fix text from JSON to remove paragraph markers
-            let tempSpellDesc = (spell?.desc.replacingOccurrences(of: "<p>", with: "\n\n"))!.replacingOccurrences(of: "</p>", with: "")
+            let tempSpellDesc = (spell?.desc.replacingOccurrences(of: "<p>", with: "\n\n"))!.replacingOccurrences(of: "</p>", with: "").replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
             spell?.desc = tempSpellDesc
             
-            let tempSpellHLDesc = (spell?.higherLevel?.replacingOccurrences(of: "<p>", with: "\n\n"))?.replacingOccurrences(of: "</p>", with: "")
+            
+            let tempSpellHLDesc = (spell?.higherLevel?.replacingOccurrences(of: "<p>", with: "\n\n"))?.replacingOccurrences(of: "</p>", with: "").replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
             spell?.higherLevel = tempSpellHLDesc
             
         
@@ -51,6 +53,7 @@ class SpellDetailViewController: DesignOfViewController  {
         spellDescription.textColor = Constants.textColor
         higherLevels.textColor = Constants.textColor
         concentration.textColor = Constants.textColor
+        ritual.textColor = Constants.textColor
         
         if (SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) {
             bannerView.removeFromSuperview()
@@ -106,6 +109,13 @@ class SpellDetailViewController: DesignOfViewController  {
         concentrationBold.append(concentrationText)
 
         concentration.attributedText = concentrationBold
+        
+        // add ritual casting
+        let ritualBold = NSMutableAttributedString(string: "Ritual: ", attributes: attrs)
+        let ritualText = NSMutableAttributedString(string: spell?.ritual?.capitalized ?? "")
+        ritualBold.append(ritualText)
+        
+        ritual.attributedText = ritualBold
         
         spellDescription.text = (spell?.desc)!
         if spell?.higherLevel != nil {
