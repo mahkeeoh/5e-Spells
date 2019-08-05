@@ -132,8 +132,9 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
     // Check if it is time to request a rating
     func checkRatingRequest() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let cc = appDelegate.currentCount
-        if (cc == 10) || (cc == 30) || (cc == 50) {
+        guard let cc = appDelegate.currentCount else { return }
+        print(cc)
+        if (cc % 3 == 0 && cc != 0) {
             if #available( iOS 10.3,*){
                 SKStoreReviewController.requestReview()
                 appDelegate.currentCount? += 1
