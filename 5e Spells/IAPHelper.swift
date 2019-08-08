@@ -59,6 +59,7 @@ open class IAPHelper: NSObject  {
         
         SKPaymentQueue.default().add(self)
     }
+    
 }
 
 // MARK: - StoreKit API
@@ -91,6 +92,7 @@ extension IAPHelper {
     public func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
+    
 }
 
 // MARK: - SKProductsRequestDelegate
@@ -133,9 +135,12 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 break
             case .failed:
                 fail(transaction: transaction)
+                print("Failed")
                 break
             case .restored:
                 restore(transaction: transaction)
+                print("Restored")
+            
                 break
             case .deferred:
                 break
@@ -154,11 +159,11 @@ extension IAPHelper: SKPaymentTransactionObserver {
     
     private func restore(transaction: SKPaymentTransaction) {
         guard let productIdentifier = transaction.original?.payment.productIdentifier else { return }
-        
         print("restore... \(productIdentifier)")
         deliverPurchaseNotificationFor(identifier: productIdentifier)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
+    
     
     private func fail(transaction: SKPaymentTransaction) {
         print("fail...")
@@ -175,7 +180,6 @@ extension IAPHelper: SKPaymentTransactionObserver {
         guard let identifier = identifier else { return }
         
         purchasedProductIdentifiers.insert(identifier)
-        UserDefaults.standard.set(true, forKey: identifier)
         NotificationCenter.default.post(name: .IAPHelperPurchaseNotification, object: identifier)
     }
 }

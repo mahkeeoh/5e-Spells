@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             characterVC.characterModel = CharacterModelController()
         }
         
+        
         // Setting up google ads
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         

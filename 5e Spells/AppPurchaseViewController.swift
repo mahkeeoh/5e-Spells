@@ -29,6 +29,7 @@ class AppPurchaseViewController: DesignOfViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     SpellProducts.store.requestProducts{ [weak self] success, products in
         guard let self = self else { return }
         if success {
@@ -40,6 +41,7 @@ class AppPurchaseViewController: DesignOfViewController {
             
             self?.dismiss(animated: true, completion: nil)
         }
+        
         
         // Set UI
         upgradeButton.backgroundColor = Constants.buttonColor
@@ -59,7 +61,11 @@ class AppPurchaseViewController: DesignOfViewController {
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
         SpellProducts.store.restorePurchases()
+        self.dismiss(animated: true, completion: nil)
     }
+
+    
+    
     
     
 }
