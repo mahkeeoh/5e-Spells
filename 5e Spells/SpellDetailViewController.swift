@@ -54,7 +54,7 @@ class SpellDetailViewController: DesignOfViewController  {
         higherLevels.textColor = Constants.textColor
         concentration.textColor = Constants.textColor
         ritual.textColor = Constants.textColor
-        
+        navigationController?.navigationBar.tintColor = Constants.tabColor
         if (SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) {
             bannerView.removeFromSuperview()
         }

@@ -12,7 +12,7 @@ import UIKit
 struct Constants {
     
     static func newBarColor() -> UIColor {
-        return #colorLiteral(red: 0.1038480327, green: 0.03285586089, blue: 0.1876676381, alpha: 1)
+        return #colorLiteral(red: 0.1038480327, green: 0.03285586089, blue: 0.1876676381, alpha: 0.7987478596)
     }
     
     static let barColor = newBarColor()

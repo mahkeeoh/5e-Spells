@@ -34,9 +34,11 @@ class AddCharacterViewController: DesignOfViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // add buttons to array
         buttonArray = [bardButton, clericButton, druidButton, fighterButton, paladinButton, rangerButton, rogueButton, sorcererButton, warlockButton, wizardButton]
         navigationItem.rightBarButtonItem?.isEnabled = false
+        navigationController?.navigationBar.tintColor = Constants.tabColor
         
         // Set up so text field has a nice underline below it
         let border = CALayer()

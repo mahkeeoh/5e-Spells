@@ -66,6 +66,8 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         //assign button to navigationbar
         navigationItem.leftBarButtonItem = leftBarButton
         
+        clearSpellsButton?.tintColor = Constants.navButtonColor
+        
         
         // Set search bar parameters
         searchController.searchResultsUpdater = self

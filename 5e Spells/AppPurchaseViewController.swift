@@ -28,6 +28,7 @@ class AppPurchaseViewController: DesignOfViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = Constants.tabColor
         
         
     SpellProducts.store.requestProducts{ [weak self] success, products in
