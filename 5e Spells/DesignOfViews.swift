@@ -19,8 +19,9 @@ class DesignOfTableViewController: UITableViewController {
             navCon.navigationBar.tintColor =  Constants.navButtonColor*/
             
             let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.titleTextAttributes = Constants.textAttributes
+           // navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.configureWithDefaultBackground()
+                navBarAppearance.titleTextAttributes = Constants.textAttributes
             navBarAppearance.largeTitleTextAttributes = Constants.textAttributes
             navBarAppearance.backgroundColor = Constants.barColor
             navCon.navigationBar.standardAppearance = navBarAppearance
@@ -48,7 +49,8 @@ class DesignOfViewController: UIViewController {
             navCon.navigationBar.tintColor = Constants.navButtonColor*/
             
             let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
+            // navBarAppearance.configureWithOpaqueBackground()
+             navBarAppearance.configureWithDefaultBackground()
             navBarAppearance.titleTextAttributes = Constants.textAttributes
             navBarAppearance.largeTitleTextAttributes = Constants.textAttributes
             navBarAppearance.backgroundColor = Constants.barColor
@@ -75,12 +77,14 @@ class DesignOfTabBarController: UITabBarController {
            navCon.navigationBar.tintColor = Constants.navButtonColor*/
             
             let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
+                      // navBarAppearance.configureWithOpaqueBackground()
+             navBarAppearance.configureWithDefaultBackground()
             navBarAppearance.titleTextAttributes = Constants.textAttributes
             navBarAppearance.largeTitleTextAttributes = Constants.textAttributes
             navBarAppearance.backgroundColor = Constants.barColor
             navCon.navigationBar.standardAppearance = navBarAppearance
             navCon.navigationBar.scrollEdgeAppearance = navBarAppearance
+
 
 
         }

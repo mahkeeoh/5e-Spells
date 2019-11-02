@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V5C-G7-aIe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V5C-G7-aIe">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1462,7 +1462,6 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstItem="RSq-17-Ax2" firstAttribute="top" secondItem="XG3-ja-NBo" secondAttribute="top" id="26Q-NO-d00"/>
                                                             <constraint firstAttribute="trailing" secondItem="RSq-17-Ax2" secondAttribute="trailing" id="DeA-bz-q7n"/>
@@ -1470,56 +1469,292 @@
                                                             <constraint firstItem="RSq-17-Ax2" firstAttribute="leading" secondItem="XG3-ja-NBo" secondAttribute="leading" id="fET-SN-fFK"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1J-wv-uV5" customClass="UIButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1J-wv-uV5" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
                                                         <rect key="frame" x="75" y="0.0" width="75" height="48"/>
-                                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-6a-g4l" customClass="UIButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-6a-g4l" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
                                                         <rect key="frame" x="150" y="0.0" width="75" height="48"/>
-                                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-43-SCo" customClass="UIButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-43-SCo" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
                                                         <rect key="frame" x="225" y="0.0" width="75" height="48"/>
-                                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-ZJ-HhK" customClass="UIButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-ZJ-HhK" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
                                                         <rect key="frame" x="300" y="0.0" width="75" height="48"/>
-                                                        <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxc-LT-9MW">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FFz-U9-Gzu">
                                                 <rect key="frame" x="0.0" y="58" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRc-pi-1vO">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmD-gu-7dY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il5-81-ksB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="Il5-81-ksB" secondAttribute="bottom" id="8ae-ja-nBf"/>
+                                                            <constraint firstItem="Il5-81-ksB" firstAttribute="top" secondItem="vmD-gu-7dY" secondAttribute="top" id="IvP-7u-cUW"/>
+                                                            <constraint firstItem="Il5-81-ksB" firstAttribute="leading" secondItem="vmD-gu-7dY" secondAttribute="leading" id="O98-cB-UOi"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Il5-81-ksB" secondAttribute="trailing" id="kTr-ou-oJ3"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIa-av-S5N" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTt-Xq-GQW" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fA-Eq-xqt" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qW9-WX-uYG" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="H7a-qp-gD8">
                                                 <rect key="frame" x="0.0" y="116" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88d-Lx-4qO">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSH-ZN-q8c">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3rd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-3W-70A">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="q9c-3W-70A" secondAttribute="trailing" id="GHr-6s-H2R"/>
+                                                            <constraint firstItem="q9c-3W-70A" firstAttribute="top" secondItem="BSH-ZN-q8c" secondAttribute="top" id="Gbs-JB-tbm"/>
+                                                            <constraint firstItem="q9c-3W-70A" firstAttribute="leading" secondItem="BSH-ZN-q8c" secondAttribute="leading" id="HJK-iK-YkB"/>
+                                                            <constraint firstAttribute="bottom" secondItem="q9c-3W-70A" secondAttribute="bottom" id="j3t-2g-GyQ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-Nq-C4K" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67A-24-CTo" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-V6-559" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQ9-wl-tpV" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lri-Yn-tDC">
                                                 <rect key="frame" x="0.0" y="174" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atl-dQ-Ruf">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-68-fhT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cb-Bq-OgJ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="8Cb-Bq-OgJ" firstAttribute="leading" secondItem="KnL-68-fhT" secondAttribute="leading" id="JQy-iV-Jmq"/>
+                                                            <constraint firstAttribute="trailing" secondItem="8Cb-Bq-OgJ" secondAttribute="trailing" id="M7P-rU-fgd"/>
+                                                            <constraint firstItem="8Cb-Bq-OgJ" firstAttribute="top" secondItem="KnL-68-fhT" secondAttribute="top" id="Rmd-Ie-ZRs"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8Cb-Bq-OgJ" secondAttribute="bottom" id="TuC-lN-GYh"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3L-Nz-ZRc" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-gi-Gms" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9N-yH-Ffd" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwJ-it-6sc" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CAm-qN-WQm">
                                                 <rect key="frame" x="0.0" y="232" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha9-GC-B4J">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1d-GP-RWw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcH-xh-pZT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="YcH-xh-pZT" firstAttribute="top" secondItem="h1d-GP-RWw" secondAttribute="top" id="GGh-GX-Qhb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="YcH-xh-pZT" secondAttribute="bottom" id="GPR-6b-ITa"/>
+                                                            <constraint firstItem="YcH-xh-pZT" firstAttribute="leading" secondItem="h1d-GP-RWw" secondAttribute="leading" id="epl-qS-BpI"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YcH-xh-pZT" secondAttribute="trailing" id="w5I-g5-nFw"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGS-OY-8cL" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUv-va-zew" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXJ-Ui-JLd" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASl-iu-eRG" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yvW-AT-wdY">
                                                 <rect key="frame" x="0.0" y="290" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wF-vI-T1J">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcw-Xc-IWD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="920-X8-c5B">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="920-X8-c5B" secondAttribute="bottom" id="Vng-oQ-oOI"/>
+                                                            <constraint firstItem="920-X8-c5B" firstAttribute="top" secondItem="wcw-Xc-IWD" secondAttribute="top" id="VvE-9K-29d"/>
+                                                            <constraint firstAttribute="trailing" secondItem="920-X8-c5B" secondAttribute="trailing" id="jvf-xt-Ysc"/>
+                                                            <constraint firstItem="920-X8-c5B" firstAttribute="leading" secondItem="wcw-Xc-IWD" secondAttribute="leading" id="u92-lC-3Vw"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iD-Df-bAB" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gch-fV-7Jb" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebf-uq-y7P" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yir-6a-cPH" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bEI-AC-Ng9">
                                                 <rect key="frame" x="0.0" y="348" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.48311058130000001" green="0.77459517739999995" blue="0.42749606289999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXM-lF-gtG">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hB-2P-RD9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-rd-e2C">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="0QC-rd-e2C" firstAttribute="leading" secondItem="4hB-2P-RD9" secondAttribute="leading" id="KAT-iX-tB3"/>
+                                                            <constraint firstAttribute="bottom" secondItem="0QC-rd-e2C" secondAttribute="bottom" id="VJt-3K-e5u"/>
+                                                            <constraint firstItem="0QC-rd-e2C" firstAttribute="top" secondItem="4hB-2P-RD9" secondAttribute="top" id="hCi-iU-d62"/>
+                                                            <constraint firstAttribute="trailing" secondItem="0QC-rd-e2C" secondAttribute="trailing" id="tKR-Rr-41l"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMh-y5-K3i" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSK-IV-lo1" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-SN-hH8" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoD-pS-xu4" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eIN-71-0VB">
                                                 <rect key="frame" x="0.0" y="406" width="375" height="48"/>
-                                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUX-oY-vuk">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NG-De-cdL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSe-CC-bqT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="iSe-CC-bqT" secondAttribute="bottom" id="c3b-Vn-avH"/>
+                                                            <constraint firstItem="iSe-CC-bqT" firstAttribute="leading" secondItem="5NG-De-cdL" secondAttribute="leading" id="fCv-y5-NMf"/>
+                                                            <constraint firstItem="iSe-CC-bqT" firstAttribute="top" secondItem="5NG-De-cdL" secondAttribute="top" id="qO2-20-Aho"/>
+                                                            <constraint firstAttribute="trailing" secondItem="iSe-CC-bqT" secondAttribute="trailing" id="qbZ-l0-QgP"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPZ-JX-pcv" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOT-DG-pia" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shE-7S-QCc" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sY2-HZ-DUE" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PEF-qm-WKE">
                                                 <rect key="frame" x="0.0" y="464" width="375" height="48"/>
-                                                <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWt-n2-FgW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAi-jQ-mWS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="UAi-jQ-mWS" firstAttribute="top" secondItem="lWt-n2-FgW" secondAttribute="top" id="0aO-6Q-o4L"/>
+                                                            <constraint firstItem="UAi-jQ-mWS" firstAttribute="leading" secondItem="lWt-n2-FgW" secondAttribute="leading" id="9QN-Fq-LrB"/>
+                                                            <constraint firstAttribute="bottom" secondItem="UAi-jQ-mWS" secondAttribute="bottom" id="hkE-RZ-yW1"/>
+                                                            <constraint firstAttribute="trailing" secondItem="UAi-jQ-mWS" secondAttribute="trailing" id="rwQ-Y4-Jl8"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lah-Jh-qQ8" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZN-Sl-Gpz" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H03-I1-keq" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxo-5A-1kY" customClass="SpellSlotsButtonView" customModule="_e_Spells" customModuleProvider="target">
+                                                        <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsb-Qs-L35" userLabel="BlockView">

@@ -15,15 +15,15 @@
 		2601640720364C410053FA5B /* spells.json in Resources */ = {isa = PBXBuildFile; fileRef = 2601640620364C400053FA5B /* spells.json */; };
 		2601640920364CBD0053FA5B /* SpellsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640820364CBD0053FA5B /* SpellsTableViewController.swift */; };
 		2601640B20364D240053FA5B /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601640A20364D240053FA5B /* Spell.swift */; };
-		261FE30421FE6B13003CA651 /* ArchitectsDaughter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 261FE30321FE6B13003CA651 /* ArchitectsDaughter.ttf */; };
+		260F956D236A83480088E152 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26765DDE2255A9BE00568435 /* StoreKit.framework */; };
 		264A4F47203F985600E4BFBF /* SpellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A4F46203F985600E4BFBF /* SpellDetailViewController.swift */; };
 		265504492113A99100F6C4EF /* DesignOfViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265504482113A99100F6C4EF /* DesignOfViews.swift */; };
 		2655044B2113AF6200F6C4EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655044A2113AF6200F6C4EF /* Constants.swift */; };
 		265B97C82263D39B00B8E4A4 /* SpellProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265B97C72263D39B00B8E4A4 /* SpellProducts.swift */; };
 		2660BBF420F1769A00F15D7A /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */; };
 		2660BBF620F301F900F15D7A /* FilterDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */; };
-		26765DDF2255A9BE00568435 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26765DDE2255A9BE00568435 /* StoreKit.framework */; };
 		26765DE12255AAE100568435 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26765DE02255AAE100568435 /* IAPHelper.swift */; };
+		268132C7236A8D0F00BDF29F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		269C1AB720462B6400412C7B /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB620462B6400412C7B /* CharacterViewController.swift */; };
 		269C1AB920462C4800412C7B /* AddCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB820462C4800412C7B /* AddCharacterViewController.swift */; };
 		269C1ABC2047AA3A00412C7B /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */; };
@@ -31,11 +31,25 @@
 		26C30C1C204B001F00A6E990 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C30C1B204B001F00A6E990 /* Character.swift */; };
 		26C30C1E204B1F2800A6E990 /* SpellTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */; };
 		26F0C363224DAE8100A5C5AA /* AppPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */; };
-		2B549F247E60C0AF2D53440E /* Pods_5e_Spells.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2D4AC24DCE6D1D61FE4E29 /* Pods_5e_Spells.framework */; };
+		4644C99F3F60B2779851AF9E /* Pods_5e_Spells.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC291FE8183757CFE5167BE /* Pods_5e_Spells.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		268132C8236A8D0F00BDF29F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				268132C7236A8D0F00BDF29F /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		057A05CF511335F5964572B8 /* Pods-5e Spells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5e Spells.release.xcconfig"; path = "Pods/Target Support Files/Pods-5e Spells/Pods-5e Spells.release.xcconfig"; sourceTree = "<group>"; };
+		04F52BA9970780AF5A556B4B /* Pods-5e Spells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5e Spells.release.xcconfig"; path = "Target Support Files/Pods-5e Spells/Pods-5e Spells.release.xcconfig"; sourceTree = "<group>"; };
 		260163EE20364ACB0053FA5B /* 5e Spells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "5e Spells.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		260163F120364ACB0053FA5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		260163F620364ACB0053FA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,8 +76,8 @@
 		26C30C1B204B001F00A6E990 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		26C30C1D204B1F2800A6E990 /* SpellTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTabBarController.swift; sourceTree = "<group>"; };
 		26F0C362224DAE8100A5C5AA /* AppPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPurchaseViewController.swift; sourceTree = "<group>"; };
-		6A2D4AC24DCE6D1D61FE4E29 /* Pods_5e_Spells.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5e_Spells.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA1A514625C16B96CFBCEC4E /* Pods-5e Spells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5e Spells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-5e Spells/Pods-5e Spells.debug.xcconfig"; sourceTree = "<group>"; };
+		7C8ACB78F331CC54EE06CBD7 /* Pods-5e Spells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5e Spells.debug.xcconfig"; path = "Target Support Files/Pods-5e Spells/Pods-5e Spells.debug.xcconfig"; sourceTree = "<group>"; };
+		FEC291FE8183757CFE5167BE /* Pods_5e_Spells.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5e_Spells.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26765DDF2255A9BE00568435 /* StoreKit.framework in Frameworks */,
-				2B549F247E60C0AF2D53440E /* Pods_5e_Spells.framework in Frameworks */,
+				260F956D236A83480088E152 /* StoreKit.framework in Frameworks */,
+				4644C99F3F60B2779851AF9E /* Pods_5e_Spells.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +101,7 @@
 				261FE30221FE6AF7003CA651 /* Font */,
 				2601640520364B700053FA5B /* Resources */,
 				26765DDD2255A9BE00568435 /* Frameworks */,
-				4A1C1BA2077A397C26B7D68F /* Pods */,
+				ECEAFA4D960080DA196C0D8D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,18 +162,18 @@
 			isa = PBXGroup;
 			children = (
 				26765DDE2255A9BE00568435 /* StoreKit.framework */,
-				6A2D4AC24DCE6D1D61FE4E29 /* Pods_5e_Spells.framework */,
+				FEC291FE8183757CFE5167BE /* Pods_5e_Spells.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4A1C1BA2077A397C26B7D68F /* Pods */ = {
+		ECEAFA4D960080DA196C0D8D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DA1A514625C16B96CFBCEC4E /* Pods-5e Spells.debug.xcconfig */,
-				057A05CF511335F5964572B8 /* Pods-5e Spells.release.xcconfig */,
+				7C8ACB78F331CC54EE06CBD7 /* Pods-5e Spells.debug.xcconfig */,
+				04F52BA9970780AF5A556B4B /* Pods-5e Spells.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,12 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2601640020364ACB0053FA5B /* Build configuration list for PBXNativeTarget "5e Spells" */;
 			buildPhases = (
-				3BAAFCFC7BB15E86E43A6FD3 /* [CP] Check Pods Manifest.lock */,
+				D242E07A5DB286FC0A9D4E46 /* [CP] Check Pods Manifest.lock */,
 				260163EA20364ACB0053FA5B /* Sources */,
 				260163EB20364ACB0053FA5B /* Frameworks */,
 				260163EC20364ACB0053FA5B /* Resources */,
-				9C54F6AC324499356A380EA4 /* [CP] Embed Pods Frameworks */,
-				450CFDFD2B5115831CFD0418 /* [CP] Copy Pods Resources */,
+				268132C8236A8D0F00BDF29F /* Embed Frameworks */,
+				812CB9F56304AE116C0DBF91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,7 +244,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				260163FC20364ACB0053FA5B /* LaunchScreen.storyboard in Resources */,
-				261FE30421FE6B13003CA651 /* ArchitectsDaughter.ttf in Resources */,
 				260163F920364ACB0053FA5B /* Assets.xcassets in Resources */,
 				2601640720364C410053FA5B /* spells.json in Resources */,
 				260163F720364ACB0053FA5B /* Main.storyboard in Resources */,
@@ -240,7 +253,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3BAAFCFC7BB15E86E43A6FD3 /* [CP] Check Pods Manifest.lock */ = {
+		812CB9F56304AE116C0DBF91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-5e Spells/Pods-5e Spells-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-5e Spells/Pods-5e Spells-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D242E07A5DB286FC0A9D4E46 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,49 +293,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		450CFDFD2B5115831CFD0418 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-5e Spells/Pods-5e Spells-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C54F6AC324499356A380EA4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-5e Spells/Pods-5e Spells-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-5e Spells/Pods-5e Spells-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -405,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -458,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -468,15 +458,17 @@
 		};
 		2601640120364ACB0053FA5B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA1A514625C16B96CFBCEC4E /* Pods-5e Spells.debug.xcconfig */;
+			baseConfigurationReference = 7C8ACB78F331CC54EE06CBD7 /* Pods-5e Spells.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = 2YZ54TVF57;
 				INFOPLIST_FILE = "5e Spells/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "zestyflav.-e-Spells";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -487,15 +479,17 @@
 		};
 		2601640220364ACB0053FA5B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 057A05CF511335F5964572B8 /* Pods-5e Spells.release.xcconfig */;
+			baseConfigurationReference = 04F52BA9970780AF5A556B4B /* Pods-5e Spells.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = 2YZ54TVF57;
 				INFOPLIST_FILE = "5e Spells/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "zestyflav.-e-Spells";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
