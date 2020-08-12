@@ -15,13 +15,15 @@ class SpellTableViewCell: UITableViewCell {
     @IBOutlet weak var rangeLabel: UILabel!
     @IBOutlet weak var addSpellButton: UIButton!
     @IBOutlet weak var schoolImage: UIImageView!
- 
+    @IBOutlet weak var concentrationImage: UIImageView!
+    
     @IBAction func spellButtonPressed(_ sender: Any) {
         delegate?.spellButtonPressed(cell: self)
     }
     
     
     var delegate: SpellCellDelegate?
+
     
 }
 

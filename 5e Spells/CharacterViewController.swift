@@ -7,19 +7,40 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITableViewDataSource {
+class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
+    
     
     var characterModel: CharacterModelController!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var addButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 90.0
+        addButton.tintColor = Constants.buttonColor
+        bannerView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Configuring Advertisements
+        if !(SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) {
+            bannerView.adUnitID = "ca-app-pub-6718527310816875/2490473069"
+           // bannerView.adUnitID =  "ca-app-pub-3940256099942544/2934735716" TEST AD
+            bannerView.rootViewController = self
+            bannerView.backgroundColor = .clear
+            bannerView.load(GADRequest())
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+        }
+        else {
+            bannerView?.removeFromSuperview()
+        }
+
     }
 
     // MARK: - Table view data source
@@ -53,13 +74,21 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath) as! CharacterTableViewCell
 
         let character = characterModel.characters[indexPath.row]
-        cell.textLabel?.text = character.characterName
-        cell.textLabel?.textColor = Constants.textColor
-        cell.detailTextLabel?.text = character.characterClass
-        cell.detailTextLabel?.textColor = Constants.textColor
+      //  cell.textLabel?.text = character.characterName
+        cell.characterName.text = character.characterName
+        cell.characterName.textColor = Constants.textColor
+        cell.characterClass.text = character.characterClass
+        cell.characterClass.textColor = Constants.textColor
+        
+        
+      //  cell.characterImage.image = UIImage(named: character.imageString)
+        let image = UIImage(named: character.imageString)
+        //let image = UIImage(named: "ConcentrationImage")
+        cell.characterImage.image = image
+        
 
         return cell
     }
@@ -94,7 +123,7 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
                 spellList = "Wizard"
             }
             // add new character to characterModel
-            let newCharacter = Character(characterClass: addCharacterVC.characterClass!, characterName: addCharacterVC.nameTextField.text!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList)
+            let newCharacter = Character(characterClass: addCharacterVC.characterClass!, characterName: addCharacterVC.nameTextField.text!, preparedOrKnownSpells: [Spell](), wizardKnownSpells: [Spell](), spellList: spellList, imageString: addCharacterVC.characterImageString ?? "")
             characterModel.characters.append(newCharacter)
             tableView.reloadData()
         }
@@ -102,7 +131,13 @@ class CharacterViewController: DesignOfViewController, UITableViewDelegate, UITa
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "addCharacterSegue" {
-            if characterModel.characters.count == 0 {
+            // Provide haptic feedback when added/removed
+            let selection = UIImpactFeedbackGenerator()
+            selection.impactOccurred()
+            //if characterModel.characters.count == 0 {
+            //    return true
+           // }
+            if (SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) || (characterModel.characters.count == 0) {
                 return true
             }
             else {

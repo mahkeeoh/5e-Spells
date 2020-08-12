@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class SpellDetailViewController: DesignOfViewController {
+class SpellDetailViewController: DesignOfViewController  {
     
     
     // Setup all outlets
@@ -19,17 +20,21 @@ class SpellDetailViewController: DesignOfViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var spellDescription: UILabel!
     @IBOutlet weak var higherLevels: UILabel!
+    @IBOutlet weak var concentration: UILabel!
+    @IBOutlet weak var ritual: UILabel!
     
+    @IBOutlet weak var bannerView: GADBannerView!
     
     
     
     var spell: Spell? {
         didSet {
             // Fix text from JSON to remove paragraph markers
-            let tempSpellDesc = (spell?.desc.replacingOccurrences(of: "<p>", with: "\n\n"))!.replacingOccurrences(of: "</p>", with: "")
+            let tempSpellDesc = (spell?.desc.replacingOccurrences(of: "<p>", with: "\n\n"))!.replacingOccurrences(of: "</p>", with: "").replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
             spell?.desc = tempSpellDesc
             
-            let tempSpellHLDesc = (spell?.higherLevel?.replacingOccurrences(of: "<p>", with: "\n\n"))?.replacingOccurrences(of: "</p>", with: "")
+            
+            let tempSpellHLDesc = (spell?.higherLevel?.replacingOccurrences(of: "<p>", with: "\n\n"))?.replacingOccurrences(of: "</p>", with: "").replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
             spell?.higherLevel = tempSpellHLDesc
             
         
@@ -47,6 +52,18 @@ class SpellDetailViewController: DesignOfViewController {
         duration.textColor = Constants.textColor
         spellDescription.textColor = Constants.textColor
         higherLevels.textColor = Constants.textColor
+        concentration.textColor = Constants.textColor
+        ritual.textColor = Constants.textColor
+        navigationController?.navigationBar.tintColor = Constants.tabColor
+        if (SpellProducts.store.isProductPurchased(SpellProducts.SwiftShopping)) {
+            bannerView.removeFromSuperview()
+        }
+        else {
+            bannerView.adUnitID = "ca-app-pub-6718527310816875/2490473069"
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+        }
     }
     
     func setupText() {
@@ -80,15 +97,25 @@ class SpellDetailViewController: DesignOfViewController {
         components.attributedText = componentBold
         
         // add duration and concentration symbol if applicable
-        //duration.text = "Duration: " + (spell?.duration)!
         let durationBold = NSMutableAttributedString(string: "Duration: ", attributes: attrs)
         let durationText = NSMutableAttributedString(string: spell?.duration ?? "")
         durationBold.append(durationText)
-        if (spell?.concentration == "yes") {
-            let concentrationSymbol = NSMutableAttributedString(string: "  \u{00A9}")
-            durationBold.append(concentrationSymbol)
-        }
+
         duration.attributedText = durationBold
+        
+        // add duration and concentration symbol if applicable
+        let concentrationBold = NSMutableAttributedString(string: "Concentration: ", attributes: attrs)
+        let concentrationText = NSMutableAttributedString(string: spell?.concentration.capitalized ?? "")
+        concentrationBold.append(concentrationText)
+
+        concentration.attributedText = concentrationBold
+        
+        // add ritual casting
+        let ritualBold = NSMutableAttributedString(string: "Ritual: ", attributes: attrs)
+        let ritualText = NSMutableAttributedString(string: spell?.ritual?.capitalized ?? "")
+        ritualBold.append(ritualText)
+        
+        ritual.attributedText = ritualBold
         
         spellDescription.text = (spell?.desc)!
         if spell?.higherLevel != nil {

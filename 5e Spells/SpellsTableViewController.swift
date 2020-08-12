@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import StoreKit
 
 class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate, UISearchBarDelegate {
     
     
     var tabBar = UITabBarItem()
+    var textBox = UITextView()
     
     // Variables for filter parameters
     var spellDetailsFilter:[[String: [String]]] = []
@@ -40,6 +42,8 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         }
     }
     
+    // MARK: - Initialization
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar = (tabBarController?.tabBar.selectedItem)!
@@ -49,18 +53,41 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         loadSpells()
         
+        // Set footer so blank cells don't show
+        tableView.tableFooterView = UIView()
+        
+        // Set character icon button
+        let characterButton = UIButton(type: .custom)
+        characterButton.setImage(UIImage(named: "CharacterIcon"), for: .normal)
+        characterButton.addTarget(self, action: #selector(returnToCharacters(_:)), for: .touchUpInside)
+        characterButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        
+        let leftBarButton = UIBarButtonItem(customView: characterButton)
+        //assign button to navigationbar
+        navigationItem.leftBarButtonItem = leftBarButton
+        
+        clearSpellsButton?.tintColor = Constants.navButtonColor
+        
+        
         // Set search bar parameters
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Spells"
         navigationItem.searchController = searchController
-        navigationItem.title = tabBarItem.title
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false // This should be fix to have search bar always appear
         searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
+        
         searchController.searchBar.tintColor = Constants.buttonColor
-        searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
+        
+        
+        let filterImage = UIImage(named: "FilterIcon")
+        let filterImageView = UIImageView(image: filterImage)
+        filterImageView.image = filterImageView.image?.withRenderingMode(.alwaysTemplate)
+        filterImageView.tintColor = Constants.buttonColor
+        searchController.searchBar.setImage(filterImageView.image, for: .bookmark, state: .normal)
+       // searchController.searchBar.setImage(#imageLiteral(resourceName: "FilterIcon"), for: UISearchBarIcon.bookmark, state: UIControlState.normal)
         if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             if let backgroundview = textFieldInsideSearchBar.subviews.first {
                 
@@ -72,18 +99,15 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
                 backgroundview.clipsToBounds = true;
             }
         }
-
         
-        // set navigation bar back button
-       // navigationItem.backBarButtonItem?.title = tabBar.title
-        
-      //  navigationItem.backBarButtonItem?.tintColor = Constants.navButtonColor
-        title = tabBar.title
+        // Check rating request
+        checkRatingRequest()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+
         // reload character data in case something changed while changing between tabs
         if let tabBarController = tabBarController as? SpellTabBarController {
             let index = tabBarController.index!
@@ -93,6 +117,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         // Check if this is a prepared list or all spells list
         if tabBar.title == ("Class Spells") || (tabBar.title == "All Spells") {
             loadSpells()
+            
             if tabBar.title == ("Class Spells") {
                 sortByClass()
             }
@@ -107,25 +132,33 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         spells = checkSpellFilters(spells)
         
-        // Set search bar to appear initially
-       // navigationItem.hidesSearchBarWhenScrolling = false
     }
     
-    /*override func viewDidAppear(_ animated: Bool) {
-        // Hide search bar while scrolling
-        navigationItem.hidesSearchBarWhenScrolling = true
-    }*/
-    
-    // Mark: - Spell Preparation
+    // Check if it is time to request a rating
+    func checkRatingRequest() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard let cc = appDelegate.currentCount else { return }
+        print(cc)
+        if (cc % 3 == 0 && cc != 0) {
+            if #available( iOS 10.3,*){
+                SKStoreReviewController.requestReview()
+                appDelegate.currentCount? += 1
+            }
+        }
+    }
+
+    // MARK: - Spell Preparation
     
     func loadSpells() {
         if let spellJSON = readJson(with: jsonName) as? [Spell] {
             // Load spells from JSON and sort by level by calling segment control
             spells = spellJSON
+            
             sortByLevel()
             
         }
     }
+    
     
     func sortByClass() {
         spells = spells.filter( {(spell: Spell) -> Bool in
@@ -152,7 +185,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
                 if ((filterType[category]?.count != nil) && (filterType[category]?.count != 0)) {
                     count += 1
                     // Show view that alerts user a filter is in use
-                    tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20.0)
+                   // tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20.0)
                     let filterDetails = filterType[category]
                     // grab those filters and filter the spells associated
                     var tempSpells: [Spell] = []
@@ -171,7 +204,23 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             }
         }
         // If no filters are in use, hide filter notification view
+        
+        let newTableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
+        newTableViewHeader.backgroundColor = .gray
+        textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
+        textBox.text = "Filter Enabled"
+        textBox.font = UIFont(name: Constants.font, size: 15)
+        textBox.textColor = .white
+        textBox.backgroundColor = .gray
+        textBox.textAlignment = .center
+        
+        textBox.contentOffset.y = 4
+        
+        newTableViewHeader.addSubview(textBox)
+        
         if count > 0 {
+           /* tableView.tableHeaderView?.isHidden = false
+
             tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0)
             tableView.tableHeaderView?.backgroundColor = .gray
             let textBox = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25.0))
@@ -179,12 +228,39 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
             textBox.textColor = .white
             textBox.backgroundColor = .gray
             textBox.textAlignment = .center
-            tableView.tableHeaderView?.addSubview(textBox)
+            tableView.tableHeaderView?.addSubview(textBox)*/
+            tableView.tableHeaderView = newTableViewHeader
         }
         else {
-            tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0.0)
+          //  tableView.tableHeaderView?.isHidden = true
+            tableView.tableHeaderView = nil
         }
         return newSpells
+    }
+    
+    // Setup "Clear Spells" button
+    @IBOutlet weak var clearSpellsButton: UIBarButtonItem!
+    @IBAction func clearSpellsButtonClicked(_ sender: UIBarButtonItem) {
+        
+        var alert: UIAlertController
+        if (tabBar.title == "Prepared Spells") {
+            alert = UIAlertController(title: "Clear all prepared spells?", message: "Are you sure you want to clear all of your prepared spells?", preferredStyle: .alert)
+        }
+        else {
+            alert = UIAlertController(title: "Clear all known spells?", message: "Are you sure you want to clear all of your known spells?", preferredStyle: .alert)
+        }
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.character.preparedOrKnownSpells.removeAll()
+            self.spells = self.character!.preparedOrKnownSpells
+            self.tableView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+            return
+        }))
+        
+        present(alert, animated: true)
     }
     
     
@@ -286,6 +362,10 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         }
         return 40
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0
+    }
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -350,29 +430,44 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         cell.rangeLabel.text = spell.range
         cell.rangeLabel.textColor = Constants.textColor
         if (spell.concentration == "yes") {
-            cell.actionTypeLabel.text = cell.actionTypeLabel.text! + "  \u{00A9}"
+            //cell.actionTypeLabel.text = cell.actionTypeLabel.text! + "  \u{00A9}"
+            let image = UIImage(named: "ConcentrationImage")
+            let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.concentrationImage.image = renderedImage
+            cell.concentrationImage.tintColor = Constants.buttonColor
         }
         cell.schoolImage.image = UIImage(named: spell.school)
-        cell.addSpellButton.tintColor = Constants.buttonColor
-        cell.addSpellButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+
         
         // change button to checkmark if spell is in prepared/known/wizardknown list
         if (character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) || (character!.wizardKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
-            cell.addSpellButton?.setTitle("✓", for: .normal)
+            let image = UIImage(named: "CheckButton")
+            let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.addSpellButton.setImage(renderedImage, for: .normal)
+            cell.addSpellButton.tintColor = Constants.buttonColor
             
             // Check wizard's case, only show added in spellbook if it is also prepared
             if (tabBar.title == "Spellbook") && !(character!.preparedOrKnownSpells.contains(where: {$0.name == cell.nameLabel.text})) {
-                cell.addSpellButton?.setTitle("+", for: .normal)
+                let image = UIImage(named: "PlusButton")
+                let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                cell.addSpellButton.setImage(renderedImage, for: .normal)
+                cell.addSpellButton.tintColor = .gray
             }
         }
         else {
-            cell.addSpellButton.setTitle("+", for: .normal)
+            let image = UIImage(named: "PlusButton")
+            let renderedImage = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.addSpellButton.setImage(renderedImage, for: .normal)
+            cell.addSpellButton.tintColor = .gray
         }
         
         // Don't show button in Prepared/Known Spells tab
         if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
             cell.addSpellButton.isHidden = true
         }
+        
+        //cell.addSpellButton.tintColor = Constants.buttonColor
+        cell.addSpellButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
 
         return cell
     }
@@ -516,7 +611,7 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         return levelText
     }
     
-    // Mark: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "spellDetail" {
@@ -557,12 +652,20 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         
         // Provide haptic feedback when added/removed
         let selection = UIImpactFeedbackGenerator()
-        //selection.selectionChanged()
         selection.impactOccurred()
         
         // Determine which spell is being selected
         let indexPath = tableView.indexPath(for: cell)
-        let spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+       // let spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+        var spell: Spell
+        
+        if isFiltering() {
+            spell = filteredSpells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+            
+        }
+        else {
+            spell = spells.filter({$0.level == sections[(indexPath?.section)!]})[(indexPath?.row)!]
+        }
         
         // Check if wizard first and add accordingly
         if tabBarController?.viewControllers?.count == 3 {

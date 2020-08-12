@@ -20,16 +20,25 @@ class SpellTabBarController: DesignOfTabBarController {
         super.viewDidLoad()
 
         // Set character model in both tab views
-        var isFirstVC = true
+       // var isFirstVC = true
+        var count = 0
         for viewController in viewControllers! {
             if let spellVC = viewController.content as? SpellsTableViewController {
                 spellVC.character = characterModel.characters[index]
                 
-                // set first tab to either prepared or known
-                if isFirstVC {
+                switch count {
+                case 0:
                     spellVC.title = classTabName
-                    isFirstVC = false
+                    spellVC.tabBarController?.tabBar.items?[0].image = UIImage(named: "PreparedTabImage")
+                case 1:
+                    spellVC.title = "Spellbook"
+                    spellVC.tabBarController?.tabBar.items?[1].image = UIImage(named: "SpellbookTabImage")
+                default:
+                    spellVC.title = "Class Spells"
+                    spellVC.tabBarController?.tabBar.items?[2].image = UIImage(named: "ClassTabImage")
                 }
+                
+                count += 1
             }
         }
         // remove middle tab unless class is wizard
