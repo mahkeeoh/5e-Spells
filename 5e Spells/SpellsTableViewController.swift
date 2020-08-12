@@ -117,7 +117,10 @@ class SpellsTableViewController: DesignOfTableViewController, SpellCellDelegate,
         // Check if this is a prepared list or all spells list
         if tabBar.title == ("Class Spells") || (tabBar.title == "All Spells") {
             loadSpells()
-            sortByClass()
+            
+            if tabBar.title == ("Class Spells") {
+                sortByClass()
+            }
         }
         else if (tabBar.title == "Prepared Spells") || (tabBar.title == "Known Spells") {
             spells = character!.preparedOrKnownSpells
