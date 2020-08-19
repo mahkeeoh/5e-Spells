@@ -8,8 +8,9 @@
 
 import UIKit
 import GoogleMobileAds
+import MessageUI
 
-class SpellDetailViewController: DesignOfViewController  {
+class SpellDetailViewController: DesignOfViewController, MFMailComposeViewControllerDelegate  {
     
     
     // Setup all outlets
@@ -24,6 +25,7 @@ class SpellDetailViewController: DesignOfViewController  {
     @IBOutlet weak var ritual: UILabel!
     
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var bugReportButton: UIButton!
     
     
     
@@ -64,6 +66,8 @@ class SpellDetailViewController: DesignOfViewController  {
             bannerView.load(GADRequest())
             bannerView.adSize = kGADAdSizeSmartBannerPortrait
         }
+        
+        bugReportButton.tintColor = Constants.buttonColor
     }
     
     func setupText() {
@@ -133,6 +137,27 @@ class SpellDetailViewController: DesignOfViewController  {
         return materialText
         
 
+    }
+    
+    //MARK: Email UI For Bug Reporting
+    
+    @IBAction func bugReportButtonPressed(_ sender: Any) {sendEmail()}
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["habituateco@gmail.com"])
+            mail.setSubject("Error found in \(spell?.name ?? "Description") Spell")
+            mail.setMessageBody("<p>Thank you for your assistance! If you would like to provide more detail, please enter it below:</p>", isHTML: true)
+            present(mail, animated: true)
+        } else {
+            print("Failed to send message")
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 
 }
