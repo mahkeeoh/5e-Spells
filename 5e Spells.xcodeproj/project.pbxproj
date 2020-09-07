@@ -23,7 +23,7 @@
 		2660BBF420F1769A00F15D7A /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF320F1769A00F15D7A /* FilterTableViewController.swift */; };
 		2660BBF620F301F900F15D7A /* FilterDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660BBF520F301F900F15D7A /* FilterDetailTableViewController.swift */; };
 		26765DE12255AAE100568435 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26765DE02255AAE100568435 /* IAPHelper.swift */; };
-		268132C7236A8D0F00BDF29F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		268132C7236A8D0F00BDF29F /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		269C1AB720462B6400412C7B /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB620462B6400412C7B /* CharacterViewController.swift */; };
 		269C1AB920462C4800412C7B /* AddCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1AB820462C4800412C7B /* AddCharacterViewController.swift */; };
 		269C1ABC2047AA3A00412C7B /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C1ABB2047AA3A00412C7B /* SpellTableViewCell.swift */; };
@@ -41,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				268132C7236A8D0F00BDF29F /* (null) in Embed Frameworks */,
+				268132C7236A8D0F00BDF29F /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,7 +188,7 @@
 				260163EB20364ACB0053FA5B /* Frameworks */,
 				260163EC20364ACB0053FA5B /* Resources */,
 				268132C8236A8D0F00BDF29F /* Embed Frameworks */,
-				812CB9F56304AE116C0DBF91 /* [CP] Embed Pods Frameworks */,
+				567D2C2886EC7B3193E4FEF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,7 +253,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		812CB9F56304AE116C0DBF91 /* [CP] Embed Pods Frameworks */ = {
+		567D2C2886EC7B3193E4FEF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -261,11 +261,13 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-5e Spells/Pods-5e Spells-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
